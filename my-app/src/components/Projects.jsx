@@ -22,37 +22,9 @@ function Projects() {
       id: 3,
       title: 'memory matching',
       description: "L'objectif est de trouver dans un temps limité toutes les paires de cartes identiques sachant que l'on ne peut retourner que deux cartes à la fois.",
-      image: '/images/projects/velib-app.jpg', // Remplace avec le bon chemin
-      tags: ['JavaScript', 'HTML', 'CSS'],
-      demoLink: 'https://demo-velib.com', // Remplace par le lien de démo approprié
-      codeLink: 'https://github.com/yourusername/velib-app' // Remplace par le lien de ton code
-    },
-    {
-      id: 4,
-      title: 'Site Vitrine Responsive',
-      description: 'Site vitrine entièrement responsive pour une entreprise locale, développé avec HTML, CSS et JavaScript.',
-      image: '/images/projects/site-vitrine.jpg', // Remplace avec le bon chemin
-      tags: ['HTML', 'CSS', 'JavaScript'],
-      demoLink: 'https://demo-site.com', // Remplace par le lien de démo approprié
-      codeLink: 'https://github.com/yourusername/site-vitrine' // Remplace par le lien de ton code
-    },
-    {
-      id: 5,
-      title: 'Application de Gestion de Tâches',
-      description: 'Une application complète de gestion de tâches avec authentification et stockage en base de données.',
-      image: '/images/projects/gestion-taches.jpg', // Remplace avec le bon chemin
-      tags: ['React', 'Firebase', 'Material-UI'],
-      demoLink: 'https://demo-gestion-taches.com', // Remplace par le lien de démo approprié
-      codeLink: 'https://github.com/yourusername/gestion-taches' // Remplace par le lien de ton code
-    },
-    {
-      id: 6,
-      title: 'Application de Suivi de Projets',
-      description: 'Un outil pour suivre l’avancement des projets avec un tableau de bord interactif.',
-      image: '/images/projects/suivi-projets.jpg', // Remplace avec le bon chemin
-      tags: ['React', 'Node.js'],
-      demoLink: 'https://demo-suivi-projets.com', // Remplace par le lien de démo approprié
-      codeLink: 'https://github.com/yourusername/suivi-projets' // Remplace par le lien de ton code
+      image: '../src/assets/projet/CaptureMemoryGame.png', // Remplace avec le bon chemin
+      tags: ['JavaScript', 'React', 'HTML', 'CSS'],
+      codeLink: 'https://github.com/tEOmthd/ReactMemoryGame' // Remplace par le lien de ton code
     }
   ];
   
