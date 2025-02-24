@@ -2,22 +2,22 @@ import React from 'react';
 
 function Skills() {
   const skills = [
-    { name: 'C++', img: ' ../src/assets/icon-cpp.svg' },
-    { name: 'CSS3', img: '../src/assets/icon-css.svg' },
-    { name: 'HTML5', img: '../src/assets/icon-html.svg' },
-    { name: 'Java', img: ' ../src/assets/icon-java.svg' },
-    { name: 'JavaScript', img: ' ../src/assets/icon-js.svg' },
-    { name: 'Python', img: ' ../src/assets/icon-python.svg' },
-    { name : "Qt", img : '../src/assets/icon-qt.svg'},
-    { name : "Raylib", img :'../src/assets/icon-raylib.svg'},
-    { name : "SageMath", img : '../src/assets/icon-sagemath.svg'},
-    { name: 'SQL', img: ' ../src/assets/icon-sql.svg' },
-    { name: 'React', img: '../src/assets/icon-react.svg' },
+    { name: 'C++', img: ' ../src/assets/skill/icon-cpp.svg' },
+    { name: 'CSS3', img: '../src/assets/skill/icon-css.svg' },
+    { name: 'HTML5', img: '../src/assets/skill/icon-html.svg' },
+    { name: 'Java', img: ' ../src/assets/skill/icon-java.svg' },
+    { name: 'JavaScript', img: ' ../src/assets/skill/icon-js.svg' },
+    { name: 'Python', img: ' ../src/assets/skill/icon-python.svg' },
+    { name : "Qt", img : '../src/assets/skill/icon-qt.svg'},
+    { name : "Raylib", img :'../src/assets/skill/icon-raylib.svg'},
+    { name : "SageMath", img : '../src/assets/skill/icon-sagemath.svg'},
+    { name: 'SQL', img: ' ../src/assets/skill/icon-sql.svg' },
+    { name: 'React', img: '../src/assets/skill/icon-react.svg' },
     
-    { name: 'Webpack', img: '../src/assets/icon-webpack.svg' },
-    { name: 'GitHub', img: ' ../src/assets/icon-github.svg' },
+    { name: 'Webpack', img: '../src/assets/skill/icon-webpack.svg' },
+    { name: 'GitHub', img: ' ../src/assets/skill/icon-github.svg' },
 
-    { name: 'Scrum', img: ' ../src/assets/icon-jira.svg' },
+    { name: 'Scrum', img: ' ../src/assets/skill/skillicon-jira.svg' },
   ];
 
   return (

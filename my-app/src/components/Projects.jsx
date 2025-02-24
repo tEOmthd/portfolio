@@ -5,11 +5,10 @@ function Projects() {
     {
       id: 1,
       title: 'Jeu de Gestion de Chemins de Fer',
-      description: 'Un jeu 2D où les villes sont reliées par des chemins de fer. Gère le réseau ferroviaire avec le moins de mouvements possible.',
-      image: '/images/projects/railway-game.jpg', // Remplace avec le bon chemin
+      description: 'Un jeu 2D où les villes sont reliées par des chemins de fer. Réorganiser le réseau ferroviaire avec le moins de mouvements possible et en suivant différentes contraintes.',
+      image: '../src/assets/projet/railway-game.png', // Remplace avec le bon chemin
       tags: ['C++', 'Raylib'],
-      demoLink: 'https://demo-game.com', // Remplace par le lien de démo approprié
-      codeLink: 'https://github.com/yourusername/railway-game' // Remplace par le lien de ton code
+      codeLink: 'https://etulab.univ-amu.fr/sae-s3.a.01-2024/sae-s3.a.01-2024-sujet06'
     },
     {
       id: 2,
@@ -113,9 +112,6 @@ function Projects() {
                 ))}
               </div>
               <div className="project-links">
-                <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="btn btn-sm">
-                  Demo
-                </a>
                 <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-secondary">
                   Code
                 </a>
