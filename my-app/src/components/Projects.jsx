@@ -6,23 +6,22 @@ function Projects() {
       id: 1,
       title: 'Jeu de Gestion de Chemins de Fer',
       description: 'Un jeu 2D où les villes sont reliées par des chemins de fer. Réorganiser le réseau ferroviaire avec le moins de mouvements possible et en suivant différentes contraintes.',
-      image: '../src/assets/projet/railway-game.png', // Remplace avec le bon chemin
+      image: '../src/assets/projet/CaptureRerail.png',
       tags: ['C++', 'Raylib'],
       codeLink: 'https://etulab.univ-amu.fr/sae-s3.a.01-2024/sae-s3.a.01-2024-sujet06'
     },
     {
       id: 2,
-      title: 'API Marvel Project',
-      description: 'Une application web qui récupère et affiche des données sur les héros Marvel, avec pagination et recherche.',
-      image: '/images/projects/marvel-api.jpg', // Remplace avec le bon chemin
-      tags: ['JavaScript', 'API', 'React'],
-      demoLink: 'https://demo-marvel.com', // Remplace par le lien de démo approprié
-      codeLink: 'https://github.com/yourusername/marvel-api' // Remplace par le lien de ton code
+      title: "Application de gestion de plaque l'immatriculation",
+      description: "Une application offrant une gestion de plaques d'immatriculation avec différents details sur les véhicules (controle technique, type de véhicule etc...)",
+      image: '../src/assets/projet/CaptureGestionImmatriculation.png', 
+      tags: ['C++', 'Qt'],
+      codeLink: 'https://etulab.univ-amu.fr/iut-arles-info/enseignement/2024-2025/s2.01/binome15'
     },
     {
       id: 3,
-      title: 'Application de Vélib',
-      description: 'Une application qui affiche les vélos disponibles aux stations Vélib à Paris en utilisant des requêtes HTTP.',
+      title: 'memory matching',
+      description: "L'objectif est de trouver dans un temps limité toutes les paires de cartes identiques sachant que l'on ne peut retourner que deux cartes à la fois.",
       image: '/images/projects/velib-app.jpg', // Remplace avec le bon chemin
       tags: ['JavaScript', 'HTML', 'CSS'],
       demoLink: 'https://demo-velib.com', // Remplace par le lien de démo approprié

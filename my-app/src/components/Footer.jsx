@@ -20,7 +20,7 @@ function Footer() {
           <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-github"></i>
           </a>
-          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/t%C3%A9o-mathiaud-653160347/" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-linkedin-in"></i>
           </a>
           <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">
