@@ -29,7 +29,7 @@ function Footer() {
         </div>
         
         <div className="copyright">
-          &copy; {currentYear} Votre Nom. Tous droits réservés.
+          &copy; {currentYear} Mathiaud Téo. Tous droits réservés.
         </div>
       </div>
     </footer>

@@ -16,32 +16,29 @@ function About() {
         <div className="about-content">
           <h3>Qui suis-je?</h3>
           <p>
-            Bienvenue sur mon portfolio! Je suis un développeur web passionné avec X années d'expérience
-            dans la création d'applications web modernes. J'aime résoudre des problèmes complexes et
-            transformer des idées en produits numériques élégants.
+            Bienvenue sur mon portfolio ! Je suis etudiant en 2eme année dans un BUT informatique. J'aime me casser la tête sur des problème complexe et relèver des défis.
           </p>
           
           <p>
-            Mon parcours dans le développement web a commencé [votre histoire]. Aujourd'hui, je me
-            spécialise dans [vos spécialités].
+            Mon parcours dans l'informatique a commencer au lycée, j'avais la spécialité NSI et j'adorai les différents projets et algorithmes que l'on nous demander d'implementer. Aujourd'hui, j'ai décidé de me concacrer à l'informatique et de faire un BUT informatique.
           </p>
           
           <div className="about-details">
             <div className="detail">
-              <strong>Nom:</strong> Votre Nom
+              <strong>Nom:</strong> Mathiaud Téo
             </div>
             <div className="detail">
-              <strong>Email:</strong> votre.email@exemple.com
+              <strong>Email:</strong> teo.mathiaud@etu.univ-amu.fr
             </div>
             <div className="detail">
-              <strong>Localisation:</strong> Votre Ville, Pays
+              <strong>Localisation:</strong> Arles, Nîmes, Montpellier
             </div>
             <div className="detail">
-              <strong>Disponibilité:</strong> Freelance / À l'écoute d'opportunités
+              <strong>Disponibilité:</strong> 31 mars - 1 Septembre
             </div>
           </div>
           
-          <a href="/cv.pdf" download className="btn btn-primary">Télécharger mon CV</a>
+          <a href="./src/assets/CVMathiaudTeo.pdf" download className="btn btn-primary">Télécharger mon CV</a>
         </div>
       </div>
     </section>
