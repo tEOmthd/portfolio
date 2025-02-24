@@ -15,8 +15,6 @@ function Skills() {
     { name: 'React', img: '../src/assets/icon-react.svg' },
     
     { name: 'Webpack', img: '../src/assets/icon-webpack.svg' },
-    { name: 'PostgreSQL', img: ' ../src/assets/icon-postgresql.svg' },
-    { name: 'Git', img: ' ../src/assets/icon-git.svg' },
     { name: 'GitHub', img: ' ../src/assets/icon-github.svg' },
     { name: 'Méthode Agile', img: ' ../src/assets/icon-agile.svg' },
     { name: 'Scrum', img: ' ../src/assets/icon-scrum.svg' },
