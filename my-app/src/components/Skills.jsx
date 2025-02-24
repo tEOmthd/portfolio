@@ -16,9 +16,8 @@ function Skills() {
     
     { name: 'Webpack', img: '../src/assets/icon-webpack.svg' },
     { name: 'GitHub', img: ' ../src/assets/icon-github.svg' },
-    { name: 'Méthode Agile', img: ' ../src/assets/icon-agile.svg' },
-    { name: 'Scrum', img: ' ../src/assets/icon-scrum.svg' },
-    { name: 'Gestion de projet', img: ' ../src/assets/icon-project_management.svg' },
+
+    { name: 'Scrum', img: ' ../src/assets/icon-jira.svg' },
   ];
 
   return (

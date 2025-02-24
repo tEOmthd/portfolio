@@ -4,30 +4,30 @@ function Projects() {
   const projects = [
     {
       id: 1,
-      title: 'Projet E-commerce',
-      description: 'Une boutique en ligne développée avec React et Node.js',
-      image: '/images/projects/project1.jpg',
-      tags: ['React', 'Node.js', 'MongoDB'],
-      demoLink: 'https://demo-project.com',
-      codeLink: 'https://github.com/yourusername/project1'
+      title: 'Jeu de Gestion de Chemins de Fer',
+      description: 'Un jeu 2D où les villes sont reliées par des chemins de fer. Gère le réseau ferroviaire avec le moins de mouvements possible.',
+      image: '/images/projects/project1.jpg', // Assure-toi que l'image est à ce chemin
+      tags: ['C++', 'Raylib'],
+      demoLink: 'https://demo-game.com', // Remplace par le lien de démo approprié
+      codeLink: 'https://github.com/yourusername/railway-game' // Remplace par le lien de ton code
     },
     {
       id: 2,
-      title: 'Application de Gestion de Tâches',
-      description: 'Application complète de gestion de tâches avec authentification',
-      image: '/images/projects/project2.jpg',
-      tags: ['React', 'Firebase', 'Material-UI'],
-      demoLink: 'https://demo-project.com',
-      codeLink: 'https://github.com/yourusername/project2'
+      title: 'API Marvel Project',
+      description: 'Une application web qui récupère et affiche des données sur les héros Marvel, avec pagination et recherche.',
+      image: '/images/projects/project2.jpg', // Assure-toi que l'image est à ce chemin
+      tags: ['JavaScript', 'API', 'React'],
+      demoLink: 'https://demo-marvel.com', // Remplace par le lien de démo approprié
+      codeLink: 'https://github.com/yourusername/marvel-api' // Remplace par le lien de ton code
     },
     {
       id: 3,
-      title: 'Site Vitrine Responsive',
-      description: 'Site vitrine entièrement responsive pour une entreprise locale',
-      image: '/images/projects/project3.jpg',
-      tags: ['HTML', 'CSS', 'JavaScript'],
-      demoLink: 'https://demo-project.com',
-      codeLink: 'https://github.com/yourusername/project3'
+      title: 'Application de Vélib',
+      description: 'Une application qui affiche les vélos disponibles aux stations Vélib à Paris en utilisant des requêtes HTTP.',
+      image: '/images/projects/project3.jpg', // Assure-toi que l'image est à ce chemin
+      tags: ['JavaScript', 'HTML', 'CSS'],
+      demoLink: 'https://demo-velib.com', // Remplace par le lien de démo approprié
+      codeLink: 'https://github.com/yourusername/velib-app' // Remplace par le lien de ton code
     }
   ];
   
@@ -58,10 +58,10 @@ function Projects() {
           React
         </button>
         <button 
-          className={filter === 'Node.js' ? 'active' : ''} 
-          onClick={() => setFilter('Node.js')}
+          className={filter === 'C++' ? 'active' : ''} 
+          onClick={() => setFilter('C++')}
         >
-          Node.js
+          C++
         </button>
       </div>
       
