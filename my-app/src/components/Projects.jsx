@@ -6,7 +6,7 @@ function Projects() {
       id: 1,
       title: 'Jeu de Gestion de Chemins de Fer',
       description: 'Un jeu 2D où les villes sont reliées par des chemins de fer. Gère le réseau ferroviaire avec le moins de mouvements possible.',
-      image: '/images/projects/project1.jpg', // Assure-toi que l'image est à ce chemin
+      image: '/images/projects/railway-game.jpg', // Remplace avec le bon chemin
       tags: ['C++', 'Raylib'],
       demoLink: 'https://demo-game.com', // Remplace par le lien de démo approprié
       codeLink: 'https://github.com/yourusername/railway-game' // Remplace par le lien de ton code
@@ -15,7 +15,7 @@ function Projects() {
       id: 2,
       title: 'API Marvel Project',
       description: 'Une application web qui récupère et affiche des données sur les héros Marvel, avec pagination et recherche.',
-      image: '/images/projects/project2.jpg', // Assure-toi que l'image est à ce chemin
+      image: '/images/projects/marvel-api.jpg', // Remplace avec le bon chemin
       tags: ['JavaScript', 'API', 'React'],
       demoLink: 'https://demo-marvel.com', // Remplace par le lien de démo approprié
       codeLink: 'https://github.com/yourusername/marvel-api' // Remplace par le lien de ton code
@@ -24,10 +24,37 @@ function Projects() {
       id: 3,
       title: 'Application de Vélib',
       description: 'Une application qui affiche les vélos disponibles aux stations Vélib à Paris en utilisant des requêtes HTTP.',
-      image: '/images/projects/project3.jpg', // Assure-toi que l'image est à ce chemin
+      image: '/images/projects/velib-app.jpg', // Remplace avec le bon chemin
       tags: ['JavaScript', 'HTML', 'CSS'],
       demoLink: 'https://demo-velib.com', // Remplace par le lien de démo approprié
       codeLink: 'https://github.com/yourusername/velib-app' // Remplace par le lien de ton code
+    },
+    {
+      id: 4,
+      title: 'Site Vitrine Responsive',
+      description: 'Site vitrine entièrement responsive pour une entreprise locale, développé avec HTML, CSS et JavaScript.',
+      image: '/images/projects/site-vitrine.jpg', // Remplace avec le bon chemin
+      tags: ['HTML', 'CSS', 'JavaScript'],
+      demoLink: 'https://demo-site.com', // Remplace par le lien de démo approprié
+      codeLink: 'https://github.com/yourusername/site-vitrine' // Remplace par le lien de ton code
+    },
+    {
+      id: 5,
+      title: 'Application de Gestion de Tâches',
+      description: 'Une application complète de gestion de tâches avec authentification et stockage en base de données.',
+      image: '/images/projects/gestion-taches.jpg', // Remplace avec le bon chemin
+      tags: ['React', 'Firebase', 'Material-UI'],
+      demoLink: 'https://demo-gestion-taches.com', // Remplace par le lien de démo approprié
+      codeLink: 'https://github.com/yourusername/gestion-taches' // Remplace par le lien de ton code
+    },
+    {
+      id: 6,
+      title: 'Application de Suivi de Projets',
+      description: 'Un outil pour suivre l’avancement des projets avec un tableau de bord interactif.',
+      image: '/images/projects/suivi-projets.jpg', // Remplace avec le bon chemin
+      tags: ['React', 'Node.js'],
+      demoLink: 'https://demo-suivi-projets.com', // Remplace par le lien de démo approprié
+      codeLink: 'https://github.com/yourusername/suivi-projets' // Remplace par le lien de ton code
     }
   ];
   
@@ -62,6 +89,12 @@ function Projects() {
           onClick={() => setFilter('C++')}
         >
           C++
+        </button>
+        <button 
+          className={filter === 'JavaScript' ? 'active' : ''} 
+          onClick={() => setFilter('JavaScript')}
+        >
+          JavaScript
         </button>
       </div>
       
