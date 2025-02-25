@@ -13,7 +13,8 @@ function Skills() {
     { name : "SageMath", img : '../src/assets/skill/icon-sagemath.svg'},
     { name: 'SQL', img: ' ../src/assets/skill/icon-sql.svg' },
     { name: 'React', img: '../src/assets/skill/icon-react.svg' },
-    
+    {name : 'PHP', img: '../src/assets/skill/icon-PHP.svg'},
+    {name : 'Angular', img: '../src/assets/skill/icon-angular.svg'},
     { name: 'Webpack', img: '../src/assets/skill/icon-webpack.svg' },
     { name: 'GitHub', img: ' ../src/assets/skill/icon-github.svg' },
 

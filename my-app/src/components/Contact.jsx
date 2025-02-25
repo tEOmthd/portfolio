@@ -60,7 +60,7 @@ function Contact() {
           <div className="info-item">
             <i className="fas fa-phone"></i>
             <h3>Téléphone</h3>
-            <p>+33 6 12 801 59 92 </p>
+            <p>+33 6 12 81 59 92 </p>
           </div>
           
           <div className="info-item">
