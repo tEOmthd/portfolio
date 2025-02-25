@@ -25,6 +25,14 @@ function Projects() {
       image: '../src/assets/projet/CaptureMemoryGame.png', // Remplace avec le bon chemin
       tags: ['JavaScript', 'React', 'HTML', 'CSS'],
       codeLink: 'https://github.com/tEOmthd/ReactMemoryGame' // Remplace par le lien de ton code
+    },
+    {
+      id: 4,
+      title: 'Gestionnaire de mot de passe',
+      description: "Un simple gestionnaire de mot de passe en Java",
+      image: '../src/assets/projet/CaptureGestionnaireMotDePasse.png', // Remplace avec le bon chemin
+      tags: ['JAVA'],
+      codeLink: 'https://github.com/tEOmthd/ReactMemoryGame' // Remplace par le lien de ton code
     }
   ];
   

@@ -16,11 +16,10 @@ function About() {
         <div className="about-content">
           <h3>Qui suis-je?</h3>
           <p>
-            Bienvenue sur mon portfolio ! Je suis etudiant en 2eme année dans un BUT informatique. J'aime me casser la tête sur des problème complexe et relèver des défis.
+            Bienvenue sur mon portfolio ! Je suis étudiant en 2ème année dans un BUT informatique. J'aime me casser la tête sur des problèmes complexes et relever des défis.
           </p>
-          
           <p>
-            Mon parcours dans l'informatique a commencer au lycée, j'avais la spécialité NSI et j'adorai les différents projets et algorithmes que l'on nous demander d'implementer. Aujourd'hui, j'ai décidé de me concacrer à l'informatique et de faire un BUT informatique.
+            Mon parcours dans l'informatique a commencé au lycée, j'avais la spécialité NSI et j'adorais les différents projets et algorithmes que nous devions implémenter. Aujourd'hui, j'ai décidé de me consacrer à l'informatique et de poursuivre mes études dans cette filière.
           </p>
           
           <div className="about-details">
