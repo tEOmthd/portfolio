@@ -17,8 +17,7 @@ function Skills() {
     {name : 'Angular', img: '../src/assets/skill/icon-angular.svg'},
     { name: 'Webpack', img: '../src/assets/skill/icon-webpack.svg' },
     { name: 'GitHub', img: ' ../src/assets/skill/icon-github.svg' },
-
-    { name: 'Scrum', img: ' ../src/assets/skill/skillicon-jira.svg' },
+    { name: 'Scrum', img: ' ../src/assets/skill/icon-jira.svg' },
   ];
 
   return (
@@ -27,7 +26,6 @@ function Skills() {
         <h2>Mes Compétences</h2>
         <div className="underline"></div>
       </div>
-      
       <div className="skills-container">
         {skills.map((skill, index) => (
           <div className="skill-card" key={index}>
