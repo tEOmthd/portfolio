@@ -24,11 +24,11 @@ function Hero() {
     
     // Paramètres des vagues en pointillés
     const dottedWaves = [
-      { y: 0.7, length: 0.5, amplitude: 20, speed: 0.005, color: 'rgba(30, 144, 255, 0.7)', dotSize: 2, dotSpacing: 10 },
-      { y: 0.6, length: 0.7, amplitude: 15, speed: 0.007, color: 'rgba(65, 105, 225, 0.7)', dotSize: 2, dotSpacing: 8 },
-      { y: 0.5, length: 0.4, amplitude: 25, speed: 0.01, color: 'rgba(100, 149, 237, 0.7)', dotSize: 2, dotSpacing: 12 },
-      { y: 0.4, length: 0.6, amplitude: 20, speed: 0.006, color: 'rgba(135, 206, 250, 0.7)', dotSize: 2, dotSpacing: 9 },
-      { y: 0.3, length: 0.5, amplitude: 15, speed: 0.008, color: 'rgba(173, 216, 230, 0.7)', dotSize: 2, dotSpacing: 11 }
+      { y: 0.7, length: 0.5, amplitude: 20, speed: 0.005, color: 'rgba(184, 115, 51, 0.2)', dotSize: 2, dotSpacing: 10 },
+      { y: 0.6, length: 0.7, amplitude: 15, speed: 0.007, color: 'rgba(165, 97, 33, 0.4)', dotSize: 2, dotSpacing: 8 },
+      { y: 0.5, length: 0.4, amplitude: 25, speed: 0.01, color: 'rgba(160, 86, 17, 0.6)', dotSize: 2, dotSpacing: 12 },
+      { y: 0.4, length: 0.6, amplitude: 20, speed: 0.006, color: 'rgba(184, 115, 51,0.8)', dotSize: 2, dotSpacing: 9 },
+      { y: 0.3, length: 0.5, amplitude: 15, speed: 0.008, color: 'rgba(184, 115, 51,1)', dotSize: 2, dotSpacing: 11 }
     ];
     
     let time = 0;

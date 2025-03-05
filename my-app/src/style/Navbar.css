@@ -23,7 +23,7 @@
   .navbar-logo {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #007bff;
+    color: #B87333;
   }
 
   .nav-menu {
@@ -42,7 +42,7 @@
   }
 
   .nav-link:hover {
-    color: #007bff;
+    color: #8B0000;
   }
 
   .menu-icon {

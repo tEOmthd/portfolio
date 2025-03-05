@@ -69,7 +69,7 @@
   .underline {
     width: 80px;
     height: 4px;
-    background: #007bff;
+    background: #B87333;
     margin: 0 auto;
   }
   
@@ -94,12 +94,12 @@
 }
 
 .contact-link {
-  color: #007BFF; /* Couleur du lien */
+  color: #B87333; /* Couleur du lien */
   text-decoration: none; /* Enlever le soulignement par défaut */
   transition: all 0.3s ease; /* Ajout d'une transition douce */
 }
 
 .contact-link:hover {
-  color: #FF5733; /* Nouvelle couleur lors du survol */
+  color: #8B0000; /* Nouvelle couleur lors du survol */
   text-decoration: underline; /* Soulignement au survol */
 }
