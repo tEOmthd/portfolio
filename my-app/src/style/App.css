@@ -52,3 +52,9 @@ a {
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
 }
+/* Media queries générales */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px; /* Réduction globale de la taille de police */
+  }
+}

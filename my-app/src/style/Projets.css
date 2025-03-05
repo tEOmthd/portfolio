@@ -183,3 +183,37 @@
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   }
+
+
+  @media screen and (max-width: 768px) {
+    .filter-buttons {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+  
+    .filter-buttons button {
+      padding: 0.4rem 1rem;
+      font-size: 0.875rem;
+    }
+  
+    .projects-container {
+      grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+      gap: 1.5rem;
+    }
+  
+    .project-card {
+      max-width: 100%;
+    }
+  
+    .project-modal {
+      width: 95%;
+      max-height: 95vh;
+      margin: 0 auto;
+    }
+  
+    .modal-content {
+      padding: 20px;
+      font-size: 16px;
+    }
+  }

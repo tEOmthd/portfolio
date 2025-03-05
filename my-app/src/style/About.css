@@ -74,10 +74,21 @@
   }
   
   .about-container {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
   }
   
   .about-img {
     margin-bottom: 2rem;
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .about-container {
+      flex-direction: column;
+    }
+  
+    .about-details {
+      grid-template-columns: 1fr;
+    }
   }

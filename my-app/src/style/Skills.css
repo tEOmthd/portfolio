@@ -74,3 +74,33 @@
     font-weight: bold;
   }
 
+  @media screen and (max-width: 768px) {
+    .skills {
+      padding: 4rem 1rem;
+    }
+  
+    .skills-container {
+      grid-template-columns: repeat(2, 1fr); /* Deux colonnes sur mobile */
+      gap: 1rem;
+      padding: 10px;
+    }
+  
+    .skill-category h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+  
+    .skill-card {
+      padding: 8px;
+    }
+  
+    .skill-name {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .skills-container {
+      grid-template-columns: 1fr; /* Une seule colonne sur très petit écran */
+    }
+  }
