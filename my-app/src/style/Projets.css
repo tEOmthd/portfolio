@@ -184,36 +184,105 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   }
 
-
   @media screen and (max-width: 768px) {
+    .projects {
+      padding: 3rem 1rem; /* Réduction du padding */
+    }
+  
     .filter-buttons {
       flex-wrap: wrap;
       justify-content: center;
       gap: 0.5rem;
+      margin-bottom: 2rem; /* Réduction de la marge */
     }
   
     .filter-buttons button {
-      padding: 0.4rem 1rem;
-      font-size: 0.875rem;
+      padding: 0.4rem 0.8rem; /* Boutons plus compacts */
+      font-size: 0.8rem;
+      margin: 0.2rem; /* Ajout d'un petit margin pour l'espacement */
     }
   
     .projects-container {
-      grid-template-columns: 1fr; /* Une seule colonne sur mobile */
-      gap: 1.5rem;
+      grid-template-columns: 1fr; /* Une seule colonne */
+      gap: 1rem; /* Réduction de l'écart entre les projets */
     }
   
     .project-card {
       max-width: 100%;
+      transform: scale(0.95); /* Légère réduction de la taille */
+    }
+  
+    .project-img {
+      height: 150px; /* Réduction de la hauteur de l'image */
+    }
+  
+    .project-content {
+      padding: 1rem; /* Réduction du padding */
+    }
+  
+    .project-content h3 {
+      font-size: 1.2rem; /* Réduction de la taille du titre */
+      margin-bottom: 0.8rem;
+    }
+  
+    .project-content p {
+      font-size: 0.9rem; /* Réduction de la taille du texte */
+      margin-bottom: 1rem;
+    }
+  
+    .project-tags {
+      gap: 0.3rem; /* Réduction de l'écart entre les tags */
+      margin-bottom: 1rem;
+    }
+  
+    .tag {
+      padding: 0.2rem 0.6rem; /* Tags plus petits */
+      font-size: 0.75rem;
+    }
+  
+    .project-links {
+      gap: 0.5rem; /* Réduction de l'écart entre les liens */
+    }
+  
+    /* Optimisation du modal */
+    .project-modal-overlay {
+      padding: 10px; /* Réduction du padding */
     }
   
     .project-modal {
-      width: 95%;
+      width: 95%; /* Largeur presque complète */
       max-height: 95vh;
       margin: 0 auto;
+      border-radius: 6px; /* Coins légèrement moins arrondis */
     }
   
     .modal-content {
-      padding: 20px;
-      font-size: 16px;
+      padding: 15px; /* Réduction du padding */
+      font-size: 14px; /* Police plus petite */
+    }
+  
+    .modal-image {
+      margin-bottom: 15px;
+    }
+  
+    .close-modal {
+      top: 5px;
+      right: 10px;
+      font-size: 24px; /* Bouton de fermeture plus petit */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .projects {
+      padding: 2rem 0.5rem; /* Encore moins de padding */
+    }
+  
+    .project-card {
+      transform: scale(0.9); /* Réduction supplémentaire */
+    }
+  
+    .filter-buttons button {
+      padding: 0.3rem 0.6rem;
+      font-size: 0.75rem;
     }
   }

@@ -73,34 +73,47 @@
     margin-top: 8px;
     font-weight: bold;
   }
-
   @media screen and (max-width: 768px) {
     .skills {
       padding: 4rem 1rem;
     }
   
     .skills-container {
-      grid-template-columns: repeat(2, 1fr); /* Deux colonnes sur mobile */
-      gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem; /* Réduction de l'écart entre les cartes */
       padding: 10px;
     }
   
     .skill-category h3 {
       font-size: 1.5rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
   
     .skill-card {
-      padding: 8px;
+      padding: 6px; /* Réduction du padding */
+      transform: scale(0.9); /* Rétrécissement global des cartes */
+    }
+  
+    .skill-image {
+      max-width: 80px; /* Limitation de la taille de l'image */
+      height: auto;
+      margin: 0 auto;
     }
   
     .skill-name {
-      font-size: 0.9rem;
+      font-size: 0.8rem; /* Police plus petite */
+      margin-top: 4px;
     }
   }
   
   @media screen and (max-width: 480px) {
     .skills-container {
-      grid-template-columns: 1fr; /* Une seule colonne sur très petit écran */
+      grid-template-columns: repeat(2, 1fr); /* Conserve deux colonnes */
+      gap: 0.25rem; /* Écart minimal */
+    }
+  
+    .skill-card {
+      transform: scale(0.85); /* Rétrécissement supplémentaire */
+      padding: 4px;
     }
   }
