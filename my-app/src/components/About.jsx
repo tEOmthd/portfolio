@@ -10,8 +10,7 @@ function About() {
       </div>
       <div className="about-container">
         <div className="about-img">
-          <img src="/assets/profilePicture.jpg" alt="Ma photo de profil" />
-          
+        <img src="/portfolio/assets/profilePicture.jpg" alt="Ma photo de profil" />
         </div>
         <div className="about-content">
           <h3>Qui suis-je?</h3>
