@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "../style/Projets.css"
+import "../style/Projets.css";
 
 function Projects() {
   const projects = [
@@ -9,7 +9,7 @@ function Projects() {
       description: "Développement d'un jeu 2D de gestion de réseau ferroviaire avec contraintes et optimisation des déplacements.",
       image: "../src/assets/projet/CaptureRerail.png",
       tags: ['C++', 'Raylib'],
-      codeLink: "https://etulab.univ-amu.fr/sae-s3.a.01-2024/sae-s3.a.01-2024-sujet06",
+      codeLink: 'propriete-iut',
       Description: "Ce projet a consisté à concevoir et développer un jeu 2D de gestion ferroviaire, où l'objectif est de réorganiser un réseau de chemins de fer en minimisant le nombre de déplacements.",
       DefisTechniques: [
         "Gestion des collisions entre les rails",
@@ -33,7 +33,7 @@ function Projects() {
       description: "Développement d'une application complète de gestion des plaques d'immatriculation et des informations associées aux véhicules.",
       image: '../src/assets/projet/CaptureGestionImmatriculation.png',
       tags: ['C++', 'Qt'],
-      codeLink: 'https://etulab.univ-amu.fr/iut-arles-info/enseignement/2024-2025/s2.01/binome15',
+      codeLink: 'propriete-iut',
       Description: "Ce projet a nécessité la conception et le développement d'une application permettant la gestion des plaques d'immatriculation et des informations associées (contrôle technique, type de véhicule, etc.).",
       DefisTechniques: [
         "Gestion des dates et validation des périodes de contrôle technique",
@@ -101,7 +101,6 @@ function Projects() {
     }
   ];
 
-
   const [filter, setFilter] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -165,15 +164,19 @@ function ProjectCard({ project, onClick }) {
           ))}
         </div>
         <div className="project-links">
-          <a
-            href={project.codeLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-sm btn-secondary"
-            onClick={(e) => e.stopPropagation()}
-          >
-            Code
-          </a>
+          {project.codeLink === 'propriete-iut' ? (
+            <span className="propriete-iut">Propriété IUT, code indisponible</span>
+          ) : (
+            <a
+              href={project.codeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-sm btn-secondary"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Code
+            </a>
+          )}
           <button
             className="btn btn-sm btn-primary"
             onClick={(e) => {
@@ -233,14 +236,18 @@ function ProjectModal({ project, onClose }) {
             </ul>
           </div>
           <div className="modal-links">
-            <a
-              href={project.codeLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-            >
-              Voir le code
-            </a>
+            {project.codeLink === 'propriete-iut' ? (
+              <span className="propriete-iut">Propriété IUT, code indisponible</span>
+            ) : (
+              <a
+                href={project.codeLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+              >
+                Voir le code
+              </a>
+            )}
           </div>
         </div>
       </div>
