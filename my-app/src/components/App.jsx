@@ -7,11 +7,12 @@ import Skills from './Skills';
 import Projects from './Projects';
 import Contact from './Contact';
 import Footer from './Footer';
+import BackToTop from './BackToTop'
 
 function App() {
   return (
     <div className="App">
-      
+      <BackToTop />
       <Navbar />
       <Hero />
       <About />

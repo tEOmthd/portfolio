@@ -84,11 +84,11 @@
 
 
   @media screen and (max-width: 768px) {
-    .about-container {
-      flex-direction: column;
-    }
-  
-    .about-details {
-      grid-template-columns: 1fr;
-    }
+  .about-container {
+    flex-direction: column;
   }
+
+  .about-details {
+    grid-template-columns: 1fr;
+  }
+}
