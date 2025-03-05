@@ -7,7 +7,7 @@ function Projects() {
       id: 1,
       title: "Jeu de Gestion Ferroviaire",
       description: "Développement d'un jeu 2D de gestion de réseau ferroviaire avec contraintes et optimisation des déplacements.",
-      image: "../src/assets/projet/CaptureRerail.png",
+      image: "/assets/projet/CaptureRerail.png",
       tags: ['C++', 'Raylib'],
       codeLink: 'propriete-iut',
       Description: "Ce projet a consisté à concevoir et développer un jeu 2D de gestion ferroviaire, où l'objectif est de réorganiser un réseau de chemins de fer en minimisant le nombre de déplacements.",
@@ -31,7 +31,7 @@ function Projects() {
       id: 2,
       title: "Application de Gestion des Plaques d'Immatriculation",
       description: "Développement d'une application complète de gestion des plaques d'immatriculation et des informations associées aux véhicules.",
-      image: '../src/assets/projet/CaptureGestionImmatriculation.png',
+      image: "/assets/projet/CaptureGestionImmatriculation.png",
       tags: ['C++', 'Qt'],
       codeLink: 'propriete-iut',
       Description: "Ce projet a nécessité la conception et le développement d'une application permettant la gestion des plaques d'immatriculation et des informations associées (contrôle technique, type de véhicule, etc.).",
@@ -55,7 +55,7 @@ function Projects() {
       id: 3,
       title: "Memory Matching Game",
       description: "Développement d'un jeu de memory en React, intégrant animations et gestion du temps.",
-      image: '../src/assets/projet/CaptureMemoryGame.png',
+      image: "/assets/projet/CaptureMemoryGame.png",
       tags: ['JavaScript', 'React', 'HTML', 'CSS'],
       codeLink: 'https://github.com/tEOmthd/ReactMemoryGame',
       Description: "Ce projet est un jeu de memory développé en React où le joueur doit retrouver toutes les paires de cartes avant la fin du temps imparti.",
@@ -79,7 +79,7 @@ function Projects() {
       id: 4,
       title: "Gestionnaire de Mots de Passe",
       description: "Développement d'une application de gestion sécurisée des mots de passe en Java.",
-      image: '../src/assets/projet/CaptureGestionnaireMotDePasse.png',
+      image: "/assets/projet/CaptureGestionnaireMotDePasse.png",
       tags: ['Java'],
       codeLink: 'https://github.com/tEOmthd/GestionnaireDeMotDepasse',
       Description: "Ce projet consiste en un gestionnaire de mots de passe permettant aux utilisateurs de stocker et sécuriser leurs identifiants.",
@@ -100,6 +100,7 @@ function Projects() {
       ]
     }
   ];
+  
 
   const [filter, setFilter] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);

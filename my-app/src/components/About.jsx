@@ -10,7 +10,8 @@ function About() {
       </div>
       <div className="about-container">
         <div className="about-img">
-          <img src="../src/assets/profilePicture.jpg" alt="Ma photo de profil" />
+          <img src="/assets/profilePicture.jpg" alt="Ma photo de profil" />
+          
         </div>
         <div className="about-content">
           <h3>Qui suis-je?</h3>
@@ -34,8 +35,7 @@ function About() {
               <strong>Disponibilité:</strong> 31 mars - 1 Septembre
             </div>
           </div>
-          <a href="./src/assets/CVMathiaudTeo.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Voir mon CV</a>
-        </div>
+          <a href="/assets/CVMathiaudTeo.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Voir mon CV</a> </div>
       </div>
     </section>
   );
