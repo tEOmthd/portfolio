@@ -36,9 +36,6 @@ function Contact() {
             <a href="https://www.linkedin.com/in/t%C3%A9o-mathiaud-653160347/" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-linkedin-in"></i>
             </a>
-            <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-twitter"></i>
-            </a>
           </div>
         </div>
       </div>
