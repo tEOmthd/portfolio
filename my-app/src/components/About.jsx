@@ -20,7 +20,8 @@ function About() {
           <p>
             Mon parcours dans l'informatique a commencé au lycée, j'avais la spécialité NSI et j'adorais les différents projets et algorithmes que nous devions implémenter. Aujourd'hui, j'ai décidé de me consacrer à l'informatique et de poursuivre mes études dans cette filière.
           </p>
-          <div className="about-details">
+          <p>Je suis actuellement à la recherche d'un stage du 31 Mars au 20 Juin, avec la volonté de continuer tout au long des vacances d'été. Je vous invite à me contacter via mes coordonnées présentes <a href="#contact" class="contact-link">plus bas.</a></p>
+<div className="about-details">
             <div className="detail">
               <strong>Nom:</strong> Mathiaud Téo
             </div>
