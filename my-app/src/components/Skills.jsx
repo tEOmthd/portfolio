@@ -18,6 +18,8 @@ function Skills() {
     { name: 'Webpack', img: '../src/assets/skill/icon-webpack.svg' },
     { name: 'GitHub', img: ' ../src/assets/skill/icon-github.svg' },
     { name: 'Scrum', img: ' ../src/assets/skill/icon-jira.svg' },
+    { name: 'Laravel', img: ' ../src/assets/skill/icon-laravel.svg' },
+  
   ];
 
   return (
