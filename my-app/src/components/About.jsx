@@ -34,7 +34,7 @@ function About() {
               <strong>Disponibilité:</strong> 31 mars - 1 Septembre
             </div>
           </div>
-          <a href="/assets/CVMathiaudTeo.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Voir mon CV</a> </div>
+          <a href="/portfolio/assets/CVMathiaudTeo.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Voir mon CV</a> </div>
       </div>
     </section>
   );
