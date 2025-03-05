@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import ReactMarkdown from 'react-markdown';
+import "../style/Projets.css"
+
 function Projects() {
   const projects = [
     {

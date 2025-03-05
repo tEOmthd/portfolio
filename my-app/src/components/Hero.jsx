@@ -1,4 +1,6 @@
 import React, { useEffect, useRef } from 'react';
+import "../style/Hero.css";
+
 
 function Hero() {
   const canvasRef = useRef(null);
