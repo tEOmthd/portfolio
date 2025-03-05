@@ -21,7 +21,7 @@ function Skills() {
     { name: 'Scrum', img: '../src/assets/skill/icon-jira.svg' },
     { name: 'Laravel', img: '../src/assets/skill/icon-laravel.svg' },
   ];
-}
+
 
   return (
     <section id="skills" className="skills">
