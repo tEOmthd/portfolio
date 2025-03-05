@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "@fortawesome/fontawesome-free/css/all.min.css";
-
+import "../style/Contact.css"
 function Contact() {
   return (
     <section id="contact" className="contact">
