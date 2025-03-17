@@ -1,5 +1,5 @@
-import React from 'react';
-import "../style/About.css"
+import React from "react";
+import "../style/About.css";
 
 function About() {
   return (
@@ -10,18 +10,34 @@ function About() {
       </div>
       <div className="about-container">
         <div className="about-img">
-        <img src="/portfolio/assets/profilePicture.jpg" alt="Ma photo de profil" />
+          <img
+            src="/portfolio/assets/profilePicture.jpg"
+            alt="Ma photo de profil"
+          />
         </div>
         <div className="about-content">
           <h3>Qui suis-je?</h3>
           <p>
-            Bienvenue sur mon portfolio ! Je suis étudiant en 2ème année dans un BUT informatique. J'aime me casser la tête sur des problèmes complexes et relever des défis.
+            Bienvenue sur mon portfolio ! Je suis étudiant en 2ème année dans un
+            BUT informatique. J'aime me casser la tête sur des problèmes
+            complexes et relever des défis.
           </p>
           <p>
-            Mon parcours dans l'informatique a commencé au lycée, j'avais la spécialité NSI et j'adorais les différents projets et algorithmes que nous devions implémenter. Aujourd'hui, j'ai décidé de me consacrer à l'informatique et de poursuivre mes études dans cette filière.
+            Mon parcours dans l'informatique a commencé au lycée, j'avais la
+            spécialité NSI et j'adorais les différents projets et algorithmes
+            que nous devions implémenter. Aujourd'hui, j'ai décidé de me
+            consacrer à l'informatique et de poursuivre mes études dans cette
+            filière.
           </p>
-          <p>Je suis actuellement à la recherche d'un stage du 31 Mars au 20 Juin, avec la volonté de continuer tout au long des vacances d'été. Je vous invite à me contacter via mes coordonnées présentes <a href="#contact" class="contact-link">plus bas.</a></p>
-<div className="about-details">
+          <p>
+            Je suis actuellement à la recherche d'un stage du 31 Mars au 20
+            Juin, avec la volonté de continuer tout au long des vacances d'été.
+            Je vous invite à me contacter via mes coordonnées présentes{" "}
+            <a href="#contact" class="contact-link">
+              plus bas.
+            </a>
+          </p>
+          <div className="about-details">
             <div className="detail">
               <strong>Nom:</strong> Mathiaud Téo
             </div>
@@ -35,7 +51,15 @@ function About() {
               <strong>Disponibilité:</strong> 31 mars - 1 Septembre
             </div>
           </div>
-          <a href="/portfolio/assets/CVMathiaudTeo.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Voir mon CV</a> </div>
+          <a
+            href="/portfolio/assets/CVMathiaudTeo.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+          >
+            Voir mon CV
+          </a>{" "}
+        </div>
       </div>
     </section>
   );
