@@ -124,7 +124,7 @@ function Projects() {
         <div className="underline"></div>
       </div>
       <div className="filter-buttons">
-        {['all', 'React', 'C++', 'JavaScript'].map(tag => (
+        {['all', 'JavaScript', 'C++', 'Java'].map(tag => (
           <button
             key={tag}
             className={filter === tag ? 'active' : ''}

@@ -30,12 +30,11 @@ function About() {
             filière.
           </p>
           <p>
-            Je suis actuellement à la recherche d'un stage du 31 Mars au 20
-            Juin, avec la volonté de continuer tout au long des vacances d'été.
-            Je vous invite à me contacter via mes coordonnées présentes{" "}
-            <a href="#contact" class="contact-link">
-              plus bas.
-            </a>
+            Je suis actuellement en stage jusqu'au 27 Juin. Mes missions sont de
+            développer des applications afin de remplacer les rapports papiers,
+            faire des graphiques powerBI avec des indicateurs pertinants et
+            enfin l'automatisation d'envois des mails aux différents acteurs de
+            la production.
           </p>
           <div className="about-details">
             <div className="detail">

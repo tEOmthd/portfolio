@@ -7,6 +7,7 @@ import Skills from './Skills';
 import Projects from './Projects';
 import Contact from './Contact';
 import Footer from './Footer';
+import Experiences from './Experiences';
 import BackToTop from './BackToTop'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Hero />
       <About />
       <Skills />
+      <Experiences />
       <Projects />
       <Contact />
       <Footer />

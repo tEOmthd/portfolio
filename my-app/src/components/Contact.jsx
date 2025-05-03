@@ -26,7 +26,7 @@ function Contact() {
           <div className="info-item">
             <i className="fas fa-map-marker-alt"></i>
             <h3>Localisation</h3>
-            <p>Arles - Nîmes - Montpellier, France</p>
+            <p>Arles - Nîmes - Montpellier</p>
           </div>
 
           <div className="social-links">
