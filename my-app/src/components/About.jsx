@@ -11,7 +11,7 @@ function About() {
       <div className="about-container">
         <div className="about-img">
           <img
-            src="/portfolio/assets/profilePicture.jpg"
+            src="/portfolio/assets/TeoAbout.jpg"
             alt="Ma photo de profil"
           />
         </div>
