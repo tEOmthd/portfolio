@@ -13,7 +13,7 @@ export default function ExperienceSection() {
         lieu: "Arles",
         period: "2023 - aujourd'hui",
         inProgress: true,
-        currentYear: 2,
+        currentYear: 3,
         totalYears: 3,
         description:
           "Actuellement en deuxième année de BUT Informatique à l'IUT Aix-Marseille, cette formation offre une approche complète du numérique. J'y ai aussi abordé les méthodologies agiles et le travail collaboratif, préparant ainsi efficacement aux enjeux du secteur informatique.",

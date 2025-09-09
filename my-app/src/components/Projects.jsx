@@ -102,10 +102,10 @@ function Projects() {
   ];
   
 
-  const [filter, setFilter] = useState('all');
+  const [filter, setFilter] = useState('tout');
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const filteredProjects = filter === 'all'
+  const filteredProjects = filter === 'tout'
     ? projects
     : projects.filter(project => project.tags.includes(filter));
 
@@ -124,7 +124,7 @@ function Projects() {
         <div className="underline"></div>
       </div>
       <div className="filter-buttons">
-        {['all', 'JavaScript', 'C++', 'Java'].map(tag => (
+        {['tout', 'JavaScript', 'C++', 'Java'].map(tag => (
           <button
             key={tag}
             className={filter === tag ? 'active' : ''}

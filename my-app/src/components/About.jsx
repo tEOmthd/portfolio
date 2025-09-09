@@ -30,11 +30,10 @@ function About() {
             filière.
           </p>
           <p>
-            Je suis actuellement en stage jusqu'au 27 Juin. Mes missions sont de
-            développer des applications afin de remplacer les rapports papiers,
-            faire des graphiques powerBI avec des indicateurs pertinants et
-            enfin l'automatisation d'envois des mails aux différents acteurs de
-            la production.
+            Je suis à la recherche d'une alternance pour ma 3ème année
+            universitaire, commençant le plus tôt possible jusqu'à la fin de l'année scolaire, avec une volonté de continuer durant l'été. Je suis
+            motivé à apprendre et à contribuer activement à des projets
+            informatiques.
           </p>
           <div className="about-details">
             <div className="detail">
@@ -45,9 +44,6 @@ function About() {
             </div>
             <div className="detail">
               <strong>Localisation:</strong> Arles, Nîmes, Montpellier
-            </div>
-            <div className="detail">
-              <strong>Disponibilité:</strong> 31 mars - 1 Septembre
             </div>
           </div>
           <a
