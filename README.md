@@ -1,8 +1,21 @@
-# React + Vite
+# 🌐 Portfolio – Téo Mathiaud  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bienvenue sur le dépôt de mon portfolio personnel.  
+Ce projet a pour objectif de présenter mon parcours, mes compétences et mes projets en informatique de manière claire et moderne.  
 
-Currently, two official plugins are available:
+## 🎯 Objectifs du portfolio  
+- Mettre en valeur mon profil étudiant en BUT Informatique.  
+- Centraliser mes expériences, projets académiques et personnels.  
+- Offrir une interface simple et responsive pour les recruteurs et collaborateurs.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 👨‍💻 À propos de moi  
+Je m’appelle **Téo Mathiaud**, étudiant en **2ᵉ année de BUT Informatique**.  
+Passionné par le développement web et logiciel, j’ai travaillé sur divers projets allant de petites applications interactives à des solutions plus complètes (React, API, bases de données, etc.).  
+
+Je suis motivé par l’apprentissage continu, le travail en équipe et la création de solutions utiles et élégantes.  
+
+## 🛠️ Technologies utilisées  
+- **React + Vite** → pour la rapidité et la simplicité du développement.  
+- **JavaScript** → langage principal du projet.  
+- **CSS** → pour la mise en forme et le style.  
+
