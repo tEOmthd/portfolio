@@ -1,0 +1,119 @@
+/* Section Skills */
+.skills {
+    padding: 6rem 2rem;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+
+    margin: 0 auto;
+}
+
+.skill-category h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+} 
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.skill-name {
+    font-weight: 500;
+    color: #333;
+}
+
+.skill-bar {
+    height: 10px;
+    background: #eee;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: #007bff;
+    border-radius: 5px;
+}
+
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .skill-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .skill-image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  .skill-name {
+    margin-top: 8px;
+    font-weight: bold;
+  }
+  @media screen and (max-width: 768px) {
+    .skills {
+      padding: 4rem 1rem;
+    }
+  
+    .skills-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem; /* Réduction de l'écart entre les cartes */
+      padding: 10px;
+    }
+  
+    .skill-category h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+  
+    .skill-card {
+      padding: 6px; /* Réduction du padding */
+      transform: scale(0.9); /* Rétrécissement global des cartes */
+    }
+  
+    .skill-image {
+      max-width: 80px; /* Limitation de la taille de l'image */
+      height: auto;
+      margin: 0 auto;
+    }
+  
+    .skill-name {
+      font-size: 0.8rem; /* Police plus petite */
+      margin-top: 4px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .skills-container {
+      grid-template-columns: repeat(2, 1fr); /* Conserve deux colonnes */
+      gap: 0.25rem; /* Écart minimal */
+    }
+  
+    .skill-card {
+      transform: scale(0.85); /* Rétrécissement supplémentaire */
+      padding: 4px;
+    }
+  }
