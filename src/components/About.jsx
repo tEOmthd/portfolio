@@ -18,23 +18,15 @@ function About() {
         <div className="about-content">
           <h3>Qui suis-je?</h3>
           <p>
-            Bienvenue sur mon portfolio ! Je suis étudiant en 2ème année dans un
-            BUT informatique. J'aime me casser la tête sur des problèmes
-            complexes et relever des défis.
+            Bienvenue sur mon <strong>portfolio</strong> ! Je suis étudiant en <strong>2ème année</strong> dans un <strong>BUT informatique</strong>. J'aime me casser la tête sur des <strong>problèmes complexes</strong> et relever des <strong>défis</strong>.
           </p>
           <p>
-            Mon parcours dans l'informatique a commencé au lycée, j'avais la
-            spécialité NSI et j'adorais les différents projets et algorithmes
-            que nous devions implémenter. Aujourd'hui, j'ai décidé de me
-            consacrer à l'informatique et de poursuivre mes études dans cette
-            filière.
+            Mon parcours dans l'informatique a commencé au <strong>lycée</strong>, j'avais la spécialité <strong>NSI</strong> et j'adorais les différents <strong>projets</strong> et <strong>algorithmes</strong> que nous devions implémenter. Aujourd'hui, j'ai décidé de me consacrer à l'<strong>informatique</strong> et de poursuivre mes <strong>études</strong> dans cette filière.
           </p>
           <p>
-            Je suis à la recherche d'une alternance pour ma 3ème année
-            universitaire, commençant le plus tôt possible jusqu'à la fin de l'année scolaire, avec une volonté de continuer durant l'été. Je suis
-            motivé à apprendre et à contribuer activement à des projets
-            informatiques.
+            Je suis à la recherche d'un <strong>stage de 16 semaines</strong> à partir du <strong>16 février</strong> au <strong>12 juin 2024</strong>, idéalement dans les domaines du <strong>développement web</strong>, <strong>mobile</strong> ou <strong>logiciel</strong>.
           </p>
+
           <div className="about-details">
             <div className="detail">
               <strong>Nom:</strong> Mathiaud Téo
