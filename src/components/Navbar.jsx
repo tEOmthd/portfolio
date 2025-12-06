@@ -8,7 +8,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         <a href="#" className="navbar-logo">
-          MonPortfolio
+          Monportfolio
         </a>
 
         <div className="menu-icon" onClick={() => setIsOpen(!isOpen)}>

@@ -49,11 +49,11 @@ export default function ExperienceSection() {
         id: 1,
         title: "Stage Informatique",
         institution: "Harsco Environmental",
-        lieu: "Fos-sur-mer",
+        lieu: "Fos-sur-Mer",
         period: "2025",
         duration: "3 mois",
         description:
-          "Au sein de Harsco, ma mission principale a été de digitalisé les rapports papier des différents chantiers. Pour cela, aider au developpement une PowerApp qui remplacais ces rapports, proposant une application directement sur tablette afin que les employes remplisse directement le rapport et qu'il soit ajouter à la base de données. L'environnement de travail était dynamique et collaboratif : nous échangions régulièrement par email et Teams, et nous présentions l'application aux responsables sur le terrain pour recueillir leurs retours et l'ajuster en continu. En adaptant rapidement la solution aux besoins exprimés par les équipes.",
+          "Au sein de Harsco, ma mission principale a été de digitaliser les rapports papier des différents chantiers. Pour cela, j’ai contribué au développement d’une PowerApp qui remplaçait ces rapports, proposant une application sur tablette afin que les employés puissent remplir directement le rapport, lequel était ensuite ajouté à la base de données. L’environnement de travail était dynamique et collaboratif : nous échangions régulièrement par email et Teams, et nous présentions l’application aux responsables sur le terrain pour recueillir leurs retours et l’ajuster en continu. J’ai adapté rapidement la solution aux besoins exprimés par les équipes.",
       },
     ],
   };
