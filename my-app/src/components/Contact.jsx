@@ -33,7 +33,7 @@ function Contact() {
             <a href="https://github.com/tEOmthd" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-github"></i>
             </a>
-            <a href="https://www.linkedin.com/in/t%C3%A9o-mathiaud-653160347/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/teo-mathiaud-653160347/" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-linkedin-in"></i>
             </a>
           </div>

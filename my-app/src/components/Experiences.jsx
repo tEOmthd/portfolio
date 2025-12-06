@@ -16,7 +16,7 @@ export default function ExperienceSection() {
         currentYear: 3,
         totalYears: 3,
         description:
-          "Actuellement en deuxième année de BUT Informatique à l'IUT Aix-Marseille, cette formation offre une approche complète du numérique. J'y ai aussi abordé les méthodologies agiles et le travail collaboratif, préparant ainsi efficacement aux enjeux du secteur informatique.",
+          "Actuellement en troisième année de BUT Informatique à l'IUT Aix-Marseille, cette formation offre une approche complète du numérique. J'y ai aussi abordé les méthodologies agiles et le travail collaboratif, préparant ainsi efficacement aux enjeux du secteur informatique.",
       },
 
       {
