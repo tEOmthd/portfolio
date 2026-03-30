@@ -1,168 +1,134 @@
 import { useState } from "react";
 import "../style/Experiences.css";
 
-export default function ExperienceSection() {
-  const [activeCategory, setActiveCategory] = useState("diplomes");
+const experienceData = {
+  diplomes: [
+    {
+      id: 1,
+      title: "BUT Informatique",
+      institution: "IUT Aix-Marseille",
+      lieu: "Arles",
+      period: "2023 — aujourd'hui",
+      inProgress: true,
+      currentYear: 3,
+      totalYears: 3,
+      description:
+        "Formation complète couvrant le développement logiciel, les bases de données, les réseaux, et les méthodologies agiles. Approche à la fois théorique et pratique avec de nombreux projets concrets.",
+    },
+    {
+      id: 2,
+      title: "Baccalauréat Général",
+      institution: "Lycée Philippe Lamour",
+      lieu: "Nîmes",
+      period: "2020 — 2023",
+      mention: "Assez Bien",
+      specialites: ["Mathématiques", "Numérique et Sciences Informatiques", "Anglais Monde contemporain"],
+      options: ["Mathématiques complémentaires", "Section Euro Anglais"],
+    },
+  ],
+  certifications: [
+    {
+      id: 1,
+      title: "Cambridge English B2 First",
+      institution: "Cambridge University",
+      period: "2023",
+      description:
+        "Certification de niveau B2 en anglais, validant mes compétences linguistiques dans un contexte académique et professionnel.",
+    },
+  ],
+  experience: [
+    {
+      id: 1,
+      title: "Stage Informatique",
+      institution: "Harsco Environmental",
+      lieu: "Fos-sur-Mer",
+      period: "2025",
+      duration: "3 mois",
+      description:
+        "Développement d'une PowerApp pour digitaliser les rapports papier des chantiers. L'application permettait aux employés de remplir les rapports sur tablette, directement intégrés à la base de données. Travail en environnement agile avec présentations régulières aux responsables terrain.",
+    },
+  ],
+};
 
-  const experienceData = {
-    diplomes: [
-      {
-        id: 1,
-        title: "BUT Informatique",
-        institution: "IUT Aix-Marseille",
-        lieu: "Arles",
-        period: "2023 - aujourd'hui",
-        inProgress: true,
-        currentYear: 3,
-        totalYears: 3,
-        description:
-          "Actuellement en troisième année de BUT Informatique à l'IUT Aix-Marseille, cette formation offre une approche complète du numérique. J'y ai aussi abordé les méthodologies agiles et le travail collaboratif, préparant ainsi efficacement aux enjeux du secteur informatique.",
-      },
+const categoryTitles = {
+  diplomes: "Diplômes",
+  certifications: "Certifications",
+  experience: "Expériences",
+};
 
-      {
-        id: 2,
-        title: "Baccalauréat Général",
-        institution: "Lycée Philippe Lamour",
-        lieu: "Nîmes",
-        specialites: [
-          "Mathématiques",
-          "Numérique et Sciences Informatiques",
-          "Anglais Monde contemporain",
-        ],
-        Options: ["Mathématiques complémentaires", "Section Euro Anglais"],
-        mention: "Assez Bien",
-        period: "2020-2023",
-      },
-    ],
-    certifications: [
-      {
-        id: 1,
-        title: "Cambridge English B2 First",
-        institution: "Cambridge University",
-        description:
-          "Certificat de niveau B2 en anglais, validant mes compétences linguistiques dans un contexte académique et professionnel.",
-        period: "2023",
-      },
-    ],
-    experience: [
-      {
-        id: 1,
-        title: "Stage Informatique",
-        institution: "Harsco Environmental",
-        lieu: "Fos-sur-Mer",
-        period: "2025",
-        duration: "3 mois",
-        description:
-          "Au sein de Harsco, ma mission principale a été de digitaliser les rapports papier des différents chantiers. Pour cela, j’ai contribué au développement d’une PowerApp qui remplaçait ces rapports, proposant une application sur tablette afin que les employés puissent remplir directement le rapport, lequel était ensuite ajouté à la base de données. L’environnement de travail était dynamique et collaboratif : nous échangions régulièrement par email et Teams, et nous présentions l’application aux responsables sur le terrain pour recueillir leurs retours et l’ajuster en continu. J’ai adapté rapidement la solution aux besoins exprimés par les équipes.",
-      },
-    ],
-  };
-
-  // Mappings de titres d'affichage
-  const categoryTitles = {
-    diplomes: "Diplômes",
-    certifications: "Certifications",
-    experience: "Expériences professionnelles",
-  };
-
-  // Gestion du changement de catégorie
-  const handleCategoryChange = (category) => {
-    setActiveCategory(category);
-  };
+export default function Experiences() {
+  const [active, setActive] = useState("diplomes");
 
   return (
     <section className="experience" id="experiences">
-      <h2 className="experience-title">Mon Parcours</h2>
+      <div className="container">
+        <div className="section-header">
+          <h2>Parcours</h2>
+        </div>
 
-      {/* Navigation des catégories */}
-      <div className="experience-tabs">
-        {Object.keys(categoryTitles).map((category) => (
-          <button
-            key={category}
-            onClick={() => handleCategoryChange(category)}
-            className={activeCategory === category ? "active" : ""}
-          >
-            {categoryTitles[category]}
-          </button>
-        ))}
-      </div>
+        <div className="experience-tabs">
+          {Object.keys(categoryTitles).map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActive(cat)}
+              className={active === cat ? "active" : ""}
+            >
+              {categoryTitles[cat]}
+            </button>
+          ))}
+        </div>
 
-      {/* Contenu de la catégorie active */}
-      <div className="experience-container">
-        {experienceData[activeCategory].map((item) => (
-          <div key={item.id} className="experience-card">
-            <div className="experience-card-header">
-              <h3>{item.title}</h3>
-              <div className="institution">{item.institution}</div>
-              {item.lieu && <div className="lieu">{item.lieu}</div>}
-              {item.duration && <div className="duration">{item.duration}</div>}
-              <div className="period">{item.period}</div>
-              {item.mention && <div className="mention">{item.mention}</div>}
-              {item.inProgress && <div className="status">En cours</div>}
-            </div>
-
-            <div className="experience-card-content">
-              {item.description && <p>{item.description}</p>}
-
-              {item.inProgress && (
-                <div className="progression">
-                  <div>
-                    Progression : Année {item.currentYear}/{item.totalYears}
-                  </div>
-                  <div className="progress-bar-container">
-                    <div
-                      className="progress-bar"
-                      style={{
-                        width: `${(item.currentYear / item.totalYears) * 100}%`,
-                      }}
-                    ></div>
-                  </div>
-                </div>
-              )}
-
-              {item.specialites && (
-                <div className="specialites">
-                  <h4>Spécialités</h4>
-                  <ul>
-                    {item.specialites.map((specialite, index) => (
-                      <li key={index}>{specialite}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {item.Options && (
-                <div className="options">
-                  <h4>Options</h4>
-                  <ul>
-                    {item.Options.map((option, index) => (
-                      <li key={index}>{option}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-
-            {(item.skills || item.competences) && (
-              <div className="experience-card-footer">
-                <div className="ExperiencesSkills">
-                  {item.skills &&
-                    item.skills.map((skill, index) => (
-                      <span key={index} className="skill-tag">
-                        {skill}
-                      </span>
-                    ))}
-                  {item.competences &&
-                    item.competences.map((comp, index) => (
-                      <span key={index} className="skill-tag">
-                        {comp}
-                      </span>
-                    ))}
-                </div>
+        <div className="experience-list">
+          {experienceData[active].map((item) => (
+            <div key={item.id} className="experience-card">
+              <div className="experience-card-header">
+                <h3>{item.title}</h3>
+                <span className="institution">{item.institution}</span>
+                {item.lieu && <span className="lieu">{item.lieu}</span>}
+                {item.duration && <span className="duration">{item.duration}</span>}
+                {item.inProgress && <span className="status-badge">En cours</span>}
+                {item.mention && <span className="mention-badge">{item.mention}</span>}
+                <span className="period">{item.period}</span>
               </div>
-            )}
-          </div>
-        ))}
+
+              <div className="experience-card-content">
+                {item.description && <p>{item.description}</p>}
+
+                {item.inProgress && (
+                  <div className="progress-container">
+                    <div className="progress-label">
+                      Progression — Année {item.currentYear}/{item.totalYears}
+                    </div>
+                    <div className="progress-bar-track">
+                      <div
+                        className="progress-bar-fill"
+                        style={{ width: `${(item.currentYear / item.totalYears) * 100}%` }}
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {item.specialites && (
+                  <div className="exp-section">
+                    <h4>Spécialités</h4>
+                    <ul>
+                      {item.specialites.map((s) => <li key={s}>{s}</li>)}
+                    </ul>
+                  </div>
+                )}
+
+                {item.options && (
+                  <div className="exp-section">
+                    <h4>Options</h4>
+                    <ul>
+                      {item.options.map((o) => <li key={o}>{o}</li>)}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,33 +1,36 @@
 .back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #B87333;
-    color: white;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  animation: fadeInUp 0.25s ease;
+}
+
+.back-to-top:hover {
+  border-color: var(--accent);
+  color: var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
   }
-  
-  .back-to-top:hover {
-    background-color: #8B0000;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  @media screen and (max-width: 768px) {
-    .back-to-top {
-      width: 40px;
-      height: 40px;
-      bottom: 15px;
-      right: 15px;
-      font-size: 20px;
-    }
-  }
+}

@@ -4,8 +4,15 @@ import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 
+const vitestGlobals = {
+  describe: 'readonly', it: 'readonly', test: 'readonly',
+  expect: 'readonly', vi: 'readonly',
+  beforeEach: 'readonly', afterEach: 'readonly',
+  beforeAll: 'readonly', afterAll: 'readonly',
+};
+
 export default [
-  { ignores: ['dist'] },
+  { ignores: ['dist', 'my-app', '**/*.min.js'] },
   {
     files: ['**/*.{js,jsx}'],
     languageOptions: {
@@ -17,7 +24,7 @@ export default [
         sourceType: 'module',
       },
     },
-    settings: { react: { version: '18.3' } },
+    settings: { react: { version: 'detect' } },
     plugins: {
       react,
       'react-hooks': reactHooks,
@@ -29,10 +36,17 @@ export default [
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
       'react/jsx-no-target-blank': 'off',
+      'react/prop-types': 'off',
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
       ],
+    },
+  },
+  {
+    files: ['**/*.test.{js,jsx}'],
+    languageOptions: {
+      globals: { ...globals.browser, ...vitestGlobals },
     },
   },
 ]

@@ -1,49 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import "../style/BoutonBackToTop.css"
+import { useState, useEffect } from 'react';
+import "../style/BoutonBackToTop.css";
 
-
-const BackToTop = () => {
+function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Gestion du scroll
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    // Ajouter l'écouteur d'événement
-    window.addEventListener('scroll', toggleVisibility);
-
-    // Nettoyer l'écouteur d'événement
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    const toggle = () => setIsVisible(window.scrollY > 300);
+    window.addEventListener('scroll', toggle);
+    return () => window.removeEventListener('scroll', toggle);
   }, []);
 
-  // Fonction pour remonter en haut
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
+  if (!isVisible) return null;
 
   return (
-    <>
-      {isVisible && (
-        <button 
-          id="back-to-top" 
-          title="Retour en haut" 
-          onClick={scrollToTop}
-          className="back-to-top"
-        >
-          ↑
-        </button>
-      )}
-    </>
+    <button
+      className="back-to-top"
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      aria-label="Retour en haut de page"
+    >
+      <i className="fas fa-arrow-up" />
+    </button>
   );
-};
+}
 
 export default BackToTop;
