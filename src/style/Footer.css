@@ -1,85 +1,63 @@
 .footer {
-  background: var(--bg-secondary);
   border-top: 1px solid var(--border);
   padding: 32px 0;
-  transition: background-color var(--transition), border-color var(--transition);
+  transition: border-color var(--transition);
 }
 
-.footer-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px;
+.footer-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
   flex-wrap: wrap;
-  gap: 16px;
 }
 
 .footer-logo {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 1rem;
   font-weight: 500;
-  color: var(--accent-glow);
-}
-
-.footer-links {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.footer-links a {
-  font-size: 0.825rem;
-  color: var(--text-muted);
-  transition: color var(--transition);
-}
-
-.footer-links a:hover {
   color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.footer-logo span {
+  color: var(--accent);
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
 }
 
 .footer-social {
   display: flex;
-  gap: 8px;
+  gap: 12px;
 }
 
 .footer-social a {
-  width: 32px;
-  height: 32px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 32px;
+  height: 32px;
   color: var(--text-muted);
-  font-size: 0.825rem;
-  transition: all var(--transition);
+  font-size: 0.85rem;
+  transition: color var(--transition);
 }
 
 .footer-social a:hover {
-  border-color: var(--accent);
-  color: var(--accent-glow);
-}
-
-.footer-copy {
-  width: 100%;
-  text-align: center;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-  font-family: 'JetBrains Mono', monospace;
+  color: var(--accent);
 }
 
 @media (max-width: 600px) {
-  .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
+  .footer-inner {
+    justify-content: center;
+    text-align: center;
   }
 
-  .footer-links {
-    gap: 14px;
+  .footer-copy {
+    order: 3;
+    width: 100%;
   }
 }

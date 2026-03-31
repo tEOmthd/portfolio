@@ -1,52 +1,59 @@
-import "../style/About.css";
+import '../style/About.css';
+import { useLang } from '../contexts/LangContext';
+import { translations } from '../i18n';
+import { useReveal } from '../hooks/useReveal';
+
+const STACK = [
+  {
+    category: { fr: 'Frontend', en: 'Frontend' },
+    items: ['React', 'TypeScript', 'JavaScript', 'HTML/CSS', 'Three.js', 'Vite / Webpack'],
+  },
+  {
+    category: { fr: 'Backend', en: 'Backend' },
+    items: ['Node.js', 'Express', 'PHP', 'Laravel', 'Python', 'JWT / Auth'],
+  },
+  {
+    category: { fr: 'Systèmes & Jeux', en: 'Systems & Games' },
+    items: ['C++', 'C', 'Java', 'C# / Unity', 'OpenGL', 'Linux / Bash'],
+  },
+  {
+    category: { fr: 'Data & Infra', en: 'Data & Infra' },
+    items: ['MySQL', 'SQLite', 'Docker', 'Git / CI-CD', 'PowerApps', 'PowerBI'],
+  },
+];
 
 function About() {
+  const { lang } = useLang();
+  const T = translations[lang].about;
+  const ref = useReveal();
+
   return (
-    <section id="about" className="about">
-      <div className="about-container">
-        <div className="about-img">
-          <img src="/portfolio/assets/TeoAbout.jpg" alt="Photo de profil de Téo Mathiaud" />
-        </div>
-        <div className="about-content">
-          <div className="section-header">
-            <h2>À propos</h2>
+    <section id="about" className="section about-section reveal-section" ref={ref}>
+      <div className="container">
+        <h2 className="section-title">{T.title}</h2>
+
+        <div className="about-layout">
+          <div className="about-text">
+            <p>{T.p1}</p>
+            <p>{T.p2}</p>
+            <p className="about-personal">{T.p3}</p>
           </div>
-          <p>
-            Étudiant en <strong>3ème année de BUT Informatique</strong> à l&apos;IUT Aix-Marseille, j&apos;aime me casser la tête sur des
-            problèmes complexes et relever des défis. Mon parcours a commencé au lycée avec la spécialité <strong>NSI</strong>,
-            où j&apos;ai découvert ma passion pour les algorithmes et le développement.
-          </p>
-          <p>
-            Aujourd&apos;hui, je me positionne comme développeur <strong>fullstack</strong>, à l&apos;aise aussi bien côté
-            frontend que backend. Je suis ouvert à toute opportunité qui me permettra de progresser et de contribuer
-            à des projets concrets.
-          </p>
-          <div className="about-details">
-            <div className="detail">
-              <strong>Localisation</strong>
-              Arles · Nîmes · Montpellier · Aix
-            </div>
-            <div className="detail">
-              <strong>Formation</strong>
-              BUT Informatique — Année 3/3
-            </div>
-            <div className="detail">
-              <strong>Email</strong>
-              teo.mathiaud@etu.univ-amu.fr
-            </div>
-            <div className="detail">
-              <strong>Disponibilité</strong>
-              Ouvert aux opportunités
+
+          <div className="about-stack">
+            <span className="about-stack-label">{T.stack_label}</span>
+            <div className="stack-categories">
+              {STACK.map(({ category, items }) => (
+                <div key={category.fr} className="stack-category">
+                  <span className="stack-cat-title">{category[lang]}</span>
+                  <div className="stack-tags">
+                    {items.map(item => (
+                      <span key={item} className="stack-tag">{item}</span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-          <a
-            href="/portfolio/assets/CVMathiaudTeo.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary"
-          >
-            <i className="fas fa-download" /> Télécharger mon CV
-          </a>
         </div>
       </div>
     </section>
