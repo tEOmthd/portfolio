@@ -1,135 +1,137 @@
-import { useState } from "react";
-import "../style/Experiences.css";
+import '../style/Experiences.css';
+import { useLang } from '../contexts/LangContext';
+import { translations } from '../i18n';
+import { useReveal } from '../hooks/useReveal';
 
-const experienceData = {
-  diplomes: [
-    {
-      id: 1,
-      title: "BUT Informatique",
-      institution: "IUT Aix-Marseille",
-      lieu: "Arles",
-      period: "2023 — aujourd'hui",
-      inProgress: true,
-      currentYear: 3,
-      totalYears: 3,
-      description:
-        "Formation complète couvrant le développement logiciel, les bases de données, les réseaux, et les méthodologies agiles. Approche à la fois théorique et pratique avec de nombreux projets concrets.",
+const EXPERIENCES = [
+  {
+    id: 'crypto',
+    type: 'stage',
+    year: '2026',
+    title: { fr: 'Stage — CryptoporticusVR', en: 'Internship — CryptoporticusVR' },
+    org: { fr: 'Mairie d\'Arles', en: 'City of Arles' },
+    period: { fr: '16 Mars — 19 Juin 2026', en: 'March 16 — June 19, 2026' },
+    tags: ['Unity', 'C#', 'Node.js', 'TypeScript', 'React', 'Docker'],
+    description: {
+      fr: "Visite immersive des Cryptoportiques d'Arles (site UNESCO). Architecture fullstack : expérience 3D Unity/WebGL, backend temps réel Socket.io, frontend React. Rôle : Product Owner.",
+      en: "Immersive tour of Arles' Cryptoportiques (UNESCO site). Fullstack architecture: Unity/WebGL 3D experience, real-time Socket.io backend, React frontend. Role: Product Owner.",
     },
-    {
-      id: 2,
-      title: "Baccalauréat Général",
-      institution: "Lycée Philippe Lamour",
-      lieu: "Nîmes",
-      period: "2020 — 2023",
-      mention: "Assez Bien",
-      specialites: ["Mathématiques", "Numérique et Sciences Informatiques", "Anglais Monde contemporain"],
-      options: ["Mathématiques complémentaires", "Section Euro Anglais"],
+  },
+  {
+    id: 'harsco',
+    type: 'stage',
+    year: '2025',
+    title: { fr: 'Stage — Harsco Environmental', en: 'Internship — Harsco Environmental' },
+    org: { fr: 'Fos-sur-Mer', en: 'Fos-sur-Mer' },
+    period: { fr: 'Mars — Juin 2025 · 3 mois', en: 'March — June 2025 · 3 months' },
+    tags: ['PowerApps', 'Power Automate', 'PowerBI', 'SQL'],
+    description: {
+      fr: "Digitalisation des rapports chantier sur tablette. Enjeu principal : une interface assez simple pour être adoptée sans formation en milieu industriel. Tableaux de bord PowerBI avec KPIs.",
+      en: "Digitizing worksite reports on tablet. Main challenge: an interface simple enough for factory adoption without training. PowerBI dashboards with KPIs.",
     },
-  ],
-  certifications: [
-    {
-      id: 1,
-      title: "Cambridge English B2 First",
-      institution: "Cambridge University",
-      period: "2023",
-      description:
-        "Certification de niveau B2 en anglais, validant mes compétences linguistiques dans un contexte académique et professionnel.",
-    },
-  ],
-  experience: [
-    {
-      id: 1,
-      title: "Stage Informatique",
-      institution: "Harsco Environmental",
-      lieu: "Fos-sur-Mer",
-      period: "2025",
-      duration: "3 mois",
-      description:
-        "Développement d'une PowerApp pour digitaliser les rapports papier des chantiers. L'application permettait aux employés de remplir les rapports sur tablette, directement intégrés à la base de données. Travail en environnement agile avec présentations régulières aux responsables terrain.",
-    },
-  ],
-};
+  },
+];
 
-const categoryTitles = {
-  diplomes: "Diplômes",
-  certifications: "Certifications",
-  experience: "Expériences",
-};
+const FORMATIONS = [
+  {
+    id: 'but',
+    type: 'formation',
+    year: '2023',
+    title: { fr: 'BUT Informatique', en: 'Bachelor of Technology — CS' },
+    org: { fr: 'IUT Aix-Marseille — Arles', en: 'IUT Aix-Marseille — Arles' },
+    period: { fr: '2023 → 2026', en: '2023 → 2026' },
+    inProgress: true,
+    tags: [],
+    description: {
+      fr: "Formation couvrant le développement logiciel, bases de données, réseaux et méthodes agiles. Nombreux projets en équipe, du prototype au déploiement.",
+      en: "Program covering software development, databases, networking and agile methodologies. Many team projects, from prototype to deployment.",
+    },
+  },
+];
 
-export default function Experiences() {
-  const [active, setActive] = useState("diplomes");
+function TimelineEntry({ item, lang, T, isLast }) {
+  const isStage = item.type === 'stage';
 
   return (
-    <section className="experience" id="experiences">
+    <div className={`tl-entry${isLast ? ' tl-entry-last' : ''}`}>
+      {/* Colonne gauche : année + ligne */}
+      <div className="tl-left">
+        <span className="tl-year">{item.year}</span>
+        {!isLast && <div className="tl-line" />}
+      </div>
+
+      {/* Colonne centrale : dot */}
+      <div className="tl-track">
+        <div className={`tl-dot${isStage ? ' tl-dot-stage' : ''}`} />
+        {!isLast && <div className="tl-connector" />}
+      </div>
+
+      {/* Contenu */}
+      <div className="tl-content">
+        <div className="tl-header">
+          <span className={`tl-type${isStage ? ' tl-type-stage' : ''}`}>
+            {isStage ? T.internship : T.formation}
+          </span>
+          {item.inProgress && <span className="tl-badge">{T.in_progress}</span>}
+          <span className="tl-period">{item.period[lang]}</span>
+        </div>
+        <h3>{item.title[lang]}</h3>
+        <p className="tl-org">{item.org[lang]}</p>
+        <p className="tl-desc">{item.description[lang]}</p>
+        {item.tags.length > 0 && (
+          <div className="tl-tags">
+            {item.tags.map(t => <span key={t} className="tag">{t}</span>)}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function Experiences() {
+  const { lang } = useLang();
+  const T = translations[lang].experience;
+  const ref = useReveal();
+
+  return (
+    <section id="experience" className="section exp-section reveal-section" ref={ref}>
       <div className="container">
-        <div className="section-header">
-          <h2>Parcours</h2>
-        </div>
+        <h2 className="section-title">{T.title}</h2>
 
-        <div className="experience-tabs">
-          {Object.keys(categoryTitles).map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActive(cat)}
-              className={active === cat ? "active" : ""}
-            >
-              {categoryTitles[cat]}
-            </button>
-          ))}
-        </div>
-
-        <div className="experience-list">
-          {experienceData[active].map((item) => (
-            <div key={item.id} className="experience-card">
-              <div className="experience-card-header">
-                <h3>{item.title}</h3>
-                <span className="institution">{item.institution}</span>
-                {item.lieu && <span className="lieu">{item.lieu}</span>}
-                {item.duration && <span className="duration">{item.duration}</span>}
-                {item.inProgress && <span className="status-badge">En cours</span>}
-                {item.mention && <span className="mention-badge">{item.mention}</span>}
-                <span className="period">{item.period}</span>
-              </div>
-
-              <div className="experience-card-content">
-                {item.description && <p>{item.description}</p>}
-
-                {item.inProgress && (
-                  <div className="progress-container">
-                    <div className="progress-label">
-                      Progression — Année {item.currentYear}/{item.totalYears}
-                    </div>
-                    <div className="progress-bar-track">
-                      <div
-                        className="progress-bar-fill"
-                        style={{ width: `${(item.currentYear / item.totalYears) * 100}%` }}
-                      />
-                    </div>
-                  </div>
-                )}
-
-                {item.specialites && (
-                  <div className="exp-section">
-                    <h4>Spécialités</h4>
-                    <ul>
-                      {item.specialites.map((s) => <li key={s}>{s}</li>)}
-                    </ul>
-                  </div>
-                )}
-
-                {item.options && (
-                  <div className="exp-section">
-                    <h4>Options</h4>
-                    <ul>
-                      {item.options.map((o) => <li key={o}>{o}</li>)}
-                    </ul>
-                  </div>
-                )}
-              </div>
+        <div className="exp-columns">
+          <div className="exp-group">
+            <h3 className="exp-group-title">{T.section_pro}</h3>
+            <div className="timeline">
+              {EXPERIENCES.map((item, i) => (
+                <TimelineEntry
+                  key={item.id}
+                  item={item}
+                  lang={lang}
+                  T={T}
+                  isLast={i === EXPERIENCES.length - 1}
+                />
+              ))}
             </div>
-          ))}
+          </div>
+
+          <div className="exp-group">
+            <h3 className="exp-group-title">{T.section_formation}</h3>
+            <div className="timeline">
+              {FORMATIONS.map((item, i) => (
+                <TimelineEntry
+                  key={item.id}
+                  item={item}
+                  lang={lang}
+                  T={T}
+                  isLast={i === FORMATIONS.length - 1}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
+export default Experiences;

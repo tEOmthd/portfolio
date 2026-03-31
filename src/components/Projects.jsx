@@ -1,234 +1,330 @@
 import { useState, useEffect } from 'react';
-import "../style/Projets.css";
+import '../style/Projets.css';
+import { useLang } from '../contexts/LangContext';
+import { translations } from '../i18n';
+import { useReveal } from '../hooks/useReveal';
 
-const projects = [
+const PROJECTS_DATA = [
   {
     id: 1,
-    title: "Jeu de Gestion Ferroviaire",
-    description: "Jeu 2D de gestion de réseau ferroviaire avec optimisation des déplacements.",
-    image: "/portfolio/assets/projet/CaptureRerail.png",
-    tags: ['C++', 'Raylib'],
-    codeLink: 'propriete-iut',
-    Description: "Conception et développement d'un jeu 2D de gestion ferroviaire où l'objectif est de réorganiser un réseau de chemins de fer en minimisant le nombre de déplacements.",
-    DefisTechniques: [
-      "Gestion des collisions entre les rails",
-      "Vérification de la validité des solutions proposées",
-      "Optimisation des performances pour les réseaux complexes"
-    ],
-    ApprochesEtSolutions: [
-      "Modélisation du réseau sous forme de graphe",
-      "Algorithme de détection de collision entre segments",
-      "Structures de données optimisées (tables de hachage)"
-    ],
-    CompetencesAcquises: [
-      "Programmation avancée en C++ avec Raylib",
-      "Conception d'algorithmes optimisés",
-      "Gestion de projets de développement de jeux"
-    ]
+    featured: true,
+    title: 'CryptoporticusVR',
+    tags: ['Unity', 'Node.js', 'TypeScript', 'React', 'Docker'],
+    image: null,
+    codeLink: null,
+    role: {
+      fr: 'Product Owner · Développement Unity & scène 3D',
+      en: 'Product Owner · Unity development & 3D scene',
+    },
+    description: {
+      fr: "Visite virtuelle immersive des Cryptoportiques d'Arles (site UNESCO), développée en partenariat avec la Mairie d'Arles. Architecture fullstack complète : expérience 3D Unity exportée en WebGL, backend Node.js/TypeScript avec Socket.io pour la visite multijoueur, frontend React. Objectif principal : rendre le site accessible aux personnes à mobilité réduite.",
+      en: "Immersive virtual tour of the Cryptoportiques d'Arles (UNESCO World Heritage site), developed in partnership with the City of Arles. Full fullstack architecture: Unity 3D experience exported to WebGL, Node.js/TypeScript backend with Socket.io for multiplayer visits, React frontend. Main goal: making the site accessible to people with reduced mobility.",
+    },
+    challenges: {
+      fr: [
+        'Synchronisation temps réel des positions de plusieurs visiteurs simultanés via WebSocket',
+        'Double cible Unity : export WebGL (navigateur) et Oculus XR (casque VR)',
+        'Gestion des assets 3D volumineux avec Git LFS',
+      ],
+      en: [
+        'Real-time position sync for multiple simultaneous visitors via WebSocket',
+        'Dual Unity target: WebGL export (browser) and Oculus XR (VR headset)',
+        'Managing large 3D assets with Git LFS',
+      ],
+    },
+    skills_gained: {
+      fr: [
+        'Architecture fullstack (Unity + Node.js/TypeScript + React)',
+        'Leadership technique en tant que Product Owner Scrum',
+        'Développement 3D interactif avec Unity et C#',
+        'WebSockets et synchronisation temps réel',
+        'Déploiement conteneurisé avec Docker',
+      ],
+      en: [
+        'Fullstack architecture (Unity + Node.js/TypeScript + React)',
+        'Technical leadership as Scrum Product Owner',
+        'Interactive 3D development with Unity and C#',
+        'WebSockets and real-time synchronization',
+        'Containerized deployment with Docker',
+      ],
+    },
   },
   {
     id: 2,
-    title: "Gestion des Plaques d'Immatriculation",
-    description: "Application de gestion complète des plaques d'immatriculation et informations véhicules.",
-    image: "/portfolio/assets/projet/CaptureGestionImmatriculation.png",
-    tags: ['C++', 'Qt'],
-    codeLink: 'propriete-iut',
-    Description: "Application permettant la gestion des plaques d'immatriculation et des informations associées (contrôle technique, type de véhicule, etc.).",
-    DefisTechniques: [
-      "Gestion des dates et validation des périodes de contrôle technique",
-      "Conception d'une interface utilisateur intuitive",
-      "Validation des formats de plaques pour différentes régions"
-    ],
-    ApprochesEtSolutions: [
-      "Classe dédiée à la gestion des dates avec contrôles de validité",
-      "Framework Qt pour une interface réactive",
-      "Regex pour la conformité des formats d'immatriculation"
-    ],
-    CompetencesAcquises: [
-      "Développement C++ avec Qt",
-      "Conception d'interfaces ergonomiques",
-      "Validation et sécurisation des données"
-    ]
+    title: 'Memory Matching Game',
+    tags: ['React', 'JavaScript'],
+    image: '/portfolio/assets/projet/CaptureMemoryGame.png',
+    codeLink: 'https://github.com/tEOmthd/ReactMemoryGame',
+    description: {
+      fr: "Jeu de memory développé en React où le joueur doit retrouver toutes les paires de cartes avant la fin du temps imparti.",
+      en: "Memory game built with React where the player must find all card pairs before time runs out.",
+    },
+    challenges: {
+      fr: [
+        "Gestion dynamique de l'état du jeu (cartes, paires, score)",
+        'Animations fluides lors du retournement des cartes',
+        'Gestion du chronomètre et de la fin de partie',
+      ],
+      en: [
+        'Dynamic game state management (cards, pairs, score)',
+        'Smooth flip animations',
+        'Timer management and end-game logic',
+      ],
+    },
+    skills_gained: {
+      fr: ['React hooks (useState, useEffect)', 'Animations CSS', 'Gestion d\'état'],
+      en: ['React hooks (useState, useEffect)', 'CSS animations', 'State management'],
+    },
   },
   {
     id: 3,
-    title: "Memory Matching Game",
-    description: "Jeu de memory en React avec animations et gestion du temps.",
-    image: "/portfolio/assets/projet/CaptureMemoryGame.png",
-    tags: ['JavaScript', 'React'],
-    codeLink: 'https://github.com/tEOmthd/ReactMemoryGame',
-    Description: "Jeu de memory développé en React où le joueur doit retrouver toutes les paires de cartes avant la fin du temps imparti.",
-    DefisTechniques: [
-      "Gestion dynamique de l'état du jeu (cartes, paires, score)",
-      "Animations fluides lors du retournement des cartes",
-      "Gestion du chronomètre et de la fin de partie"
-    ],
-    ApprochesEtSolutions: [
-      "Hooks React (useState, useEffect) pour la gestion d'état",
-      "Animations CSS pour l'expérience utilisateur",
-      "Système d'événements pour la logique du jeu"
-    ],
-    CompetencesAcquises: [
-      "Développement d'applications interactives avec React",
-      "Gestion d'état et cycle de vie des composants",
-      "Interfaces animées et responsives"
-    ]
+    title: 'Gestionnaire de Mots de Passe',
+    tags: ['Java'],
+    image: '/portfolio/assets/projet/CaptureGestionnaireMotDePasse.png',
+    codeLink: 'https://github.com/tEOmthd/GestionnaireDeMotDepasse',
+    description: {
+      fr: "Application Java de gestion sécurisée des mots de passe avec chiffrement AES et interface Swing.",
+      en: "Java password manager with AES encryption and Swing interface.",
+    },
+    challenges: {
+      fr: [
+        'Chiffrement AES des données sensibles',
+        'Mot de passe maître avec hachage sécurisé',
+      ],
+      en: [
+        'AES encryption of sensitive data',
+        'Master password with secure hashing',
+      ],
+    },
+    skills_gained: {
+      fr: ['Cryptographie appliquée (AES)', 'Java Swing', 'Sécurité des données'],
+      en: ['Applied cryptography (AES)', 'Java Swing', 'Data security'],
+    },
   },
   {
     id: 4,
-    title: "Gestionnaire de Mots de Passe",
-    description: "Application Java de gestion sécurisée des mots de passe.",
-    image: "/portfolio/assets/projet/CaptureGestionnaireMotDePasse.png",
-    tags: ['Java'],
-    codeLink: 'https://github.com/tEOmthd/GestionnaireDeMotDepasse',
-    Description: "Gestionnaire de mots de passe permettant aux utilisateurs de stocker et sécuriser leurs identifiants.",
-    DefisTechniques: [
-      "Protection des données sensibles",
-      "Implémentation du chiffrement des mots de passe",
-      "Interface utilisateur fluide et intuitive"
-    ],
-    ApprochesEtSolutions: [
-      "Chiffrement AES pour les mots de passe",
-      "Système de mot de passe maître avec hachage sécurisé",
-      "Interface graphique avec Swing"
-    ],
-    CompetencesAcquises: [
-      "Programmation sécurisée en Java",
-      "Cryptographie appliquée",
-      "Développement d'interfaces utilisateurs"
-    ]
-  }
+    title: 'Fitness API',
+    tags: ['Node.js', 'TypeScript'],
+    image: null,
+    codeLink: null,
+    description: {
+      fr: "API REST complète pour la gestion d'entraînements sportifs. JWT avec access + refresh tokens, architecture DAO/Service/Routes, 67 tests (48 unitaires + 19 intégration).",
+      en: "Full REST API for sports workout management. JWT with access + refresh tokens, DAO/Service/Routes architecture, 67 tests (48 unit + 19 integration).",
+    },
+    challenges: {
+      fr: [
+        'Authentification JWT avec rotation des refresh tokens',
+        'Séparation stricte DAO / Services / Routes',
+        'Couverture de tests à deux niveaux : unit et intégration',
+      ],
+      en: [
+        'JWT authentication with refresh token rotation',
+        'Strict DAO / Services / Routes separation',
+        'Two-level test coverage: unit and integration',
+      ],
+    },
+    skills_gained: {
+      fr: ['Node.js/TypeScript/Express', 'JWT & sécurité API', 'Tests Jest (67 tests)', 'Architecture REST'],
+      en: ['Node.js/TypeScript/Express', 'JWT & API security', 'Jest testing (67 tests)', 'REST architecture'],
+    },
+  },
+  {
+    id: 5,
+    title: 'Jeu de Gestion Ferroviaire',
+    tags: ['C++'],
+    image: '/portfolio/assets/projet/CaptureRerail.png',
+    codeLink: null,
+    description: {
+      fr: "Jeu 2D de gestion de réseau ferroviaire en C++ avec Raylib. Objectif : réorganiser un réseau en minimisant le nombre de déplacements.",
+      en: "2D railway network management game in C++ with Raylib. Goal: reorganize a network while minimizing the number of moves.",
+    },
+    challenges: {
+      fr: [
+        'Détection de collision entre segments de rails',
+        'Modélisation du réseau sous forme de graphe',
+        'Structures de données optimisées (tables de hachage)',
+      ],
+      en: [
+        'Collision detection between rail segments',
+        'Network modeling as a graph',
+        'Optimized data structures (hash tables)',
+      ],
+    },
+    skills_gained: {
+      fr: ['C++ avec Raylib', 'Algorithmes de graphe', 'Gestion de projet de jeu'],
+      en: ['C++ with Raylib', 'Graph algorithms', 'Game project management'],
+    },
+  },
 ];
 
-const FILTERS = ['tout', 'JavaScript', 'C++', 'Java'];
-
-function Projects() {
-  const [filter, setFilter] = useState('tout');
-  const [selectedProject, setSelectedProject] = useState(null);
-
-  const filtered = filter === 'tout'
-    ? projects
-    : projects.filter(p => p.tags.includes(filter));
-
-  useEffect(() => {
-    const handleKey = (e) => {
-      if (e.key === 'Escape') setSelectedProject(null);
-    };
-    if (selectedProject) document.addEventListener('keydown', handleKey);
-    return () => document.removeEventListener('keydown', handleKey);
-  }, [selectedProject]);
+function ProjectModal({ project, onClose, T }) {
+  const { lang } = useLang();
 
   return (
-    <section id="projects" className="projects">
-      <div className="container">
-        <div className="section-header">
-          <h2>Projets</h2>
-        </div>
+    <div className="modal-overlay" onClick={onClose} role="dialog" aria-modal="true">
+      <div className="modal" onClick={e => e.stopPropagation()}>
+        <button className="modal-close" onClick={onClose} aria-label={T.close}>
+          <i className="fas fa-times" />
+        </button>
 
-        <div className="filter-buttons">
-          {FILTERS.map(tag => (
-            <button
-              key={tag}
-              className={filter === tag ? 'active' : ''}
-              onClick={() => setFilter(tag)}
-            >
-              {tag === 'tout' ? 'Tous' : tag}
-            </button>
-          ))}
-        </div>
+        <div className="modal-body">
+          {project.image ? (
+            <div className="modal-image">
+              <img src={project.image} alt={project.title} />
+            </div>
+          ) : (
+            <div className="modal-image modal-image-placeholder">
+              <span>{project.title}</span>
+            </div>
+          )}
 
-        <div className="projects-grid">
-          {filtered.map(project => (
-            <ProjectCard key={project.id} project={project} onClick={setSelectedProject} />
-          ))}
-        </div>
+          <div className="modal-info">
+            <div className="modal-tags">
+              {project.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
+            </div>
+            <h2>{project.title}</h2>
 
-        {selectedProject && (
-          <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
-        )}
+            {project.role && (
+              <p className="modal-role">
+                <span className="modal-label">{T.role}</span>
+                {project.role[lang]}
+              </p>
+            )}
+
+            <div className="modal-section">
+              <h4>{T.description}</h4>
+              <p>{project.description[lang]}</p>
+            </div>
+
+            <div className="modal-section">
+              <h4>{T.challenges}</h4>
+              <ul>{project.challenges[lang].map(c => <li key={c}>{c}</li>)}</ul>
+            </div>
+
+            <div className="modal-section">
+              <h4>{T.skills_gained}</h4>
+              <ul>{project.skills_gained[lang].map(s => <li key={s}>{s}</li>)}</ul>
+            </div>
+
+            <div className="modal-cta">
+              {project.codeLink ? (
+                <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                  <i className="fab fa-github" /> {T.code}
+                </a>
+              ) : (
+                <span className="label-academic">{T.academic}</span>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
   );
 }
 
-function ProjectCard({ project, onClick }) {
+function FeaturedCard({ project, onClick, T }) {
+  const { lang } = useLang();
+
   return (
-    <div className="project-card" onClick={() => onClick(project)}>
-      <div className="project-img">
-        <img src={project.image} alt={project.title} />
+    <div className="project-featured" onClick={() => onClick(project)}>
+      <div className="project-featured-image">
+        {project.image ? (
+          <img src={project.image} alt={project.title} />
+        ) : (
+          <div className="project-featured-placeholder">
+            <span>{project.title}</span>
+          </div>
+        )}
+        <span className="featured-badge">{T.featured_badge}</span>
       </div>
-      <div className="project-content">
-        <h3>{project.title}</h3>
-        <p>{project.description}</p>
+      <div className="project-featured-content">
         <div className="project-tags">
           {project.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
         </div>
-        <div className="project-links">
-          {project.codeLink === 'propriete-iut' ? (
-            <span className="propriete-iut">Propriété IUT</span>
-          ) : (
+        <h3>{project.title}</h3>
+        <p>{project.description[lang]}</p>
+        <button className="btn btn-primary btn-sm">{T.details}</button>
+      </div>
+    </div>
+  );
+}
+
+function ProjectCard({ project, onClick, T }) {
+  const { lang } = useLang();
+
+  return (
+    <div className="project-card" onClick={() => onClick(project)}>
+      <div className="project-card-image">
+        {project.image ? (
+          <img src={project.image} alt={project.title} />
+        ) : (
+          <div className="project-card-placeholder">
+            <span>{project.title[0]}</span>
+          </div>
+        )}
+      </div>
+      <div className="project-card-content">
+        <div className="project-tags">
+          {project.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
+        </div>
+        <h3>{project.title}</h3>
+        <p>{project.description[lang]}</p>
+        <div className="project-card-footer">
+          {project.codeLink ? (
             <a
               href={project.codeLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-sm btn-secondary"
-              onClick={(e) => e.stopPropagation()}
+              className="btn btn-ghost btn-sm"
+              onClick={e => e.stopPropagation()}
             >
-              <i className="fab fa-github" /> Code
+              <i className="fab fa-github" /> {T.code}
             </a>
+          ) : (
+            <span className="label-academic">{T.academic}</span>
           )}
-          <button className="btn btn-sm btn-primary" onClick={(e) => { e.stopPropagation(); onClick(project); }}>
-            Détails
-          </button>
+          <button className="btn btn-primary btn-sm">{T.details}</button>
         </div>
       </div>
     </div>
   );
 }
 
-function ProjectModal({ project, onClose }) {
+function Projects() {
+  const { lang } = useLang();
+  const T = translations[lang].projects;
+  const [selected, setSelected] = useState(null);
+  const ref = useReveal();
+
+  const featured = PROJECTS_DATA.find(p => p.featured);
+  const others = PROJECTS_DATA.filter(p => !p.featured);
+
+  useEffect(() => {
+    const handleKey = e => { if (e.key === 'Escape') setSelected(null); };
+    if (selected) document.addEventListener('keydown', handleKey);
+    return () => document.removeEventListener('keydown', handleKey);
+  }, [selected]);
+
   return (
-    <div className="project-modal-overlay" onClick={onClose}>
-      <div className="project-modal" onClick={(e) => e.stopPropagation()}>
-        <button className="close-modal" onClick={onClose} aria-label="Fermer">
-          <i className="fas fa-times" />
-        </button>
-        <div className="modal-content">
-          <h2>{project.title}</h2>
-          <div className="modal-image">
-            <img src={project.image} alt={project.title} />
-          </div>
-          <div className="modal-tags">
-            {project.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
-          </div>
-          <div className="modal-section">
-            <h3>Description</h3>
-            <p>{project.Description}</p>
-          </div>
-          <div className="modal-section">
-            <h3>Défis techniques</h3>
-            <ul>{project.DefisTechniques.map(d => <li key={d}>{d}</li>)}</ul>
-          </div>
-          <div className="modal-section">
-            <h3>Approches & Solutions</h3>
-            <ul>{project.ApprochesEtSolutions.map(s => <li key={s}>{s}</li>)}</ul>
-          </div>
-          <div className="modal-section">
-            <h3>Compétences acquises</h3>
-            <ul>{project.CompetencesAcquises.map(c => <li key={c}>{c}</li>)}</ul>
-          </div>
-          <div className="modal-links">
-            {project.codeLink === 'propriete-iut' ? (
-              <span className="propriete-iut">Propriété IUT — code indisponible</span>
-            ) : (
-              <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                <i className="fab fa-github" /> Voir le code
-              </a>
-            )}
-          </div>
+    <section id="projects" className="section reveal-section" ref={ref}>
+      <div className="container">
+        <h2 className="section-title">{T.title}</h2>
+
+        {featured && (
+          <FeaturedCard project={featured} onClick={setSelected} T={T} />
+        )}
+
+        <div className="projects-grid">
+          {others.map(project => (
+            <ProjectCard key={project.id} project={project} onClick={setSelected} T={T} />
+          ))}
         </div>
       </div>
-    </div>
+
+      {selected && (
+        <ProjectModal project={selected} onClose={() => setSelected(null)} T={T} />
+      )}
+    </section>
   );
 }
 
