@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import '../style/Projets.css';
 import { useLang } from '../contexts/LangContext';
 import { translations } from '../i18n';
@@ -321,8 +322,9 @@ function Projects() {
         </div>
       </div>
 
-      {selected && (
-        <ProjectModal project={selected} onClose={() => setSelected(null)} T={T} />
+      {selected && createPortal(
+        <ProjectModal project={selected} onClose={() => setSelected(null)} T={T} />,
+        document.body
       )}
     </section>
   );
