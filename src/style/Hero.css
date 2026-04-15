@@ -209,3 +209,9 @@
     height: 220px;
   }
 }
+
+@media (max-width: 480px) {
+  .hero-name {
+    font-size: clamp(2.6rem, 11vw, 3.5rem);
+  }
+}
