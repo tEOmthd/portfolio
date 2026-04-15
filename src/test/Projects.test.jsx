@@ -11,7 +11,7 @@ function renderWithProviders(ui) {
 describe('Projects — affichage', () => {
   it('affiche le projet phare (featured) dans un h3', () => {
     renderWithProviders(<Projects />);
-    expect(screen.getByRole('heading', { level: 3, name: 'CryptoporticusVR' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 3, name: 'CryptoportiquesVR' })).toBeInTheDocument();
   });
 
   it('affiche les 4 projets en grille', () => {
