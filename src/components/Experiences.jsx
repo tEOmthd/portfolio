@@ -3,6 +3,30 @@ import { useLang } from '../contexts/LangContext';
 import { translations } from '../i18n';
 import { useReveal } from '../hooks/useReveal';
 
+const CERTIFICATIONS = [
+  {
+    id: 'claude-101',
+    title: 'Claude 101',
+    org: 'Anthropic Education',
+    year: '2026',
+    url: 'https://verify.skilljar.com/c/gvbz8hjra8dg',
+  },
+  {
+    id: 'claude-code-101',
+    title: 'Claude Code 101',
+    org: 'Anthropic Education',
+    year: '2026',
+    url: 'https://verify.skilljar.com/c/x4y7q3xrwygj',
+  },
+  {
+    id: 'intro-claude',
+    title: 'Introduction to Claude',
+    org: 'Anthropic Education',
+    year: '2026',
+    url: 'https://verify.skilljar.com/c/msadhfh56f7f',
+  },
+];
+
 const EXPERIENCES = [
   {
     id: 'crypto',
@@ -88,6 +112,22 @@ function TimelineEntry({ item, lang, T, isLast }) {
   );
 }
 
+function CertBadge({ cert, verifyLabel }) {
+  return (
+    <a
+      className="cert-badge"
+      href={cert.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      title={`${verifyLabel} — ${cert.title}`}
+    >
+      <span className="cert-issuer">{cert.org}</span>
+      <span className="cert-title">{cert.title}</span>
+      <span className="cert-year">{cert.year}</span>
+    </a>
+  );
+}
+
 function Experiences() {
   const { lang } = useLang();
   const T = translations[lang].experience;
@@ -127,6 +167,15 @@ function Experiences() {
                 />
               ))}
             </div>
+          </div>
+        </div>
+
+        <div className="cert-section">
+          <h3 className="exp-group-title">{T.section_certifications}</h3>
+          <div className="cert-scroll">
+            {CERTIFICATIONS.map(cert => (
+              <CertBadge key={cert.id} cert={cert} verifyLabel={T.verify} />
+            ))}
           </div>
         </div>
       </div>
