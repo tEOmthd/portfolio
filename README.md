@@ -1,21 +1,19 @@
-# 🌐 Portfolio – Téo Mathiaud  
+# Portfolio — Téo Mathiaud
 
-Bienvenue sur le dépôt de mon portfolio personnel.  
-Ce projet a pour objectif de présenter mon parcours, mes compétences et mes projets en informatique de manière claire et moderne.  
+**[tEOmthd.github.io/portfolio](https://tEOmthd.github.io/portfolio)**
 
-## 🎯 Objectifs du portfolio  
-- Mettre en valeur mon profil étudiant en BUT Informatique.  
-- Centraliser mes expériences, projets académiques et personnels.  
-- Offrir une interface simple et responsive pour les recruteurs et collaborateurs.  
+Mon portfolio personnel, construit avec React + Vite. Il regroupe mes projets, mes expériences et mes certifications.
 
-## 👨‍💻 À propos de moi  
-Je m’appelle **Téo Mathiaud**, étudiant en **2ᵉ année de BUT Informatique**.  
-Passionné par le développement web et logiciel, j’ai travaillé sur divers projets allant de petites applications interactives à des solutions plus complètes (React, API, bases de données, etc.).  
+## Stack
 
-Je suis motivé par l’apprentissage continu, le travail en équipe et la création de solutions utiles et élégantes.  
+- React 18 + Vite
+- JavaScript / CSS vanilla
+- Déployé via GitHub Pages
 
-## 🛠️ Technologies utilisées  
-- **React + Vite** → pour la rapidité et la simplicité du développement.  
-- **JavaScript** → langage principal du projet.  
-- **CSS** → pour la mise en forme et le style.  
+## Lancer en local
+
+```bash
+npm install
+npm run dev
+```
 

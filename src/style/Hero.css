@@ -193,4 +193,19 @@
   .hero-scroll-hint {
     display: none;
   }
+
+  .blob-1 {
+    width: 340px;
+    height: 300px;
+  }
+
+  .blob-2 {
+    width: 280px;
+    height: 280px;
+  }
+
+  .blob-3 {
+    width: 220px;
+    height: 220px;
+  }
 }

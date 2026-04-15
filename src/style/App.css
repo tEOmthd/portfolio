@@ -157,6 +157,27 @@ button {
 
 /* ===== SECTION BACKGROUNDS (override in component CSS) ===== */
 
+/* ===== RESPONSIVE GLOBAL ===== */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .section {
+    padding: 72px 0;
+  }
+
+  .section-title {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 56px 0;
+  }
+}
+
 /* ===== SCROLL REVEAL ===== */
 .reveal-section {
   opacity: 0;
