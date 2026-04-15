@@ -34,6 +34,9 @@ export const translations = {
       in_progress: 'En cours',
       section_pro: 'Expériences professionnelles',
       section_formation: 'Formation',
+      section_certifications: 'Certifications',
+      cert_sub: 'Formations suivies et certifications obtenues via des plateformes en ligne.',
+      verify: 'Vérifier',
     },
     about: {
       title: 'À propos',
@@ -98,6 +101,9 @@ export const translations = {
       in_progress: 'In progress',
       section_pro: 'Work Experience',
       section_formation: 'Education',
+      section_certifications: 'Certifications',
+      cert_sub: 'Courses completed and certifications earned through online learning platforms.',
+      verify: 'Verify',
     },
     about: {
       title: 'About',

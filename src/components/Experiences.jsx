@@ -172,6 +172,7 @@ function Experiences() {
 
         <div className="cert-section">
           <h3 className="exp-group-title">{T.section_certifications}</h3>
+          <p className="cert-sub">{T.cert_sub}</p>
           <div className="cert-scroll">
             {CERTIFICATIONS.map(cert => (
               <CertBadge key={cert.id} cert={cert} verifyLabel={T.verify} />
