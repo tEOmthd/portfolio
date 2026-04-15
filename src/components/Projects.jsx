@@ -8,7 +8,7 @@ const PROJECTS_DATA = [
   {
     id: 1,
     featured: true,
-    title: 'CryptoporticusVR',
+    title: 'CryptoportiquesVR',
     tags: ['Unity', 'Node.js', 'TypeScript', 'React', 'Docker'],
     image: null,
     codeLink: null,
