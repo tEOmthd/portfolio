@@ -11,20 +11,21 @@ function renderWithProviders(ui) {
 describe('Projects — affichage', () => {
   it('affiche le projet phare (featured) dans un h3', () => {
     renderWithProviders(<Projects />);
-    expect(screen.getByRole('heading', { level: 3, name: 'CryptoportiquesVR' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 3, name: 'NLM Production' })).toBeInTheDocument();
   });
 
-  it('affiche les 4 projets en grille', () => {
+  it('affiche les 5 projets en grille', () => {
     renderWithProviders(<Projects />);
+    expect(screen.getByRole('heading', { level: 3, name: 'CryptoportiquesVR' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 3, name: 'Memory Matching Game' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 3, name: 'Gestionnaire de Mots de Passe' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 3, name: 'Fitness API' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 3, name: 'Jeu de Gestion Ferroviaire' })).toBeInTheDocument();
   });
 
-  it('affiche 5 titres de projets au total (1 featured + 4 en grille)', () => {
+  it('affiche 6 titres de projets au total (1 featured + 5 en grille)', () => {
     renderWithProviders(<Projects />);
-    expect(screen.getAllByRole('heading', { level: 3 })).toHaveLength(5);
+    expect(screen.getAllByRole('heading', { level: 3 })).toHaveLength(6);
   });
 });
 

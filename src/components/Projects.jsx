@@ -7,8 +7,52 @@ import { useReveal } from '../hooks/useReveal';
 
 const PROJECTS_DATA = [
   {
-    id: 1,
+    id: 0,
     featured: true,
+    title: 'NLM Production',
+    tags: ['React', 'TypeScript', 'Strapi', 'PostgreSQL', 'Vercel'],
+    image: '/portfolio/assets/projet/CaptureNLMProduction.png',
+    liveLink: 'https://nlmproduction.fr/',
+    codeLink: null,
+    role: {
+      fr: 'Développeur full-stack (design → déploiement)',
+      en: 'Full-stack developer (design → deployment)',
+    },
+    description: {
+      fr: "Site vitrine professionnel pour un vidéaste/photographe/pilote de drone freelance basé en Provence. Frontend React avec CMS Strapi headless permettant au client de gérer son contenu en totale autonomie, déployé en production sur Vercel + VPS Hetzner.",
+      en: "Professional showcase website for a freelance videographer/photographer/drone pilot based in Provence. React frontend with a headless Strapi CMS giving the client full content autonomy, deployed on Vercel + Hetzner VPS.",
+    },
+    challenges: {
+      fr: [
+        'CMS headless Strapi sur VPS Hetzner avec CI/CD GitHub Actions et PM2',
+        'Galerie photo en grille masonry avec lightbox et navigation clavier',
+        'Intégration YouTube/Vimeo avec player personnalisé et prévisualisation',
+        'SEO avancé : JSON-LD (LocalBusiness, ContactPage), meta OG, sitemap',
+      ],
+      en: [
+        'Headless Strapi CMS on Hetzner VPS with GitHub Actions CI/CD and PM2',
+        'Masonry photo grid with lightbox and keyboard navigation',
+        'YouTube/Vimeo integration with custom player and preview thumbnails',
+        'Advanced SEO: JSON-LD (LocalBusiness, ContactPage), OG meta, sitemap',
+      ],
+    },
+    skills_gained: {
+      fr: [
+        'Architecture full-stack (React + Strapi + PostgreSQL)',
+        'Déploiement VPS avec CI/CD GitHub Actions',
+        'SEO technique avec données structurées JSON-LD',
+        'Conception d\'une interface orientée client non-technique',
+      ],
+      en: [
+        'Full-stack architecture (React + Strapi + PostgreSQL)',
+        'VPS deployment with GitHub Actions CI/CD',
+        'Technical SEO with JSON-LD structured data',
+        'Designing interfaces for non-technical end clients',
+      ],
+    },
+  },
+  {
+    id: 1,
     title: 'CryptoportiquesVR',
     tags: ['Unity', 'Node.js', 'TypeScript', 'React', 'Docker'],
     image: null,
@@ -208,11 +252,17 @@ function ProjectModal({ project, onClose, T }) {
             </div>
 
             <div className="modal-cta">
-              {project.codeLink ? (
+              {project.liveLink && (
+                <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                  <i className="fas fa-external-link-alt" /> {T.live}
+                </a>
+              )}
+              {project.codeLink && (
                 <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                   <i className="fab fa-github" /> {T.code}
                 </a>
-              ) : (
+              )}
+              {!project.liveLink && !project.codeLink && (
                 <span className="label-academic">{T.academic}</span>
               )}
             </div>
@@ -271,7 +321,17 @@ function ProjectCard({ project, onClick, T }) {
         <h3>{project.title}</h3>
         <p>{project.description[lang]}</p>
         <div className="project-card-footer">
-          {project.codeLink ? (
+          {project.liveLink ? (
+            <a
+              href={project.liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-ghost btn-sm"
+              onClick={e => e.stopPropagation()}
+            >
+              <i className="fas fa-external-link-alt" /> {T.live}
+            </a>
+          ) : project.codeLink ? (
             <a
               href={project.codeLink}
               target="_blank"
