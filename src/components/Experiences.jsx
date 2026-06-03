@@ -45,8 +45,8 @@ const EXPERIENCES = [
     id: 'harsco',
     type: 'stage',
     year: '2025',
-    title: { fr: 'Stage — Harsco Environmental', en: 'Internship — Harsco Environmental' },
-    org: { fr: 'Fos-sur-Mer', en: 'Fos-sur-Mer' },
+    title: { fr: 'Stage — Harsco Metals & Minerals France', en: 'Internship — Harsco Metals & Minerals France' },
+    org: { fr: 'Harsco Metals & Minerals France (site ArcelorMittal, Fos-sur-Mer)', en: 'Harsco Metals & Minerals France (ArcelorMittal site, Fos-sur-Mer)' },
     period: { fr: 'Mars — Juin 2025 · 3 mois', en: 'March — June 2025 · 3 months' },
     tags: ['PowerApps', 'Power Automate', 'PowerBI', 'SQL'],
     description: {
@@ -58,13 +58,27 @@ const EXPERIENCES = [
 
 const FORMATIONS = [
   {
+    id: 'master',
+    type: 'formation',
+    year: '2026',
+    title: { fr: 'Master Informatique', en: "Master's in Computer Science" },
+    org: { fr: 'Rentrée septembre 2026', en: 'Starting September 2026' },
+    period: { fr: 'Sept. 2026 →', en: 'Sept. 2026 →' },
+    inProgress: true,
+    tags: [],
+    description: {
+      fr: "Formation Bac+5 en informatique, en alternance.",
+      en: "5-year degree in Computer Science, work-study program.",
+    },
+  },
+  {
     id: 'but',
     type: 'formation',
     year: '2023',
     title: { fr: 'BUT Informatique', en: 'Bachelor of Technology — CS' },
     org: { fr: 'IUT Aix-Marseille — Arles', en: 'IUT Aix-Marseille — Arles' },
     period: { fr: '2023 → 2026', en: '2023 → 2026' },
-    inProgress: true,
+    inProgress: false,
     tags: [],
     description: {
       fr: "Formation couvrant le développement logiciel, bases de données, réseaux et méthodes agiles. Nombreux projets en équipe, du prototype au déploiement.",

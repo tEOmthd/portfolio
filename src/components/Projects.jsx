@@ -14,6 +14,7 @@ const PROJECTS_DATA = [
     image: '/portfolio/assets/projet/CaptureNLMProduction.png',
     liveLink: 'https://nlmproduction.fr/',
     codeLink: null,
+    privateCode: 'client',
     role: {
       fr: 'Développeur full-stack (design → déploiement)',
       en: 'Full-stack developer (design → deployment)',
@@ -57,6 +58,7 @@ const PROJECTS_DATA = [
     tags: ['Unity', 'Node.js', 'TypeScript', 'React', 'Docker'],
     image: null,
     codeLink: null,
+    privateCode: 'university',
     role: {
       fr: 'Product Owner · Développement Unity & scène 3D',
       en: 'Product Owner · Unity development & 3D scene',
@@ -151,7 +153,7 @@ const PROJECTS_DATA = [
     title: 'Fitness API',
     tags: ['Node.js', 'TypeScript'],
     image: null,
-    codeLink: null,
+    codeLink: 'https://github.com/tEOmthd/fitness-api',
     description: {
       fr: "API REST complète pour la gestion d'entraînements sportifs. JWT avec access + refresh tokens, architecture DAO/Service/Routes, 67 tests (48 unitaires + 19 intégration).",
       en: "Full REST API for sports workout management. JWT with access + refresh tokens, DAO/Service/Routes architecture, 67 tests (48 unit + 19 integration).",
@@ -179,6 +181,7 @@ const PROJECTS_DATA = [
     tags: ['C++'],
     image: '/portfolio/assets/projet/CaptureRerail.png',
     codeLink: null,
+    privateCode: 'university',
     description: {
       fr: "Jeu 2D de gestion de réseau ferroviaire en C++ avec Raylib. Objectif : réorganiser un réseau en minimisant le nombre de déplacements.",
       en: "2D railway network management game in C++ with Raylib. Goal: reorganize a network while minimizing the number of moves.",
@@ -262,7 +265,12 @@ function ProjectModal({ project, onClose, T }) {
                   <i className="fab fa-github" /> {T.code}
                 </a>
               )}
-              {!project.liveLink && !project.codeLink && (
+              {!project.codeLink && project.privateCode && (
+                <span className="label-academic">
+                  <i className="fas fa-lock" /> {T[`private_code_${project.privateCode}`]}
+                </span>
+              )}
+              {!project.liveLink && !project.codeLink && !project.privateCode && (
                 <span className="label-academic">{T.academic}</span>
               )}
             </div>
@@ -341,6 +349,10 @@ function ProjectCard({ project, onClick, T }) {
             >
               <i className="fab fa-github" /> {T.code}
             </a>
+          ) : project.privateCode ? (
+            <span className="label-academic">
+              <i className="fas fa-lock" /> {T[`private_code_${project.privateCode}`]}
+            </span>
           ) : (
             <span className="label-academic">{T.academic}</span>
           )}

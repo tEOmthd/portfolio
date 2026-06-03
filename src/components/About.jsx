@@ -6,19 +6,23 @@ import { useReveal } from '../hooks/useReveal';
 const STACK = [
   {
     category: { fr: 'Frontend', en: 'Frontend' },
-    items: ['React', 'TypeScript', 'JavaScript', 'HTML/CSS', 'Three.js', 'Vite / Webpack'],
+    items: ['React', 'TypeScript', 'JavaScript', 'HTML/CSS', 'Three.js'],
   },
   {
     category: { fr: 'Backend', en: 'Backend' },
-    items: ['Node.js', 'Express', 'PHP', 'Laravel', 'Python', 'JWT / Auth'],
+    items: ['Node.js', 'Express', 'JWT / Auth'],
   },
   {
     category: { fr: 'Systèmes & Jeux', en: 'Systems & Games' },
-    items: ['C++', 'C', 'Java', 'C# / Unity', 'OpenGL', 'Linux / Bash'],
+    items: ['C# / Unity', 'C++', 'Java', 'Linux / Bash'],
   },
   {
     category: { fr: 'Data & Infra', en: 'Data & Infra' },
-    items: ['MySQL', 'SQLite', 'Docker', 'Git / CI-CD', 'PowerApps', 'PowerBI'],
+    items: ['MySQL / PostgreSQL', 'SQLite', 'Docker', 'Git / CI-CD', 'PowerApps', 'PowerBI'],
+  },
+  {
+    category: { fr: 'Notions', en: 'Notions' },
+    items: ['Python', 'PHP / Laravel'],
   },
 ];
 
