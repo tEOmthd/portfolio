@@ -61,14 +61,17 @@ const FORMATIONS = [
     id: 'master',
     type: 'formation',
     year: '2026',
-    title: { fr: 'Master Informatique', en: "Master's in Computer Science" },
-    org: { fr: 'Rentrée septembre 2026', en: 'Starting September 2026' },
+    title: {
+      fr: 'Master Informatique — Ingénierie du Logiciel (ILSEN)',
+      en: "Master's in Computer Science — Software Engineering (ILSEN)",
+    },
+    org: { fr: "Université d'Avignon", en: 'University of Avignon' },
     period: { fr: 'Sept. 2026 →', en: 'Sept. 2026 →' },
     inProgress: true,
     tags: [],
     description: {
-      fr: "Formation Bac+5 en informatique, en alternance.",
-      en: "5-year degree in Computer Science, work-study program.",
+      fr: "Master Ingénierie du Logiciel de la Société Numérique. Formation mixte : je recherche une alternance pour la suivre en rythme entreprise/école.",
+      en: "Master in Software Engineering for the Digital Society. Hybrid program: I'm seeking a work-study contract (alternance) to follow it.",
     },
   },
   {
