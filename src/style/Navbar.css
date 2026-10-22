@@ -21,9 +21,9 @@
 }
 
 .navbar-logo {
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.02em;
   flex-shrink: 0;
@@ -87,7 +87,7 @@
   border: 1px solid var(--border);
   border-radius: 2px;
   color: var(--text-secondary);
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.05em;

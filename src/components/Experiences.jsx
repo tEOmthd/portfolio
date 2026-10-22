@@ -3,26 +3,22 @@ import { useLang } from '../contexts/LangContext';
 import { translations } from '../i18n';
 import { useReveal } from '../hooks/useReveal';
 
+const CERT_YEAR = '2026';
+
 const CERTIFICATIONS = [
   {
     id: 'claude-101',
     title: 'Claude 101',
-    org: 'Anthropic Education',
-    year: '2026',
     url: 'https://verify.skilljar.com/c/gvbz8hjra8dg',
   },
   {
     id: 'claude-code-101',
     title: 'Claude Code 101',
-    org: 'Anthropic Education',
-    year: '2026',
     url: 'https://verify.skilljar.com/c/x4y7q3xrwygj',
   },
   {
     id: 'intro-claude',
     title: 'Introduction to Claude',
-    org: 'Anthropic Education',
-    year: '2026',
     url: 'https://verify.skilljar.com/c/msadhfh56f7f',
   },
 ];
@@ -30,8 +26,6 @@ const CERTIFICATIONS = [
 const EXPERIENCES = [
   {
     id: 'crypto',
-    type: 'stage',
-    year: '2026',
     title: { fr: 'CryptoporticusVR', en: 'CryptoporticusVR' },
     org: { fr: 'Service Patrimoine, Ville d\'Arles', en: 'Heritage Department, City of Arles' },
     period: { fr: '16 mars au 19 juin 2026', en: 'March 16 to June 19, 2026' },
@@ -43,8 +37,6 @@ const EXPERIENCES = [
   },
   {
     id: 'harsco',
-    type: 'stage',
-    year: '2025',
     title: { fr: 'Harsco Environmental', en: 'Harsco Environmental' },
     org: { fr: 'Site ArcelorMittal, Fos-sur-Mer', en: 'ArcelorMittal site, Fos-sur-Mer' },
     period: { fr: 'Mars à juin 2025', en: 'March to June 2025' },
@@ -59,12 +51,9 @@ const EXPERIENCES = [
 const FORMATIONS = [
   {
     id: 'master',
-    type: 'formation',
-    year: '2026',
     title: { fr: 'Master ILSEN', en: 'ILSEN Master\'s' },
     org: { fr: 'Avignon Université', en: 'Avignon Université' },
     period: { fr: 'Depuis sept. 2026', en: 'Since Sept. 2026' },
-    inProgress: true,
     tags: [],
     description: {
       fr: 'Master Informatique, Ingénierie du Logiciel de la Société Numérique. Je cherche une alternance pour le suivre.',
@@ -73,12 +62,9 @@ const FORMATIONS = [
   },
   {
     id: 'but',
-    type: 'formation',
-    year: '2023',
     title: { fr: 'BUT Informatique', en: 'BUT in Computer Science' },
     org: { fr: "IUT Aix-Marseille, site d'Arles", en: 'IUT Aix-Marseille, Arles campus' },
     period: { fr: '2023 à 2026', en: '2023 to 2026' },
-    inProgress: false,
     tags: [],
     description: {
       fr: 'Développement logiciel, bases de données, réseaux, méthodes agiles. Projet tutoré en équipe : première version de CryptoporticusVR.',
@@ -87,45 +73,19 @@ const FORMATIONS = [
   },
 ];
 
-function TimelineEntry({ item, lang, T, isLast }) {
-  const isStage = item.type === 'stage';
-
+function ExpRow({ item, lang }) {
   return (
-    <div className={`tl-entry${isLast ? ' tl-entry-last' : ''}`}>
-      {/* Colonne gauche : année + ligne */}
-      <div className="tl-left">
-        <span className="tl-year">{item.year}</span>
-        {!isLast && <div className="tl-line" />}
+    <li className="exp-row">
+      <span className="date exp-period">{item.period[lang]}</span>
+      <div className="exp-content">
+        <h4>{item.title[lang]}</h4>
+        <p className="exp-org">{item.org[lang]}</p>
+        <p className="exp-desc">{item.description[lang]}</p>
+        {item.tags.length > 0 && <p className="tech-line">{item.tags.join(', ')}</p>}
       </div>
-
-      {/* Colonne centrale : dot */}
-      <div className="tl-track">
-        <div className={`tl-dot${isStage ? ' tl-dot-stage' : ''}`} />
-        {!isLast && <div className="tl-connector" />}
-      </div>
-
-      {/* Contenu */}
-      <div className="tl-content">
-        <div className="tl-header">
-          <span className={`tl-type${isStage ? ' tl-type-stage' : ''}`}>
-            {isStage ? T.internship : T.formation}
-          </span>
-          {item.inProgress && <span className="tl-badge">{T.in_progress}</span>}
-          <span className="tl-period">{item.period[lang]}</span>
-        </div>
-        <h3>{item.title[lang]}</h3>
-        <p className="tl-org">{item.org[lang]}</p>
-        <p className="tl-desc">{item.description[lang]}</p>
-        {item.tags.length > 0 && (
-          <div className="tl-tags">
-            {item.tags.map(t => <span key={t} className="tag">{t}</span>)}
-          </div>
-        )}
-      </div>
-    </div>
+    </li>
   );
 }
-
 
 function Experiences() {
   const { lang } = useLang();
@@ -137,36 +97,18 @@ function Experiences() {
       <div className="container">
         <h2 className="section-title">{T.title}</h2>
 
-        <div className="exp-columns">
-          <div className="exp-group">
-            <h3 className="exp-group-title">{T.section_pro}</h3>
-            <div className="timeline">
-              {EXPERIENCES.map((item, i) => (
-                <TimelineEntry
-                  key={item.id}
-                  item={item}
-                  lang={lang}
-                  T={T}
-                  isLast={i === EXPERIENCES.length - 1}
-                />
-              ))}
-            </div>
-          </div>
+        <div className="exp-group">
+          <h3 className="exp-group-title">{T.section_pro}</h3>
+          <ol className="exp-list">
+            {EXPERIENCES.map(item => <ExpRow key={item.id} item={item} lang={lang} />)}
+          </ol>
+        </div>
 
-          <div className="exp-group">
-            <h3 className="exp-group-title">{T.section_formation}</h3>
-            <div className="timeline">
-              {FORMATIONS.map((item, i) => (
-                <TimelineEntry
-                  key={item.id}
-                  item={item}
-                  lang={lang}
-                  T={T}
-                  isLast={i === FORMATIONS.length - 1}
-                />
-              ))}
-            </div>
-          </div>
+        <div className="exp-group">
+          <h3 className="exp-group-title">{T.section_formation}</h3>
+          <ol className="exp-list">
+            {FORMATIONS.map(item => <ExpRow key={item.id} item={item} lang={lang} />)}
+          </ol>
         </div>
 
         <p className="cert-line">
@@ -180,7 +122,7 @@ function Experiences() {
               </a>
             </span>
           ))}
-          {' '}({CERTIFICATIONS[0].year})
+          {' '}({CERT_YEAR})
         </p>
       </div>
     </section>

@@ -1,114 +1,73 @@
-.about-section {
-  background: var(--bg-secondary);
-}
-
 .about-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr);
+  gap: 64px;
   align-items: start;
 }
 
-/* ===== TEXT ===== */
-.about-text {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
+.about-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 6px;
 }
 
 .about-text p {
-  font-size: 1.05rem;
   color: var(--text-secondary);
-  line-height: 1.78;
-  font-weight: 300;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  max-width: 620px;
 }
 
-.about-personal {
-  color: var(--text-muted) !important;
-  font-size: 0.93rem !important;
-  padding-top: 12px;
-  border-top: 1px solid var(--border);
-  font-style: italic;
-}
-
-/* ===== STACK ===== */
-.about-stack {
-  position: sticky;
-  top: 88px;
-}
-
-.about-stack-label {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 24px;
-}
-
-.stack-categories {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.stack-category {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.stack-cat-title {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.stack-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.stack-tag {
-  display: inline-block;
-  padding: 5px 12px;
-  font-size: 0.82rem;
-  color: var(--text-secondary);
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  border-radius: 2px;
-  transition: border-color var(--transition), color var(--transition);
-}
-
-.stack-tag:hover {
-  border-color: var(--accent);
+.about-text .about-lead {
+  font-size: 1.3rem;
+  line-height: 1.5;
   color: var(--text-primary);
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
+.about-stack {
+  margin-top: 48px;
+}
+
+.about-stack-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.stack-row {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 24px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.stack-row dt {
+  color: var(--text-muted);
+}
+
+.stack-row dd {
+  color: var(--text-primary);
+}
+
+@media (max-width: 860px) {
   .about-layout {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 40px;
   }
 
-  .about-stack {
-    position: static;
+  .about-photo {
+    max-width: 320px;
   }
 }
 
-.about-languages {
-  margin-top: 24px;
-  color: var(--text-secondary);
-}
-
-.about-languages .about-stack-label {
-  display: block;
-  margin-bottom: 8px;
+@media (max-width: 480px) {
+  .stack-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
 }

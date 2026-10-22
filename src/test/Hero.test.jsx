@@ -15,9 +15,9 @@ describe('Hero', () => {
     expect(heading).toHaveTextContent('Mathiaud');
   });
 
-  it('affiche le label de présentation', () => {
+  it("n'affiche plus le label façon commentaire de code", () => {
     renderWithProviders(<Hero />);
-    expect(screen.getByText('// Développeur Fullstack')).toBeInTheDocument();
+    expect(screen.queryByText(/\/\/ Développeur/)).not.toBeInTheDocument();
   });
 
   it("affiche l'accroche avec le Master ILSEN", () => {

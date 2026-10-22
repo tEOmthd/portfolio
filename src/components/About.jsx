@@ -45,31 +45,35 @@ function About() {
         <h2 className="section-title">{T.title}</h2>
 
         <div className="about-layout">
+          <img
+            className="about-photo"
+            src="/portfolio/assets/TeoAbout.jpg"
+            width="900"
+            height="1200"
+            alt={T.photo_alt}
+            loading="lazy"
+          />
+
           <div className="about-text">
-            <p>{T.p1}</p>
+            <p className="about-lead">{T.p1}</p>
             <p>{T.p2}</p>
-            <p className="about-personal">{T.p3}</p>
-          </div>
+            <p>{T.p3}</p>
 
-          <div className="about-stack">
-            <span className="about-stack-label">{T.stack_label}</span>
-            <div className="stack-categories">
-              {STACK.map(({ category, items }) => (
-                <div key={category.fr} className="stack-category">
-                  <span className="stack-cat-title">{category[lang]}</span>
-                  <div className="stack-tags">
-                    {items.map(item => (
-                      <span key={item} className="stack-tag">{item}</span>
-                    ))}
+            <div className="about-stack">
+              <h3 className="about-stack-title">{T.stack_label}</h3>
+              <dl className="stack-list">
+                {STACK.map(({ category, items }) => (
+                  <div key={category.fr} className="stack-row">
+                    <dt>{category[lang]}</dt>
+                    <dd>{items.join(', ')}</dd>
                   </div>
+                ))}
+                <div className="stack-row">
+                  <dt>{T.languages_label}</dt>
+                  <dd>{T.languages}</dd>
                 </div>
-              ))}
+              </dl>
             </div>
-
-            <p className="about-languages">
-              <span className="about-stack-label">{T.languages_label}</span>
-              {T.languages}
-            </p>
           </div>
         </div>
       </div>

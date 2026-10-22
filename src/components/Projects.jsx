@@ -10,6 +10,8 @@ const CASE_STUDIES = [
     tags: ['React', 'TypeScript', 'Strapi', 'PostgreSQL', 'Vercel'],
     media: {
       image: '/portfolio/assets/projet/CaptureNLMProduction.png',
+      width: 1855,
+      height: 914,
       alt: { fr: "Page d'accueil du site NLM Production", en: 'NLM Production home page' },
     },
     liveLink: 'https://nlmproduction.fr/',
@@ -140,7 +142,15 @@ function CaseMedia({ study, lang }) {
   }
 
   if (media.image) {
-    return <img src={media.image} alt={media.alt[lang]} loading="lazy" />;
+    return (
+      <img
+        src={media.image}
+        width={media.width}
+        height={media.height}
+        alt={media.alt[lang]}
+        loading="lazy"
+      />
+    );
   }
 
   return (
@@ -158,44 +168,49 @@ function CaseStudy({ study, lang, T }) {
       </div>
 
       <div className="case-body">
-        {study.subtitle && <p className="case-subtitle">{study.subtitle}</p>}
-        <h3>{study.title[lang]}</h3>
-        <p className="case-role">{study.role[lang]}</p>
+        <header className="case-head">
+          <h3>{study.title[lang]}</h3>
+          {study.subtitle && <p className="case-subtitle">{study.subtitle}</p>}
+          <p className="case-role">{study.role[lang]}</p>
+          <div className="case-links">
+            {study.liveLink && (
+              <a href={study.liveLink} target="_blank" rel="noopener noreferrer" className="text-link">
+                {T.live} <span aria-hidden="true">↗</span>
+              </a>
+            )}
+            {study.privateCode && (
+              <span className="case-private">{T[`private_code_${study.privateCode}`]}</span>
+            )}
+          </div>
+        </header>
 
-        {study.blocks.map(block => (
-          <p key={block.label.fr} className="case-block">
-            <strong>{block.label[lang]}.</strong> {block.text[lang]}
-          </p>
-        ))}
+        <div className="case-story">
+          {study.blocks.map(block => (
+            <div key={block.label.fr} className="case-block">
+              <h4>{block.label[lang]}</h4>
+              <p>{block.text[lang]}</p>
+            </div>
+          ))}
 
-        {study.points && (
-          <ul className="case-points">
-            {study.points[lang].map(point => <li key={point}>{point}</li>)}
-          </ul>
-        )}
-
-        {study.aside && (
-          <p className="case-block case-aside">
-            <strong>{study.aside.label[lang]}.</strong> {study.aside.text[lang]}{' '}
-            <a href={study.aside.link} target="_blank" rel="noopener noreferrer">{T.see_mockup}</a>
-          </p>
-        )}
-
-        <div className="case-tags">
-          {study.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
-        </div>
-
-        <div className="case-links">
-          {study.liveLink && (
-            <a href={study.liveLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">
-              <i className="fas fa-external-link-alt" /> {T.live}
-            </a>
+          {study.points && (
+            <ul className="case-points">
+              {study.points[lang].map(point => <li key={point}>{point}</li>)}
+            </ul>
           )}
-          {study.privateCode && (
-            <span className="label-academic">
-              <i className="fas fa-lock" /> {T[`private_code_${study.privateCode}`]}
-            </span>
+
+          {study.aside && (
+            <div className="case-block case-aside">
+              <h4>{study.aside.label[lang]}</h4>
+              <p>
+                {study.aside.text[lang]}{' '}
+                <a href={study.aside.link} target="_blank" rel="noopener noreferrer" className="text-link">
+                  {T.see_mockup} <span aria-hidden="true">↗</span>
+                </a>
+              </p>
+            </div>
           )}
+
+          <p className="tech-line">{study.tags.join(', ')}</p>
         </div>
       </div>
     </article>
@@ -224,12 +239,11 @@ function Projects() {
             {STUDY_PROJECTS.map(project => (
               <li key={project.id}>
                 <strong>{project.title[lang]}</strong>
-                <span> · {project.tech} · {project.detail[lang]}</span>
+                <span className="study-detail">{project.tech}, {project.detail[lang]}</span>
                 {project.codeLink && (
-                  <>
-                    {' · '}
-                    <a href={project.codeLink} target="_blank" rel="noopener noreferrer">{T.code}</a>
-                  </>
+                  <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="text-link">
+                    {T.code} <span aria-hidden="true">↗</span>
+                  </a>
                 )}
               </li>
             ))}

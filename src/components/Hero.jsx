@@ -2,44 +2,28 @@ import '../style/Hero.css';
 import { useLang } from '../contexts/LangContext';
 import { translations } from '../i18n';
 
-function Aurora() {
-  return (
-    <div className="aurora" aria-hidden="true">
-      <div className="aurora-blob blob-1" />
-      <div className="aurora-blob blob-2" />
-      <div className="aurora-blob blob-3" />
-    </div>
-  );
-}
-
 function Hero() {
   const { lang } = useLang();
   const T = translations[lang].hero;
 
   return (
     <section id="hero" className="hero">
-      <Aurora />
-      <div className="hero-content">
-        <span className="hero-label">{T.label}</span>
+      <div className="container hero-content">
         <h1 className="hero-name">
           Téo<br />Mathiaud
         </h1>
         <p className="hero-sub">{T.sub}</p>
-        <div className="hero-cta">
-          <a href="#projects" className="btn btn-primary">{T.cta_projects}</a>
+        <div className="hero-links">
+          <a href="#projects" className="text-link">{T.cta_projects} <span aria-hidden="true">↓</span></a>
           <a
             href="/portfolio/assets/CVMathiaudTeo.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-ghost"
+            className="text-link"
           >
-            <i className="fas fa-file-pdf" />
-            {T.cta_cv}
+            {T.cta_cv} <span aria-hidden="true">↗</span>
           </a>
         </div>
-      </div>
-      <div className="hero-scroll-hint" aria-hidden="true">
-        <span />
       </div>
     </section>
   );

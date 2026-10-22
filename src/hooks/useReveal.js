@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 
-export function useReveal(threshold = 0.12) {
+// Révèle la section dès que son haut entre dans l'écran, quelle que soit sa hauteur
+export function useReveal(rootMargin = '0px 0px -10% 0px') {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -14,12 +15,12 @@ export function useReveal(threshold = 0.12) {
           observer.disconnect();
         }
       },
-      { threshold }
+      { rootMargin }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [threshold]);
+  }, [rootMargin]);
 
   return ref;
 }

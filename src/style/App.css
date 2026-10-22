@@ -1,4 +1,4 @@
-/* ===== DESIGN TOKENS — LIGHT (default) ===== */
+/* ===== DESIGN TOKENS : LIGHT (default) ===== */
 :root {
   --bg-primary:    #F7F7F5;
   --bg-secondary:  #FFFFFF;
@@ -83,79 +83,44 @@ button {
 /* ===== SECTION TITLE ===== */
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
   font-weight: 700;
+  line-height: 1;
   color: var(--text-primary);
-  margin-bottom: 64px;
-  letter-spacing: -0.02em;
+  margin-bottom: 72px;
+  letter-spacing: -0.035em;
 }
 
-.section-title::after {
-  content: '';
-  display: block;
-  width: 40px;
-  height: 3px;
-  background: var(--accent);
-  margin-top: 14px;
-}
-
-/* ===== BUTTONS ===== */
-.btn {
+/* ===== LIENS TEXTE ===== */
+.text-link {
   display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 28px;
-  font-family: var(--font-body);
-  font-size: 0.88rem;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 1rem;
   font-weight: 500;
-  letter-spacing: 0.02em;
-  border: none;
-  border-radius: 2px;
-  cursor: pointer;
-  transition: all var(--transition);
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.btn-primary {
-  background: var(--accent);
-  color: #fff;
-}
-
-.btn-primary:hover {
-  background: var(--accent-hover);
-  transform: translateY(-1px);
-}
-
-.btn-ghost {
-  background: transparent;
   color: var(--text-primary);
-  border: 1px solid var(--border);
+  border-bottom: 1px solid var(--text-primary);
+  padding-bottom: 2px;
+  transition: color var(--transition), border-color var(--transition);
 }
 
-.btn-ghost:hover {
+.text-link:hover {
+  color: var(--accent);
   border-color: var(--accent);
-  color: var(--accent);
 }
 
-.btn-sm {
-  padding: 8px 18px;
-  font-size: 0.82rem;
+/* ===== LIGNE DE TECHNOS ===== */
+.tech-line {
+  font-size: 0.9rem;
+  color: var(--text-muted);
 }
 
-/* ===== TAG ===== */
-.tag {
-  display: inline-block;
-  padding: 3px 10px;
+/* ===== DATES ===== */
+.date {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  background: var(--accent-light);
-  color: var(--accent);
-  border-radius: 2px;
-  letter-spacing: 0.03em;
+  font-size: 0.8rem;
+  color: var(--text-muted);
 }
-
-/* ===== SECTION BACKGROUNDS (override in component CSS) ===== */
 
 /* ===== RESPONSIVE GLOBAL ===== */
 @media (max-width: 768px) {
@@ -164,28 +129,38 @@ button {
   }
 
   .section {
-    padding: 72px 0;
+    padding: 80px 0;
   }
 
   .section-title {
-    margin-bottom: 40px;
-  }
-}
-
-@media (max-width: 480px) {
-  .section {
-    padding: 56px 0;
+    margin-bottom: 48px;
   }
 }
 
 /* ===== SCROLL REVEAL ===== */
 .reveal-section {
   opacity: 0;
-  transform: translateY(36px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .reveal-section.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .reveal-section {
+    opacity: 1;
+    transform: none;
+  }
 }
