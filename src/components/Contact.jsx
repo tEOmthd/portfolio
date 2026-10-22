@@ -13,7 +13,7 @@ const LINKS = [
   },
   {
     key: 'linkedin',
-    href: 'https://www.linkedin.com/in/teo-mathiaud-653160347/',
+    href: 'https://www.linkedin.com/in/teomthd/',
     icon: 'fab fa-linkedin-in',
     handle: 'Téo Mathiaud',
   },

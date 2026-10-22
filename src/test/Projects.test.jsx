@@ -14,18 +14,21 @@ describe('Projects — affichage', () => {
     expect(screen.getByRole('heading', { level: 3, name: 'NLM Production' })).toBeInTheDocument();
   });
 
-  it('affiche les 5 projets en grille', () => {
+  it('affiche les 3 projets en grille', () => {
     renderWithProviders(<Projects />);
-    expect(screen.getByRole('heading', { level: 3, name: 'CryptoportiquesVR' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 3, name: 'CryptoporticusVR' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 3, name: 'Memory Matching Game' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 3, name: 'Gestionnaire de Mots de Passe' })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { level: 3, name: 'Fitness API' })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { level: 3, name: 'Jeu de Gestion Ferroviaire' })).toBeInTheDocument();
   });
 
-  it('affiche 6 titres de projets au total (1 featured + 5 en grille)', () => {
+  it('affiche 4 titres de projets au total (1 featured + 3 en grille)', () => {
     renderWithProviders(<Projects />);
-    expect(screen.getAllByRole('heading', { level: 3 })).toHaveLength(6);
+    expect(screen.getAllByRole('heading', { level: 3 })).toHaveLength(4);
+  });
+
+  it('affiche le libellé Ville d\'Arles sur CryptoporticusVR', () => {
+    renderWithProviders(<Projects />);
+    expect(screen.getAllByText(/Projet de la Ville d'Arles, code non public/).length).toBeGreaterThan(0);
   });
 });
 

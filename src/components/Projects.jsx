@@ -20,8 +20,8 @@ const PROJECTS_DATA = [
       en: 'Full-stack developer (design → deployment)',
     },
     description: {
-      fr: "Site vitrine professionnel pour un vidéaste/photographe/pilote de drone freelance basé en Provence. Frontend React avec CMS Strapi headless permettant au client de gérer son contenu en totale autonomie, déployé en production sur Vercel + VPS Hetzner.",
-      en: "Professional showcase website for a freelance videographer/photographer/drone pilot based in Provence. React frontend with a headless Strapi CMS giving the client full content autonomy, deployed on Vercel + Hetzner VPS.",
+      fr: "Site vitrine professionnel pour une vidéaste, photographe et pilote de drone freelance basée en Provence. Frontend React avec CMS Strapi headless permettant à la cliente de gérer son contenu en totale autonomie, déployé en production sur Vercel + VPS Hetzner.",
+      en: "Professional showcase website for a freelance videographer, photographer and drone pilot based in Provence. React frontend with a headless Strapi CMS giving her full autonomy over her content, deployed on Vercel + Hetzner VPS.",
     },
     challenges: {
       fr: [
@@ -42,7 +42,7 @@ const PROJECTS_DATA = [
         'Architecture full-stack (React + Strapi + PostgreSQL)',
         'Déploiement VPS avec CI/CD GitHub Actions',
         'SEO technique avec données structurées JSON-LD',
-        'Conception d\'une interface orientée client non-technique',
+        'Conception d\'une interface pour une cliente non technique',
       ],
       en: [
         'Full-stack architecture (React + Strapi + PostgreSQL)',
@@ -54,42 +54,40 @@ const PROJECTS_DATA = [
   },
   {
     id: 1,
-    title: 'CryptoportiquesVR',
-    tags: ['Unity', 'Node.js', 'TypeScript', 'React', 'Docker'],
+    title: 'CryptoporticusVR',
+    tags: ['Unity', 'Node.js', 'TypeScript', 'Docker'],
     image: null,
     codeLink: null,
-    privateCode: 'university',
+    privateCode: 'arles',
     role: {
       fr: 'Product Owner · Développement Unity & scène 3D',
       en: 'Product Owner · Unity development & 3D scene',
     },
     description: {
-      fr: "Visite virtuelle immersive des Cryptoportiques d'Arles (site UNESCO), développée en partenariat avec la Mairie d'Arles. Architecture fullstack complète : expérience 3D Unity exportée en WebGL, backend Node.js/TypeScript avec Socket.io pour la visite multijoueur, frontend React. Objectif principal : rendre le site accessible aux personnes à mobilité réduite.",
-      en: "Immersive virtual tour of the Cryptoportiques d'Arles (UNESCO World Heritage site), developed in partnership with the City of Arles. Full fullstack architecture: Unity 3D experience exported to WebGL, Node.js/TypeScript backend with Socket.io for multiplayer visits, React frontend. Main goal: making the site accessible to people with reduced mobility.",
+      fr: "Visite virtuelle des cryptoportiques d'Arles (site UNESCO), pour le Service Patrimoine de la Ville d'Arles. Application Unity pour PC et casque Meta Quest, build WebGL pour le navigateur, serveur Node.js/TypeScript avec Socket.IO pour la visite multijoueur. Objectif principal : rendre visitable un site qui n'est pas accessible aux personnes à mobilité réduite.",
+      en: "Virtual tour of the Arles cryptoporticus (UNESCO World Heritage site), for the City of Arles Heritage Department. Unity app for PC and Meta Quest headset, WebGL build for the browser, Node.js/TypeScript server with Socket.IO for multiplayer visits. Main goal: opening up a site that is not accessible to people with reduced mobility.",
     },
     challenges: {
       fr: [
         'Synchronisation temps réel des positions de plusieurs visiteurs simultanés via WebSocket',
-        'Double cible Unity : export WebGL (navigateur) et Oculus XR (casque VR)',
+        'Trois cibles Unity : PC, casque Meta Quest et WebGL (navigateur)',
         'Gestion des assets 3D volumineux avec Git LFS',
       ],
       en: [
         'Real-time position sync for multiple simultaneous visitors via WebSocket',
-        'Dual Unity target: WebGL export (browser) and Oculus XR (VR headset)',
+        'Three Unity targets: PC, Meta Quest headset and WebGL (browser)',
         'Managing large 3D assets with Git LFS',
       ],
     },
     skills_gained: {
       fr: [
-        'Architecture fullstack (Unity + Node.js/TypeScript + React)',
-        'Leadership technique en tant que Product Owner Scrum',
+        'Architecture Unity + serveur Node.js/TypeScript',
         'Développement 3D interactif avec Unity et C#',
         'WebSockets et synchronisation temps réel',
         'Déploiement conteneurisé avec Docker',
       ],
       en: [
-        'Fullstack architecture (Unity + Node.js/TypeScript + React)',
-        'Technical leadership as Scrum Product Owner',
+        'Unity app + Node.js/TypeScript server architecture',
         'Interactive 3D development with Unity and C#',
         'WebSockets and real-time synchronization',
         'Containerized deployment with Docker',
@@ -146,61 +144,6 @@ const PROJECTS_DATA = [
     skills_gained: {
       fr: ['Cryptographie appliquée (AES)', 'Java Swing', 'Sécurité des données'],
       en: ['Applied cryptography (AES)', 'Java Swing', 'Data security'],
-    },
-  },
-  {
-    id: 4,
-    title: 'Fitness API',
-    tags: ['Node.js', 'TypeScript'],
-    image: null,
-    codeLink: 'https://github.com/tEOmthd/fitness-api',
-    description: {
-      fr: "API REST complète pour la gestion d'entraînements sportifs. JWT avec access + refresh tokens, architecture DAO/Service/Routes, 67 tests (48 unitaires + 19 intégration).",
-      en: "Full REST API for sports workout management. JWT with access + refresh tokens, DAO/Service/Routes architecture, 67 tests (48 unit + 19 integration).",
-    },
-    challenges: {
-      fr: [
-        'Authentification JWT avec rotation des refresh tokens',
-        'Séparation stricte DAO / Services / Routes',
-        'Couverture de tests à deux niveaux : unit et intégration',
-      ],
-      en: [
-        'JWT authentication with refresh token rotation',
-        'Strict DAO / Services / Routes separation',
-        'Two-level test coverage: unit and integration',
-      ],
-    },
-    skills_gained: {
-      fr: ['Node.js/TypeScript/Express', 'JWT & sécurité API', 'Tests Jest (67 tests)', 'Architecture REST'],
-      en: ['Node.js/TypeScript/Express', 'JWT & API security', 'Jest testing (67 tests)', 'REST architecture'],
-    },
-  },
-  {
-    id: 5,
-    title: 'Jeu de Gestion Ferroviaire',
-    tags: ['C++'],
-    image: '/portfolio/assets/projet/CaptureRerail.png',
-    codeLink: null,
-    privateCode: 'university',
-    description: {
-      fr: "Jeu 2D de gestion de réseau ferroviaire en C++ avec Raylib. Objectif : réorganiser un réseau en minimisant le nombre de déplacements.",
-      en: "2D railway network management game in C++ with Raylib. Goal: reorganize a network while minimizing the number of moves.",
-    },
-    challenges: {
-      fr: [
-        'Détection de collision entre segments de rails',
-        'Modélisation du réseau sous forme de graphe',
-        'Structures de données optimisées (tables de hachage)',
-      ],
-      en: [
-        'Collision detection between rail segments',
-        'Network modeling as a graph',
-        'Optimized data structures (hash tables)',
-      ],
-    },
-    skills_gained: {
-      fr: ['C++ avec Raylib', 'Algorithmes de graphe', 'Gestion de projet de jeu'],
-      en: ['C++ with Raylib', 'Graph algorithms', 'Game project management'],
     },
   },
 ];

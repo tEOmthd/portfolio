@@ -17,7 +17,7 @@ function Footer() {
           <a href="https://github.com/tEOmthd" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <i className="fab fa-github" />
           </a>
-          <a href="https://www.linkedin.com/in/teo-mathiaud-653160347/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/teomthd/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <i className="fab fa-linkedin-in" />
           </a>
           <a href="mailto:mathiaud.teo@gmail.com" aria-label="Email">
