@@ -7,7 +7,7 @@ const CASE_STUDIES = [
   {
     id: 'nlm',
     title: { fr: 'NLM Production', en: 'NLM Production' },
-    tags: ['React', 'TypeScript', 'Strapi', 'PostgreSQL', 'Vercel'],
+    tags: ['React', 'Strapi (TypeScript)', 'PostgreSQL', 'Vercel'],
     media: {
       image: '/portfolio/assets/projet/CaptureNLMProduction.png',
       width: 1855,
@@ -31,8 +31,8 @@ const CASE_STUDIES = [
       {
         label: { fr: "Ce que j'ai fait", en: 'What I did' },
         text: {
-          fr: 'Front en React et TypeScript sur Vercel. Contenu géré par la cliente dans Strapi (PostgreSQL), sur un VPS Hetzner. Déploiement par GitHub Actions et PM2. Galerie masonry avec lightbox, vidéos YouTube et Vimeo, SEO (JSON-LD, Open Graph, sitemap).',
-          en: 'React and TypeScript front end on Vercel. Content managed by the client in Strapi (PostgreSQL), on a Hetzner VPS. Deployment through GitHub Actions and PM2. Masonry gallery with lightbox, YouTube and Vimeo videos, SEO (JSON-LD, Open Graph, sitemap).',
+          fr: 'Front React sur Vercel, back Strapi en TypeScript (PostgreSQL) sur un VPS Hetzner. La cliente gère son contenu dans Strapi. Déploiement par GitHub Actions et PM2. Galerie masonry avec lightbox, vidéos YouTube et Vimeo, SEO (JSON-LD, Open Graph, sitemap).',
+          en: 'React front end on Vercel, Strapi back end in TypeScript (PostgreSQL) on a Hetzner VPS. The client manages her content in Strapi. Deployment through GitHub Actions and PM2. Masonry gallery with lightbox, YouTube and Vimeo videos, SEO (JSON-LD, Open Graph, sitemap).',
         },
       },
       {
