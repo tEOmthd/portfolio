@@ -32,26 +32,26 @@ const EXPERIENCES = [
     id: 'crypto',
     type: 'stage',
     year: '2026',
-    title: { fr: 'Stage — CryptoporticusVR', en: 'Internship — CryptoporticusVR' },
+    title: { fr: 'CryptoporticusVR', en: 'CryptoporticusVR' },
     org: { fr: 'Service Patrimoine, Ville d\'Arles', en: 'Heritage Department, City of Arles' },
     period: { fr: '16 mars au 19 juin 2026', en: 'March 16 to June 19, 2026' },
     tags: ['Unity', 'C#', 'Node.js', 'TypeScript', 'Docker'],
     description: {
-      fr: "Visite virtuelle des cryptoportiques d'Arles (site UNESCO). Application Unity pour PC et casque Meta Quest, serveur multijoueur Socket.IO. Rôle : seul développeur et Product Owner.",
-      en: "Virtual tour of the Arles cryptoporticus (UNESCO site). Unity app for PC and Meta Quest headset, Socket.IO multiplayer server. Role: sole developer and Product Owner.",
+      fr: 'Seul développeur et Product Owner. Application Unity pour PC et casque Meta Quest, serveur multijoueur, builds Windows, Quest et WebGL.',
+      en: 'Only developer and Product Owner. Unity app for PC and Meta Quest headset, multiplayer server, Windows, Quest and WebGL builds.',
     },
   },
   {
     id: 'harsco',
     type: 'stage',
     year: '2025',
-    title: { fr: 'Stage — Harsco Environmental', en: 'Internship — Harsco Environmental' },
-    org: { fr: 'Harsco Environmental (site ArcelorMittal, Fos-sur-Mer)', en: 'Harsco Environmental (ArcelorMittal site, Fos-sur-Mer)' },
+    title: { fr: 'Harsco Environmental', en: 'Harsco Environmental' },
+    org: { fr: 'Site ArcelorMittal, Fos-sur-Mer', en: 'ArcelorMittal site, Fos-sur-Mer' },
     period: { fr: 'Mars à juin 2025', en: 'March to June 2025' },
-    tags: ['PowerApps', 'Power Automate', 'PowerBI', 'SharePoint'],
+    tags: ['Power Apps', 'Power Automate', 'Power BI', 'SharePoint'],
     description: {
-      fr: "Digitalisation des rapports chantier sur tablette. Enjeu principal : une interface assez simple pour être adoptée sans formation en milieu industriel. Tableaux de bord PowerBI avec KPIs.",
-      en: "Digitizing worksite reports on tablet. Main challenge: an interface simple enough for factory adoption without training. PowerBI dashboards with KPIs.",
+      fr: 'Application Power Apps de saisie sur tablette pour remplacer des rapports papier. Données dans des listes SharePoint, flux Power Automate, rapports Power BI hebdomadaires avec indicateurs. Contrainte principale : être utilisable sans formation par les équipes terrain.',
+      en: 'Power Apps tablet app for field data entry, replacing paper reports. Data in SharePoint lists, Power Automate flows, weekly Power BI reports with KPIs. Main constraint: field teams had to be able to use it without training.',
     },
   },
 ];
@@ -61,31 +61,28 @@ const FORMATIONS = [
     id: 'master',
     type: 'formation',
     year: '2026',
-    title: {
-      fr: 'Master Informatique — Ingénierie du Logiciel (ILSEN)',
-      en: "Master's in Computer Science — Software Engineering (ILSEN)",
-    },
-    org: { fr: "Université d'Avignon", en: 'University of Avignon' },
-    period: { fr: 'Sept. 2026 →', en: 'Sept. 2026 →' },
+    title: { fr: 'Master ILSEN', en: 'ILSEN Master\'s' },
+    org: { fr: 'Avignon Université', en: 'Avignon Université' },
+    period: { fr: 'Depuis sept. 2026', en: 'Since Sept. 2026' },
     inProgress: true,
     tags: [],
     description: {
-      fr: "Master Ingénierie du Logiciel de la Société Numérique. Formation mixte : je recherche une alternance pour la suivre en rythme entreprise/école.",
-      en: "Master in Software Engineering for the Digital Society. Hybrid program: I'm seeking a work-study contract (alternance) to follow it.",
+      fr: 'Master Informatique, Ingénierie du Logiciel de la Société Numérique. Je cherche une alternance pour le suivre.',
+      en: "Master's in Computer Science, Software Engineering for the Digital Society. I'm looking for a work-study position to follow it.",
     },
   },
   {
     id: 'but',
     type: 'formation',
     year: '2023',
-    title: { fr: 'BUT Informatique', en: 'Bachelor of Technology — CS' },
-    org: { fr: 'IUT Aix-Marseille — Arles', en: 'IUT Aix-Marseille — Arles' },
-    period: { fr: '2023 → 2026', en: '2023 → 2026' },
+    title: { fr: 'BUT Informatique', en: 'BUT in Computer Science' },
+    org: { fr: "IUT Aix-Marseille, site d'Arles", en: 'IUT Aix-Marseille, Arles campus' },
+    period: { fr: '2023 à 2026', en: '2023 to 2026' },
     inProgress: false,
     tags: [],
     description: {
-      fr: "Formation couvrant le développement logiciel, bases de données, réseaux et méthodes agiles. Nombreux projets en équipe, du prototype au déploiement.",
-      en: "Program covering software development, databases, networking and agile methodologies. Many team projects, from prototype to deployment.",
+      fr: 'Développement logiciel, bases de données, réseaux, méthodes agiles. Projet tutoré en équipe : première version de CryptoporticusVR.',
+      en: 'Software development, databases, networking, agile methods. Team capstone project: first version of CryptoporticusVR.',
     },
   },
 ];
@@ -129,21 +126,6 @@ function TimelineEntry({ item, lang, T, isLast }) {
   );
 }
 
-function CertBadge({ cert, verifyLabel }) {
-  return (
-    <a
-      className="cert-badge"
-      href={cert.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      title={`${verifyLabel} — ${cert.title}`}
-    >
-      <span className="cert-issuer">{cert.org}</span>
-      <span className="cert-title">{cert.title}</span>
-      <span className="cert-year">{cert.year}</span>
-    </a>
-  );
-}
 
 function Experiences() {
   const { lang } = useLang();
@@ -187,15 +169,19 @@ function Experiences() {
           </div>
         </div>
 
-        <div className="cert-section">
-          <h3 className="exp-group-title">{T.section_certifications}</h3>
-          <p className="cert-sub">{T.cert_sub}</p>
-          <div className="cert-scroll">
-            {CERTIFICATIONS.map(cert => (
-              <CertBadge key={cert.id} cert={cert} verifyLabel={T.verify} />
-            ))}
-          </div>
-        </div>
+        <p className="cert-line">
+          <span className="cert-line-label">{T.section_certifications}</span>
+          Anthropic :{' '}
+          {CERTIFICATIONS.map((cert, i) => (
+            <span key={cert.id}>
+              {i > 0 && ', '}
+              <a href={cert.url} target="_blank" rel="noopener noreferrer" title={`${T.verify} : ${cert.title}`}>
+                {cert.title}
+              </a>
+            </span>
+          ))}
+          {' '}({CERTIFICATIONS[0].year})
+        </p>
       </div>
     </section>
   );

@@ -11,7 +11,7 @@ function Footer() {
       <div className="container footer-inner">
         <a href="#hero" className="footer-logo">TM<span>.</span></a>
 
-        <p className="footer-copy">{T.copy} — {T.tagline}</p>
+        <p className="footer-copy">{T.copy} · {T.tagline}</p>
 
         <div className="footer-social">
           <a href="https://github.com/tEOmthd" target="_blank" rel="noopener noreferrer" aria-label="GitHub">

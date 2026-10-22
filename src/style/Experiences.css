@@ -268,3 +268,18 @@
     font-size: 1.1rem;
   }
 }
+
+.cert-line {
+  margin-top: 48px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.cert-line-label {
+  color: var(--text-secondary);
+  margin-right: 8px;
+}
+
+.cert-line a {
+  color: var(--text-secondary);
+}

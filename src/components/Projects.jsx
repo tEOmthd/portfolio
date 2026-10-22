@@ -1,346 +1,241 @@
-import { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
 import '../style/Projets.css';
 import { useLang } from '../contexts/LangContext';
 import { translations } from '../i18n';
 import { useReveal } from '../hooks/useReveal';
 
-const PROJECTS_DATA = [
+const CASE_STUDIES = [
   {
-    id: 0,
-    featured: true,
-    title: 'NLM Production',
+    id: 'nlm',
+    title: { fr: 'NLM Production', en: 'NLM Production' },
     tags: ['React', 'TypeScript', 'Strapi', 'PostgreSQL', 'Vercel'],
-    image: '/portfolio/assets/projet/CaptureNLMProduction.png',
+    media: {
+      image: '/portfolio/assets/projet/CaptureNLMProduction.png',
+      alt: { fr: "Page d'accueil du site NLM Production", en: 'NLM Production home page' },
+    },
     liveLink: 'https://nlmproduction.fr/',
-    codeLink: null,
     privateCode: 'client',
     role: {
-      fr: 'Développeur full-stack (design → déploiement)',
-      en: 'Full-stack developer (design → deployment)',
+      fr: 'Développeur full-stack, design avec la cliente',
+      en: 'Full-stack developer, design with the client',
     },
-    description: {
-      fr: "Site vitrine professionnel pour une vidéaste, photographe et pilote de drone freelance basée en Provence. Frontend React avec CMS Strapi headless permettant à la cliente de gérer son contenu en totale autonomie, déployé en production sur Vercel + VPS Hetzner.",
-      en: "Professional showcase website for a freelance videographer, photographer and drone pilot based in Provence. React frontend with a headless Strapi CMS giving her full autonomy over her content, deployed on Vercel + Hetzner VPS.",
-    },
-    challenges: {
-      fr: [
-        'CMS headless Strapi sur VPS Hetzner avec CI/CD GitHub Actions et PM2',
-        'Galerie photo en grille masonry avec lightbox et navigation clavier',
-        'Intégration YouTube/Vimeo avec player personnalisé et prévisualisation',
-        'SEO avancé : JSON-LD (LocalBusiness, ContactPage), meta OG, sitemap',
-      ],
-      en: [
-        'Headless Strapi CMS on Hetzner VPS with GitHub Actions CI/CD and PM2',
-        'Masonry photo grid with lightbox and keyboard navigation',
-        'YouTube/Vimeo integration with custom player and preview thumbnails',
-        'Advanced SEO: JSON-LD (LocalBusiness, ContactPage), OG meta, sitemap',
-      ],
-    },
-    skills_gained: {
-      fr: [
-        'Architecture full-stack (React + Strapi + PostgreSQL)',
-        'Déploiement VPS avec CI/CD GitHub Actions',
-        'SEO technique avec données structurées JSON-LD',
-        'Conception d\'une interface pour une cliente non technique',
-      ],
-      en: [
-        'Full-stack architecture (React + Strapi + PostgreSQL)',
-        'VPS deployment with GitHub Actions CI/CD',
-        'Technical SEO with JSON-LD structured data',
-        'Designing interfaces for non-technical end clients',
-      ],
-    },
+    blocks: [
+      {
+        label: { fr: 'Contexte', en: 'Context' },
+        text: {
+          fr: "Site vitrine d'une vidéaste et photographe d'Avignon, en ligne sur nlmproduction.fr.",
+          en: 'Showcase site for a videographer and photographer based in Avignon, live at nlmproduction.fr.',
+        },
+      },
+      {
+        label: { fr: "Ce que j'ai fait", en: 'What I did' },
+        text: {
+          fr: 'Front en React et TypeScript sur Vercel. Contenu géré par la cliente dans Strapi (PostgreSQL), sur un VPS Hetzner. Déploiement par GitHub Actions et PM2. Galerie masonry avec lightbox, vidéos YouTube et Vimeo, SEO (JSON-LD, Open Graph, sitemap).',
+          en: 'React and TypeScript front end on Vercel. Content managed by the client in Strapi (PostgreSQL), on a Hetzner VPS. Deployment through GitHub Actions and PM2. Masonry gallery with lightbox, YouTube and Vimeo videos, SEO (JSON-LD, Open Graph, sitemap).',
+        },
+      },
+      {
+        label: { fr: 'Résultat', en: 'Outcome' },
+        text: {
+          fr: "Le site est en ligne et la cliente publie ses photos et vidéos sans passer par moi. J'en assure l'hébergement et la maintenance.",
+          en: 'The site is live and she publishes her photos and videos without going through me. I handle hosting and maintenance.',
+        },
+      },
+    ],
   },
   {
-    id: 1,
-    title: 'CryptoporticusVR',
-    tags: ['Unity', 'Node.js', 'TypeScript', 'Docker'],
-    image: null,
-    codeLink: null,
+    id: 'crypto',
+    title: {
+      fr: "Visite virtuelle des cryptoportiques d'Arles",
+      en: 'Virtual tour of the Arles cryptoporticus',
+    },
+    subtitle: 'CryptoporticusVR',
+    tags: ['Unity 6', 'C#', 'XR Interaction Toolkit', 'Node.js', 'Socket.IO', 'Docker'],
+    // Visuels en attente de l'accord de la Ville d'Arles : renseigner video / poster / images
+    media: { video: null, poster: null, images: [] },
+    liveLink: null,
     privateCode: 'arles',
     role: {
-      fr: 'Product Owner · Développement Unity & scène 3D',
-      en: 'Product Owner · Unity development & 3D scene',
+      fr: 'Seul développeur et Product Owner (stage)',
+      en: 'Only developer and Product Owner (internship)',
     },
-    description: {
-      fr: "Visite virtuelle des cryptoportiques d'Arles (site UNESCO), pour le Service Patrimoine de la Ville d'Arles. Application Unity pour PC et casque Meta Quest, build WebGL pour le navigateur, serveur Node.js/TypeScript avec Socket.IO pour la visite multijoueur. Objectif principal : rendre visitable un site qui n'est pas accessible aux personnes à mobilité réduite.",
-      en: "Virtual tour of the Arles cryptoporticus (UNESCO World Heritage site), for the City of Arles Heritage Department. Unity app for PC and Meta Quest headset, WebGL build for the browser, Node.js/TypeScript server with Socket.IO for multiplayer visits. Main goal: opening up a site that is not accessible to people with reduced mobility.",
-    },
-    challenges: {
+    blocks: [
+      {
+        label: { fr: 'Contexte', en: 'Context' },
+        text: {
+          fr: "Les cryptoportiques d'Arles sont classés au patrimoine mondial de l'UNESCO mais ne sont pas accessibles aux personnes à mobilité réduite. Le but est de les rendre visitables en virtuel.",
+          en: 'The Arles cryptoporticus is a UNESCO World Heritage site that people with reduced mobility cannot access. The goal is to make it visitable virtually.',
+        },
+      },
+      {
+        label: { fr: 'En équipe, projet tutoré du BUT (Scrum)', en: 'As a team, BUT capstone project (Scrum)' },
+        text: {
+          fr: 'Première version : maquette web en Three.js et serveur Node.js / TypeScript (API REST, Socket.IO, MySQL, Docker) pour le multijoueur, le multilingue et un quiz.',
+          en: 'First version: a Three.js web mock-up and a Node.js / TypeScript server (REST API, Socket.IO, MySQL, Docker) for multiplayer, multiple languages and a quiz.',
+        },
+      },
+      {
+        label: {
+          fr: 'Seul, en stage au Service Patrimoine (16 mars au 19 juin 2026)',
+          en: 'Solo, internship at the Heritage Department (March 16 to June 19, 2026)',
+        },
+        text: {
+          fr: "Seul développeur et Product Owner, j'ai repris l'ensemble. L'application Unity 6 / C# a deux scènes : PC au clavier et à la souris, casque Meta Quest 3 / 3S. J'ai repris le serveur multijoueur : les casques se connectent à un PC sur le même Wi-Fi et font la visite ensemble. J'ai travaillé avec Laokess (scénarisation), l'école MoPA (reconstruction 3D par nuage de points) et des étudiants en patrimoine et en multimédia.",
+          en: 'As the only developer and Product Owner, I took over the whole project. The Unity 6 / C# app has two scenes: PC with keyboard and mouse, and Meta Quest 3 / 3S headset. I took over the multiplayer server: headsets connect to a PC on the same Wi-Fi and take the tour together. I worked with Laokess (storytelling), the MoPA school (3D reconstruction from a point cloud) and heritage and multimedia students.',
+        },
+      },
+      {
+        label: { fr: 'Résultat', en: 'Outcome' },
+        text: {
+          fr: "Présentée le 2 juin 2026 lors d'une journée professionnelle à Arles, puis au public aux Journées européennes du patrimoine en septembre 2026. J'ai rédigé la documentation de passation.",
+          en: 'Presented on June 2, 2026 at a professional day in Arles, then to the public during European Heritage Days in September 2026. I wrote the handover documentation.',
+        },
+      },
+    ],
+    points: {
       fr: [
-        'Synchronisation temps réel des positions de plusieurs visiteurs simultanés via WebSocket',
-        'Trois cibles Unity : PC, casque Meta Quest et WebGL (navigateur)',
-        'Gestion des assets 3D volumineux avec Git LFS',
+        "XR Interaction Toolkit, deux profils URP, interface en World Space, minimap, points d'intérêt audio, objets à examiner",
+        'Builds Windows, APK Quest et WebGL',
       ],
       en: [
-        'Real-time position sync for multiple simultaneous visitors via WebSocket',
-        'Three Unity targets: PC, Meta Quest headset and WebGL (browser)',
-        'Managing large 3D assets with Git LFS',
+        'XR Interaction Toolkit, two URP profiles, World Space UI, minimap, audio points of interest, objects to examine',
+        'Windows, Quest APK and WebGL builds',
       ],
     },
-    skills_gained: {
-      fr: [
-        'Architecture Unity + serveur Node.js/TypeScript',
-        'Développement 3D interactif avec Unity et C#',
-        'WebSockets et synchronisation temps réel',
-        'Déploiement conteneurisé avec Docker',
-      ],
-      en: [
-        'Unity app + Node.js/TypeScript server architecture',
-        'Interactive 3D development with Unity and C#',
-        'WebSockets and real-time synchronization',
-        'Containerized deployment with Docker',
-      ],
-    },
-  },
-  {
-    id: 2,
-    title: 'Memory Matching Game',
-    tags: ['React', 'JavaScript'],
-    image: '/portfolio/assets/projet/CaptureMemoryGame.png',
-    codeLink: 'https://github.com/tEOmthd/ReactMemoryGame',
-    description: {
-      fr: "Jeu de memory développé en React où le joueur doit retrouver toutes les paires de cartes avant la fin du temps imparti.",
-      en: "Memory game built with React where the player must find all card pairs before time runs out.",
-    },
-    challenges: {
-      fr: [
-        "Gestion dynamique de l'état du jeu (cartes, paires, score)",
-        'Animations fluides lors du retournement des cartes',
-        'Gestion du chronomètre et de la fin de partie',
-      ],
-      en: [
-        'Dynamic game state management (cards, pairs, score)',
-        'Smooth flip animations',
-        'Timer management and end-game logic',
-      ],
-    },
-    skills_gained: {
-      fr: ['React hooks (useState, useEffect)', 'Animations CSS', 'Gestion d\'état'],
-      en: ['React hooks (useState, useEffect)', 'CSS animations', 'State management'],
-    },
-  },
-  {
-    id: 3,
-    title: 'Gestionnaire de Mots de Passe',
-    tags: ['Java'],
-    image: '/portfolio/assets/projet/CaptureGestionnaireMotDePasse.png',
-    codeLink: 'https://github.com/tEOmthd/GestionnaireDeMotDepasse',
-    description: {
-      fr: "Application Java de gestion sécurisée des mots de passe avec chiffrement AES et interface Swing.",
-      en: "Java password manager with AES encryption and Swing interface.",
-    },
-    challenges: {
-      fr: [
-        'Chiffrement AES des données sensibles',
-        'Mot de passe maître avec hachage sécurisé',
-      ],
-      en: [
-        'AES encryption of sensitive data',
-        'Master password with secure hashing',
-      ],
-    },
-    skills_gained: {
-      fr: ['Cryptographie appliquée (AES)', 'Java Swing', 'Sécurité des données'],
-      en: ['Applied cryptography (AES)', 'Java Swing', 'Data security'],
+    aside: {
+      label: { fr: 'À côté : maquette web en Three.js', en: 'Alongside: a Three.js web mock-up' },
+      text: {
+        fr: "Une reconstitution des cryptoportiques par époques, avec des points d'intérêt et la ville actuelle générée à partir d'OpenStreetMap.",
+        en: 'A reconstruction of the cryptoporticus by period, with points of interest and the present-day city generated from OpenStreetMap.',
+      },
+      link: 'https://cryptoportique-viewer.vercel.app/',
     },
   },
 ];
 
-function ProjectModal({ project, onClose, T }) {
-  const { lang } = useLang();
+const STUDY_PROJECTS = [
+  {
+    id: 'password-manager',
+    title: { fr: 'Gestionnaire de mots de passe', en: 'Password manager' },
+    tech: 'Java',
+    detail: { fr: 'chiffrement AES, mot de passe maître haché', en: 'AES encryption, hashed master password' },
+    codeLink: 'https://github.com/tEOmthd/GestionnaireDeMotDepasse',
+  },
+];
+
+function CaseMedia({ study, lang }) {
+  const { media } = study;
+
+  if (media.video) {
+    return (
+      <video
+        src={media.video}
+        poster={media.poster ?? undefined}
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-label={study.title[lang]}
+      />
+    );
+  }
+
+  if (media.image) {
+    return <img src={media.image} alt={media.alt[lang]} loading="lazy" />;
+  }
 
   return (
-    <div className="modal-overlay" onClick={onClose} role="dialog" aria-modal="true">
-      <div className="modal" onClick={e => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose} aria-label={T.close}>
-          <i className="fas fa-times" />
-        </button>
-
-        <div className="modal-body">
-          {project.image ? (
-            <div className="modal-image">
-              <img src={project.image} alt={project.title} />
-            </div>
-          ) : (
-            <div className="modal-image modal-image-placeholder">
-              <span>{project.title}</span>
-            </div>
-          )}
-
-          <div className="modal-info">
-            <div className="modal-tags">
-              {project.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
-            </div>
-            <h2>{project.title}</h2>
-
-            {project.role && (
-              <p className="modal-role">
-                <span className="modal-label">{T.role}</span>
-                {project.role[lang]}
-              </p>
-            )}
-
-            <div className="modal-section">
-              <h4>{T.description}</h4>
-              <p>{project.description[lang]}</p>
-            </div>
-
-            <div className="modal-section">
-              <h4>{T.challenges}</h4>
-              <ul>{project.challenges[lang].map(c => <li key={c}>{c}</li>)}</ul>
-            </div>
-
-            <div className="modal-section">
-              <h4>{T.skills_gained}</h4>
-              <ul>{project.skills_gained[lang].map(s => <li key={s}>{s}</li>)}</ul>
-            </div>
-
-            <div className="modal-cta">
-              {project.liveLink && (
-                <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                  <i className="fas fa-external-link-alt" /> {T.live}
-                </a>
-              )}
-              {project.codeLink && (
-                <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                  <i className="fab fa-github" /> {T.code}
-                </a>
-              )}
-              {!project.codeLink && project.privateCode && (
-                <span className="label-academic">
-                  <i className="fas fa-lock" /> {T[`private_code_${project.privateCode}`]}
-                </span>
-              )}
-              {!project.liveLink && !project.codeLink && !project.privateCode && (
-                <span className="label-academic">{T.academic}</span>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="case-media-empty" aria-hidden="true">
+      <span>{study.subtitle ?? study.title[lang]}</span>
     </div>
   );
 }
 
-function FeaturedCard({ project, onClick, T }) {
-  const { lang } = useLang();
-
+function CaseStudy({ study, lang, T }) {
   return (
-    <div className="project-featured" onClick={() => onClick(project)}>
-      <div className="project-featured-image">
-        {project.image ? (
-          <img src={project.image} alt={project.title} />
-        ) : (
-          <div className="project-featured-placeholder">
-            <span>{project.title}</span>
-          </div>
-        )}
-        <span className="featured-badge">{T.featured_badge}</span>
+    <article className="case-study">
+      <div className="case-media">
+        <CaseMedia study={study} lang={lang} />
       </div>
-      <div className="project-featured-content">
-        <div className="project-tags">
-          {project.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
-        </div>
-        <h3>{project.title}</h3>
-        <p>{project.description[lang]}</p>
-        <button className="btn btn-primary btn-sm">{T.details}</button>
-      </div>
-    </div>
-  );
-}
 
-function ProjectCard({ project, onClick, T }) {
-  const { lang } = useLang();
+      <div className="case-body">
+        {study.subtitle && <p className="case-subtitle">{study.subtitle}</p>}
+        <h3>{study.title[lang]}</h3>
+        <p className="case-role">{study.role[lang]}</p>
 
-  return (
-    <div className="project-card" onClick={() => onClick(project)}>
-      <div className="project-card-image">
-        {project.image ? (
-          <img src={project.image} alt={project.title} />
-        ) : (
-          <div className="project-card-placeholder">
-            <span>{project.title[0]}</span>
-          </div>
+        {study.blocks.map(block => (
+          <p key={block.label.fr} className="case-block">
+            <strong>{block.label[lang]}.</strong> {block.text[lang]}
+          </p>
+        ))}
+
+        {study.points && (
+          <ul className="case-points">
+            {study.points[lang].map(point => <li key={point}>{point}</li>)}
+          </ul>
         )}
-      </div>
-      <div className="project-card-content">
-        <div className="project-tags">
-          {project.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
+
+        {study.aside && (
+          <p className="case-block case-aside">
+            <strong>{study.aside.label[lang]}.</strong> {study.aside.text[lang]}{' '}
+            <a href={study.aside.link} target="_blank" rel="noopener noreferrer">{T.see_mockup}</a>
+          </p>
+        )}
+
+        <div className="case-tags">
+          {study.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
         </div>
-        <h3>{project.title}</h3>
-        <p>{project.description[lang]}</p>
-        <div className="project-card-footer">
-          {project.liveLink ? (
-            <a
-              href={project.liveLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-ghost btn-sm"
-              onClick={e => e.stopPropagation()}
-            >
+
+        <div className="case-links">
+          {study.liveLink && (
+            <a href={study.liveLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">
               <i className="fas fa-external-link-alt" /> {T.live}
             </a>
-          ) : project.codeLink ? (
-            <a
-              href={project.codeLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-ghost btn-sm"
-              onClick={e => e.stopPropagation()}
-            >
-              <i className="fab fa-github" /> {T.code}
-            </a>
-          ) : project.privateCode ? (
-            <span className="label-academic">
-              <i className="fas fa-lock" /> {T[`private_code_${project.privateCode}`]}
-            </span>
-          ) : (
-            <span className="label-academic">{T.academic}</span>
           )}
-          <button className="btn btn-primary btn-sm">{T.details}</button>
+          {study.privateCode && (
+            <span className="label-academic">
+              <i className="fas fa-lock" /> {T[`private_code_${study.privateCode}`]}
+            </span>
+          )}
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 
 function Projects() {
   const { lang } = useLang();
   const T = translations[lang].projects;
-  const [selected, setSelected] = useState(null);
   const ref = useReveal();
-
-  const featured = PROJECTS_DATA.find(p => p.featured);
-  const others = PROJECTS_DATA.filter(p => !p.featured);
-
-  useEffect(() => {
-    const handleKey = e => { if (e.key === 'Escape') setSelected(null); };
-    if (selected) document.addEventListener('keydown', handleKey);
-    return () => document.removeEventListener('keydown', handleKey);
-  }, [selected]);
 
   return (
     <section id="projects" className="section reveal-section" ref={ref}>
       <div className="container">
         <h2 className="section-title">{T.title}</h2>
 
-        {featured && (
-          <FeaturedCard project={featured} onClick={setSelected} T={T} />
-        )}
-
-        <div className="projects-grid">
-          {others.map(project => (
-            <ProjectCard key={project.id} project={project} onClick={setSelected} T={T} />
+        <div className="case-studies">
+          {CASE_STUDIES.map(study => (
+            <CaseStudy key={study.id} study={study} lang={lang} T={T} />
           ))}
         </div>
-      </div>
 
-      {selected && createPortal(
-        <ProjectModal project={selected} onClose={() => setSelected(null)} T={T} />,
-        document.body
-      )}
+        <div className="study-projects">
+          <h3 className="study-projects-title">{T.study_title}</h3>
+          <ul>
+            {STUDY_PROJECTS.map(project => (
+              <li key={project.id}>
+                <strong>{project.title[lang]}</strong>
+                <span> · {project.tech} · {project.detail[lang]}</span>
+                {project.codeLink && (
+                  <>
+                    {' · '}
+                    <a href={project.codeLink} target="_blank" rel="noopener noreferrer">{T.code}</a>
+                  </>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </section>
   );
 }

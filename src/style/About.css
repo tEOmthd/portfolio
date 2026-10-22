@@ -102,3 +102,13 @@
     position: static;
   }
 }
+
+.about-languages {
+  margin-top: 24px;
+  color: var(--text-secondary);
+}
+
+.about-languages .about-stack-label {
+  display: block;
+  margin-bottom: 8px;
+}

@@ -6,19 +6,27 @@ import { useReveal } from '../hooks/useReveal';
 const STACK = [
   {
     category: { fr: 'Frontend', en: 'Frontend' },
-    items: ['React', 'TypeScript', 'JavaScript', 'HTML/CSS', 'Three.js'],
+    items: ['React', 'TypeScript', 'JavaScript', 'HTML/CSS'],
   },
   {
     category: { fr: 'Backend', en: 'Backend' },
-    items: ['Node.js', 'Express', 'JWT / Auth'],
+    items: ['Node.js', 'Express', 'Strapi'],
   },
   {
-    category: { fr: 'Systèmes & Jeux', en: 'Systems & Games' },
-    items: ['C# / Unity', 'C++', 'Java', 'Linux / Bash'],
+    category: { fr: '3D et XR', en: '3D and XR' },
+    items: ['Unity 6 / C#', 'XR Interaction Toolkit', 'Three.js'],
   },
   {
-    category: { fr: 'Data & Infra', en: 'Data & Infra' },
-    items: ['MySQL / PostgreSQL', 'SQLite', 'Docker', 'Git / CI-CD', 'PowerApps', 'PowerBI'],
+    category: { fr: 'Systèmes', en: 'Systems' },
+    items: ['C++', 'Java', 'Linux / Bash'],
+  },
+  {
+    category: { fr: 'Données et infra', en: 'Data and infra' },
+    items: ['MySQL / PostgreSQL', 'Docker', 'Git / CI-CD'],
+  },
+  {
+    category: { fr: 'Microsoft', en: 'Microsoft' },
+    items: ['Power Apps', 'Power Automate', 'Power BI', 'SharePoint'],
   },
   {
     category: { fr: 'Notions', en: 'Notions' },
@@ -57,6 +65,11 @@ function About() {
                 </div>
               ))}
             </div>
+
+            <p className="about-languages">
+              <span className="about-stack-label">{T.languages_label}</span>
+              {T.languages}
+            </p>
           </div>
         </div>
       </div>

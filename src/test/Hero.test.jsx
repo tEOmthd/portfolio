@@ -20,9 +20,9 @@ describe('Hero', () => {
     expect(screen.getByText('// Développeur Fullstack')).toBeInTheDocument();
   });
 
-  it('affiche le tagline', () => {
+  it("affiche l'accroche avec le Master ILSEN", () => {
     renderWithProviders(<Hero />);
-    expect(screen.getByText('Je construis des choses complètes.')).toBeInTheDocument();
+    expect(screen.getByText(/aujourd'hui en Master Informatique ILSEN à Avignon Université/)).toBeInTheDocument();
   });
 
   it('affiche le lien vers les projets', () => {

@@ -1,62 +1,73 @@
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, it, expect } from 'vitest';
-import { LangProvider } from '../contexts/LangContext';
+import { LangProvider, useLang } from '../contexts/LangContext';
 import Projects from '../components/Projects';
 
 function renderWithProviders(ui) {
   return render(<LangProvider>{ui}</LangProvider>);
 }
 
-describe('Projects — affichage', () => {
-  it('affiche le projet phare (featured) dans un h3', () => {
+function LangSwitch() {
+  const { toggleLang } = useLang();
+  return <button onClick={toggleLang}>switch</button>;
+}
+
+describe('Projects : études de cas', () => {
+  it('affiche les deux études de cas', () => {
     renderWithProviders(<Projects />);
     expect(screen.getByRole('heading', { level: 3, name: 'NLM Production' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 3, name: "Visite virtuelle des cryptoportiques d'Arles" })).toBeInTheDocument();
+    expect(screen.getAllByRole('article')).toHaveLength(2);
   });
 
-  it('affiche les 3 projets en grille', () => {
+  it('affiche le lien vers le site NLM Production', () => {
     renderWithProviders(<Projects />);
-    expect(screen.getByRole('heading', { level: 3, name: 'CryptoporticusVR' })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { level: 3, name: 'Memory Matching Game' })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { level: 3, name: 'Gestionnaire de Mots de Passe' })).toBeInTheDocument();
-  });
-
-  it('affiche 4 titres de projets au total (1 featured + 3 en grille)', () => {
-    renderWithProviders(<Projects />);
-    expect(screen.getAllByRole('heading', { level: 3 })).toHaveLength(4);
+    const link = screen.getByRole('link', { name: /voir le site/i });
+    expect(link).toHaveAttribute('href', 'https://nlmproduction.fr/');
   });
 
   it('affiche le libellé Ville d\'Arles sur CryptoporticusVR', () => {
     renderWithProviders(<Projects />);
-    expect(screen.getAllByText(/Projet de la Ville d'Arles, code non public/).length).toBeGreaterThan(0);
+    expect(screen.getByText(/Projet de la Ville d'Arles, code non public/)).toBeInTheDocument();
+  });
+
+  it('affiche le lien vers la maquette Three.js', () => {
+    renderWithProviders(<Projects />);
+    const link = screen.getByRole('link', { name: /voir la maquette/i });
+    expect(link).toHaveAttribute('href', 'https://cryptoportique-viewer.vercel.app/');
+  });
+
+  it('affiche un emplacement vide propre tant que CryptoporticusVR n\'a pas de visuel', () => {
+    renderWithProviders(<Projects />);
+    const crypto = screen.getAllByRole('article')[1];
+    expect(within(crypto).queryByRole('img')).not.toBeInTheDocument();
+    expect(crypto.querySelector('.case-media-empty')).toHaveTextContent('CryptoporticusVR');
   });
 });
 
-describe('Projects — modal', () => {
-  it('ouvre le modal au clic sur une carte', async () => {
+describe("Projects : projets d'études", () => {
+  it('affiche le gestionnaire de mots de passe avec son lien GitHub', () => {
     renderWithProviders(<Projects />);
-    await userEvent.click(screen.getByRole('heading', { level: 3, name: 'Memory Matching Game' }));
-    expect(screen.getByRole('button', { name: /fermer/i })).toBeInTheDocument();
+    expect(screen.getByText('Gestionnaire de mots de passe')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Code' })).toHaveAttribute(
+      'href',
+      'https://github.com/tEOmthd/GestionnaireDeMotDepasse'
+    );
   });
 
-  it('le modal affiche le titre du projet', async () => {
+  it("n'affiche plus les projets retirés", () => {
     renderWithProviders(<Projects />);
-    await userEvent.click(screen.getByRole('heading', { level: 3, name: 'Memory Matching Game' }));
-    const overlay = document.querySelector('.modal-overlay');
-    expect(within(overlay).getByRole('heading', { level: 2 })).toHaveTextContent('Memory Matching Game');
+    expect(screen.queryByText(/Memory Matching Game/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Fitness API/)).not.toBeInTheDocument();
   });
+});
 
-  it('ferme le modal avec le bouton close', async () => {
-    renderWithProviders(<Projects />);
-    await userEvent.click(screen.getByRole('heading', { level: 3, name: 'Memory Matching Game' }));
-    await userEvent.click(screen.getByRole('button', { name: /fermer/i }));
-    expect(screen.queryByRole('button', { name: /fermer/i })).not.toBeInTheDocument();
-  });
-
-  it('ferme le modal avec la touche Escape', async () => {
-    renderWithProviders(<Projects />);
-    await userEvent.click(screen.getByRole('heading', { level: 3, name: 'Memory Matching Game' }));
-    await userEvent.keyboard('{Escape}');
-    expect(screen.queryByRole('button', { name: /fermer/i })).not.toBeInTheDocument();
+describe('Projects : anglais', () => {
+  it('affiche les textes en anglais après changement de langue', async () => {
+    renderWithProviders(<><LangSwitch /><Projects /></>);
+    await userEvent.click(screen.getByRole('button', { name: 'switch' }));
+    expect(screen.getByRole('heading', { level: 3, name: 'Virtual tour of the Arles cryptoporticus' })).toBeInTheDocument();
+    expect(screen.getByText('Student projects')).toBeInTheDocument();
   });
 });

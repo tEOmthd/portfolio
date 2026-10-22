@@ -24,7 +24,6 @@ function Hero() {
         <h1 className="hero-name">
           Téo<br />Mathiaud
         </h1>
-        <p className="hero-tagline">{T.tagline}</p>
         <p className="hero-sub">{T.sub}</p>
         <div className="hero-cta">
           <a href="#projects" className="btn btn-primary">{T.cta_projects}</a>

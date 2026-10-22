@@ -36,7 +36,6 @@ function Contact() {
         <h2 className="section-title">{T.title}</h2>
 
         <div className="contact-intro">
-          <p className="contact-subtitle">{T.subtitle}</p>
           <p className="contact-open">{T.open}</p>
         </div>
 
@@ -48,7 +47,7 @@ function Contact() {
               target={key !== 'email' ? '_blank' : undefined}
               rel="noopener noreferrer"
               className="contact-card"
-              aria-label={`${T[key]} — ${handle}`}
+              aria-label={`${T[key]} : ${handle}`}
             >
               <div className="contact-card-icon">
                 <i className={icon} />
