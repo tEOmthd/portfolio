@@ -87,6 +87,39 @@ describe('Projects : autres projets', () => {
   });
 });
 
+describe('Projects : textes NLM validés', () => {
+  it('affiche les repères et le résultat NLM en français puis en anglais', async () => {
+    const user = userEvent.setup();
+    renderWithProviders(
+      <>
+        <LangSwitch />
+        <Projects />
+      </>
+    );
+    const nlm = () => screen.getAllByRole('article')[0];
+    const repèresFr = [...nlm().querySelectorAll('.case-highlights li')].map((li) => li.textContent);
+    expect(repèresFr).toEqual([
+      'Projet client, en production',
+      'Front React, back Strapi en TypeScript',
+      'Hébergé et maintenu par moi',
+    ]);
+    expect(
+      within(nlm()).getByText('Le site est en ligne et la cliente publie ses photos et ses vidéos sans passer par moi.')
+    ).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'switch' }));
+    const repèresEn = [...nlm().querySelectorAll('.case-highlights li')].map((li) => li.textContent);
+    expect(repèresEn).toEqual([
+      'Client project, in production',
+      'React front end, Strapi back end in TypeScript',
+      'Hosted and maintained by me',
+    ]);
+    expect(
+      within(nlm()).getByText('The site is live and the client publishes her photos and videos without going through me.')
+    ).toBeInTheDocument();
+  });
+});
+
 describe('Projects : capture NLM', () => {
   it('utilise la capture pleine page qui défile au survol', () => {
     renderWithProviders(<Projects />);

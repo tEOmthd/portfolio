@@ -25,8 +25,8 @@ const CASE_STUDIES = [
       en: 'Full-stack developer, design with the client',
     },
     highlights: {
-      fr: ['En ligne sur nlmproduction.fr', 'Contenu géré par la cliente', 'Hébergement et maintenance assurés par moi'],
-      en: ['Live at nlmproduction.fr', 'Content managed by the client', 'Hosting and maintenance handled by me'],
+      fr: ['Projet client, en production', 'Front React, back Strapi en TypeScript', 'Hébergé et maintenu par moi'],
+      en: ['Client project, in production', 'React front end, Strapi back end in TypeScript', 'Hosted and maintained by me'],
     },
     blocks: [
       {
@@ -46,8 +46,8 @@ const CASE_STUDIES = [
       {
         label: { fr: 'Résultat', en: 'Outcome' },
         text: {
-          fr: "Le site est en ligne et la cliente publie ses photos et vidéos sans passer par moi. J'en assure l'hébergement et la maintenance.",
-          en: 'The site is live and she publishes her photos and videos without going through me. I handle hosting and maintenance.',
+          fr: 'Le site est en ligne et la cliente publie ses photos et ses vidéos sans passer par moi.',
+          en: 'The site is live and the client publishes her photos and videos without going through me.',
         },
       },
     ],
