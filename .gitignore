@@ -15,6 +15,7 @@ dist-ssr
 # Claude Code : fichiers locaux, hors du repo public
 CLAUDE.md
 .claude/
+HANDOFF.md
 
 # Editor directories and files
 .vscode/*
