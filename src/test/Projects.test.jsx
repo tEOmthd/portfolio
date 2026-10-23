@@ -58,20 +58,41 @@ describe('Projects : études de cas', () => {
   });
 });
 
-describe("Projects : projets d'études", () => {
-  it('affiche le gestionnaire de mots de passe avec son lien GitHub', () => {
+describe('Projects : autres projets', () => {
+  it('affiche une carte pour le gestionnaire de mots de passe, avec sa capture et son code', () => {
     renderWithProviders(<Projects />);
-    expect(screen.getByText('Gestionnaire de mots de passe')).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Code' })).toHaveAttribute(
+    expect(screen.getByRole('heading', { level: 3, name: 'Autres projets' })).toBeInTheDocument();
+    const card = screen.getByRole('heading', { level: 4, name: 'Gestionnaire de mots de passe' }).closest('li');
+    expect(within(card).getByRole('img')).toHaveAttribute('src', '/portfolio/assets/projet/CaptureGestionnaireMotDePasse.png');
+    expect(within(card).getByText(/chiffrement AES/)).toBeInTheDocument();
+    expect(within(card).getByRole('link', { name: /code/i })).toHaveAttribute(
       'href',
       'https://github.com/tEOmthd/GestionnaireDeMotDepasse'
     );
   });
 
-  it("n'affiche plus les projets retirés", () => {
+  it('affiche le lien vers tout le code sur GitHub', () => {
     renderWithProviders(<Projects />);
+    expect(screen.getByRole('link', { name: /tout mon code sur github/i })).toHaveAttribute(
+      'href',
+      'https://github.com/tEOmthd'
+    );
+  });
+
+  it("n'affiche plus le bloc Projets d'études ni les projets retirés", () => {
+    renderWithProviders(<Projects />);
+    expect(screen.queryByText("Projets d'études")).not.toBeInTheDocument();
     expect(screen.queryByText(/Memory Matching Game/)).not.toBeInTheDocument();
     expect(screen.queryByText(/Fitness API/)).not.toBeInTheDocument();
+  });
+});
+
+describe('Projects : capture NLM', () => {
+  it('utilise la capture pleine page qui défile au survol', () => {
+    renderWithProviders(<Projects />);
+    const img = screen.getByRole('img', { name: /NLM Production, en entier/ });
+    expect(img).toHaveAttribute('src', '/portfolio/assets/projet/nlm-pleine-page.jpg');
+    expect(img.parentElement).toHaveClass('case-media', 'is-scroll');
   });
 });
 
@@ -80,6 +101,7 @@ describe('Projects : anglais', () => {
     renderWithProviders(<><LangSwitch /><Projects /></>);
     await userEvent.click(screen.getByRole('button', { name: 'switch' }));
     expect(screen.getByRole('heading', { level: 3, name: 'Virtual tour of the Arles cryptoporticus' })).toBeInTheDocument();
-    expect(screen.getByText('Student projects')).toBeInTheDocument();
+    expect(screen.getByText('Other projects')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /all my code on github/i })).toBeInTheDocument();
   });
 });

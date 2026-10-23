@@ -2,8 +2,10 @@ import { useState } from 'react';
 import '../style/Navbar.css';
 import { useLang } from '../contexts/LangContext';
 import { translations } from '../i18n';
+import { SECTIONS } from '../constants';
 
-function Navbar({ theme, toggleTheme }) {
+// active : section en cours, mise en évidence quand la colonne latérale n'est pas affichée
+function Navbar({ theme, toggleTheme, active = null }) {
   const [isOpen, setIsOpen] = useState(false);
   const { lang, toggleLang } = useLang();
   const T = translations[lang];
@@ -18,10 +20,18 @@ function Navbar({ theme, toggleTheme }) {
         </a>
 
         <ul className={`nav-menu${isOpen ? ' active' : ''}`}>
-          <li><a href="#projects" className="nav-link" onClick={close}>{T.nav.projects}</a></li>
-          <li><a href="#experience" className="nav-link" onClick={close}>{T.nav.experience}</a></li>
-          <li><a href="#about" className="nav-link" onClick={close}>{T.nav.about}</a></li>
-          <li><a href="#contact" className="nav-link" onClick={close}>{T.nav.contact}</a></li>
+          {SECTIONS.map(id => (
+            <li key={id}>
+              <a
+                href={`#${id}`}
+                className="nav-link"
+                aria-current={active === id ? 'true' : undefined}
+                onClick={close}
+              >
+                {T.nav[id]}
+              </a>
+            </li>
+          ))}
         </ul>
 
         <div className="navbar-actions">

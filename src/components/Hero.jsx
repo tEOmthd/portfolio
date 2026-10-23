@@ -30,7 +30,7 @@ function Hero() {
             </div>
           </div>
 
-          <Maquette3D className="hero-maquette" view="romaine" caption eager />
+          <Maquette3D className="hero-maquette" view="romaine" caption eager live />
         </div>
       </div>
     </section>

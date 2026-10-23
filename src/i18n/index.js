@@ -28,7 +28,8 @@ export const translations = {
       details: 'Détails techniques',
       private_code_client: 'Code privé (client)',
       private_code_arles: 'Projet de la Ville d\'Arles, code non public',
-      study_title: "Projets d'études",
+      other_title: 'Autres projets',
+      github_all: 'Tout mon code sur GitHub',
     },
     experience: {
       title: 'Expérience',
@@ -65,6 +66,7 @@ export const translations = {
       open_menu: 'Ouvrir le menu',
       close_menu: 'Fermer le menu',
       back_to_top: 'Retour en haut de page',
+      sections_nav: 'Sections de la page',
     },
   },
 
@@ -97,7 +99,8 @@ export const translations = {
       details: 'Technical details',
       private_code_client: 'Private code (client)',
       private_code_arles: 'City of Arles project, code not public',
-      study_title: 'Student projects',
+      other_title: 'Other projects',
+      github_all: 'All my code on GitHub',
     },
     experience: {
       title: 'Experience',
@@ -134,6 +137,7 @@ export const translations = {
       open_menu: 'Open menu',
       close_menu: 'Close menu',
       back_to_top: 'Back to top',
+      sections_nav: 'Page sections',
     },
   },
 };

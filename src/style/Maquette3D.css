@@ -30,12 +30,29 @@
   transform: scale(1.03);
 }
 
+/* L'iframe apparaît en fondu par-dessus l'image fixe une fois chargée */
+.maquette-frame iframe {
+  opacity: 0;
+  transition: opacity 0.9s ease;
+  pointer-events: none;
+}
+
+.maquette-frame iframe.is-ready {
+  opacity: 1;
+}
+
+/* Manipulable seulement après le clic sur « Explorer en 3D », sinon la molette zoomerait au lieu de défiler */
+.maquette-frame.is-interactive iframe {
+  pointer-events: auto;
+}
+
 .maquette-overlay {
   position: absolute;
   inset: auto 0 0 0;
   display: flex;
   justify-content: flex-start;
   padding: 24px;
+  z-index: 1;
 }
 
 .maquette-caption {
@@ -45,7 +62,7 @@
   color: var(--text-secondary);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   .maquette-overlay {
     padding: 16px;
   }

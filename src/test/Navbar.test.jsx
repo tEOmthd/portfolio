@@ -57,4 +57,10 @@ describe('Navbar', () => {
 
     expect(screen.getAllByRole('list')[0]).not.toHaveClass('active');
   });
+
+  it('met en évidence le lien de la section active', () => {
+    renderWithProviders(<Navbar theme="dark" toggleTheme={vi.fn()} active="experience" />);
+    expect(screen.getByRole('link', { name: /expérience/i })).toHaveAttribute('aria-current', 'true');
+    expect(screen.getByRole('link', { name: /projets/i })).not.toHaveAttribute('aria-current');
+  });
 });

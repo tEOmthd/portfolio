@@ -65,8 +65,13 @@
   color: var(--text-primary);
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link[aria-current]::after {
   width: 100%;
+}
+
+.nav-link[aria-current] {
+  color: var(--accent-text);
 }
 
 .navbar-actions {
@@ -144,6 +149,10 @@
 
   .nav-link::after {
     display: none;
+  }
+
+  .nav-link[aria-current] {
+    box-shadow: inset 2px 0 0 var(--accent);
   }
 
   .menu-icon {

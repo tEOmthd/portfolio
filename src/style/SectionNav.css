@@ -1,0 +1,64 @@
+.section-nav {
+  position: fixed;
+  top: 50%;
+  left: 24px;
+  z-index: 90;
+  transform: translateY(-50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition), visibility var(--transition);
+}
+
+.section-nav.is-shown {
+  opacity: 1;
+  visibility: visible;
+}
+
+.section-nav ol {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.section-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.section-nav a:hover {
+  color: var(--text-primary);
+}
+
+.section-nav a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* Trait de progression : vide, sauf pour la section en cours */
+.section-nav-track {
+  position: relative;
+  width: 28px;
+  height: 1px;
+  background: var(--border);
+}
+
+.section-nav-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  background: var(--accent);
+}
+
+.section-nav a[aria-current] {
+  color: var(--accent-text);
+  font-weight: 500;
+}
+
+.section-nav a[aria-current] .section-nav-fill {
+  width: calc(var(--progress, 0) * 100%);
+}

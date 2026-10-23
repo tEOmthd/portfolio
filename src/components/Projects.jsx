@@ -11,10 +11,12 @@ const CASE_STUDIES = [
     title: { fr: 'NLM Production', en: 'NLM Production' },
     tags: ['React', 'Strapi (TypeScript)', 'PostgreSQL', 'Vercel'],
     media: {
-      image: '/portfolio/assets/projet/CaptureNLMProduction.png',
-      width: 1855,
-      height: 914,
-      alt: { fr: "Page d'accueil du site NLM Production", en: 'NLM Production home page' },
+      // capture pleine page en 1440 px de large, qui défile au survol
+      image: '/portfolio/assets/projet/nlm-pleine-page.jpg',
+      width: 1440,
+      height: 2348,
+      scroll: true,
+      alt: { fr: "Page d'accueil du site NLM Production, en entier", en: 'Full NLM Production home page' },
     },
     liveLink: 'https://nlmproduction.fr/',
     privateCode: 'client',
@@ -131,21 +133,29 @@ const CASE_STUDIES = [
       ],
     },
     actions: [
-      // masqué sur mobile : l'image de la maquette porte déjà ce lien
+      // masqué sur mobile et tablette : l'image de la maquette porte déjà ce lien
       { href: MAQUETTE_URL, label: { fr: 'Ouvrir la maquette 3D', en: 'Open the 3D mock-up' }, desktopOnly: true },
     ],
   },
 ];
 
-const STUDY_PROJECTS = [
+const OTHER_PROJECTS = [
   {
     id: 'password-manager',
     title: { fr: 'Gestionnaire de mots de passe', en: 'Password manager' },
-    tech: 'Java',
-    detail: { fr: 'chiffrement AES, mot de passe maître haché', en: 'AES encryption, hashed master password' },
+    description: {
+      fr: 'Application de bureau en Java, avec chiffrement AES et mot de passe maître haché.',
+      en: 'Java desktop app with AES encryption and a hashed master password.',
+    },
+    image: '/portfolio/assets/projet/CaptureGestionnaireMotDePasse.png',
+    width: 800,
+    height: 600,
+    alt: { fr: 'Fenêtre principale du gestionnaire de mots de passe', en: 'Main window of the password manager' },
     codeLink: 'https://github.com/tEOmthd/GestionnaireDeMotDepasse',
   },
 ];
+
+const GITHUB_URL = 'https://github.com/tEOmthd';
 
 function CaseMedia({ study, lang }) {
   const { media } = study;
@@ -171,7 +181,7 @@ function CaseMedia({ study, lang }) {
   }
 
   return (
-    <div className="case-media">
+    <div className={`case-media${media.scroll ? ' is-scroll' : ''}`}>
       <img
         src={media.image}
         width={media.width}
@@ -264,18 +274,32 @@ function Projects() {
           ))}
         </div>
 
-        <div className="study-projects">
-          <h3 className="study-projects-title">{T.study_title}</h3>
-          <ul>
-            {STUDY_PROJECTS.map(project => (
-              <li key={project.id}>
-                <strong>{project.title[lang]}</strong>
-                <span className="study-detail">{project.tech}, {project.detail[lang]}</span>
-                {project.codeLink && (
+        <div className="other-projects">
+          <div className="other-projects-head">
+            <h3>{T.other_title}</h3>
+            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="text-link">
+              {T.github_all} <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <ul className="other-grid">
+            {OTHER_PROJECTS.map(project => (
+              <li key={project.id} className="project-card">
+                <div className="project-card-media">
+                  <img
+                    src={project.image}
+                    width={project.width}
+                    height={project.height}
+                    alt={project.alt[lang]}
+                    loading="lazy"
+                  />
+                </div>
+                <div className="project-card-body">
+                  <h4>{project.title[lang]}</h4>
+                  <p>{project.description[lang]}</p>
                   <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="text-link">
                     {T.code} <span aria-hidden="true">↗</span>
                   </a>
-                )}
+                </div>
               </li>
             ))}
           </ul>
