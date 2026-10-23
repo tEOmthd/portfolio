@@ -117,6 +117,11 @@ describe('Projects : textes NLM validés', () => {
     expect(
       within(nlm()).getByText('The site is live and the client publishes her photos and videos without going through me.')
     ).toBeInTheDocument();
+    expect(
+      within(nlm()).getByText(
+        'I designed the site with the client, then built it: a React front end and a Strapi back end in TypeScript, where she manages her photos and videos. I set up hosting and automatic deployment.'
+      )
+    ).toBeInTheDocument();
   });
 });
 

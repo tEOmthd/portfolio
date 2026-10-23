@@ -40,7 +40,7 @@ const CASE_STUDIES = [
         label: { fr: "Ce que j'ai fait", en: 'What I did' },
         text: {
           fr: "J'ai conçu le design avec la cliente, puis développé le site : un front React et un back Strapi en TypeScript, où elle gère ses photos et ses vidéos. J'ai mis en place l'hébergement et le déploiement automatique.",
-          en: 'I worked on the design with the client, then built the site: a React front end and a Strapi back end in TypeScript, where she manages her photos and videos. I set up hosting and automatic deployment.',
+          en: 'I designed the site with the client, then built it: a React front end and a Strapi back end in TypeScript, where she manages her photos and videos. I set up hosting and automatic deployment.',
         },
       },
       {
