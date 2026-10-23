@@ -7,6 +7,8 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'happy-dom',
+    // pas de requête réseau quand un test affiche l'iframe de la maquette
+    environmentOptions: { happyDOM: { settings: { disableIframePageLoading: true } } },
     setupFiles: ['./src/test/setup.js'],
     css: false,
   },

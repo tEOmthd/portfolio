@@ -11,11 +11,21 @@ export const translations = {
       cta_projects: 'Voir mes projets',
       cta_cv: 'CV',
     },
+    maquette: {
+      explore: 'Explorer en 3D',
+      open: 'Ouvrir la maquette 3D',
+      caption: "Maquette web des cryptoportiques d'Arles, que j'ai développée en Three.js : reconstitution par époques et ville actuelle générée à partir d'OpenStreetMap.",
+      iframe_title: "Maquette 3D des cryptoportiques d'Arles",
+      poster_alt: {
+        romaine: "Vue 3D des cryptoportiques d'Arles dans la maquette, époque romaine",
+        medievale: "Vue 3D des cryptoportiques d'Arles dans la maquette, époque médiévale",
+      },
+    },
     projects: {
       title: 'Projets',
       code: 'Code',
       live: 'Voir le site',
-      see_mockup: 'Voir la maquette',
+      details: 'Détails techniques',
       private_code_client: 'Code privé (client)',
       private_code_arles: 'Projet de la Ville d\'Arles, code non public',
       study_title: "Projets d'études",
@@ -26,6 +36,7 @@ export const translations = {
       section_formation: 'Formation',
       section_certifications: 'Certifications',
       verify: 'Vérifier',
+      see_case: "Voir l'étude de cas",
     },
     about: {
       title: 'À propos',
@@ -69,11 +80,21 @@ export const translations = {
       cta_projects: 'View my projects',
       cta_cv: 'Resume',
     },
+    maquette: {
+      explore: 'Explore in 3D',
+      open: 'Open the 3D mock-up',
+      caption: 'Web mock-up of the Arles cryptoporticus, which I built with Three.js: reconstruction by period and present-day city generated from OpenStreetMap.',
+      iframe_title: '3D mock-up of the Arles cryptoporticus',
+      poster_alt: {
+        romaine: '3D view of the Arles cryptoporticus in the mock-up, Roman period',
+        medievale: '3D view of the Arles cryptoporticus in the mock-up, medieval period',
+      },
+    },
     projects: {
       title: 'Projects',
       code: 'Code',
       live: 'Visit site',
-      see_mockup: 'See the mock-up',
+      details: 'Technical details',
       private_code_client: 'Private code (client)',
       private_code_arles: 'City of Arles project, code not public',
       study_title: 'Student projects',
@@ -84,6 +105,7 @@ export const translations = {
       section_formation: 'Education',
       section_certifications: 'Certifications',
       verify: 'Verify',
+      see_case: 'See the case study',
     },
     about: {
       title: 'About',

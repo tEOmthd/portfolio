@@ -21,7 +21,7 @@
 }
 
 .footer-logo span {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .footer-copy {
@@ -47,7 +47,7 @@
 }
 
 .footer-social a:hover {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 @media (max-width: 600px) {

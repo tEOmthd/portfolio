@@ -29,11 +29,13 @@ const EXPERIENCES = [
     title: { fr: 'CryptoporticusVR', en: 'CryptoporticusVR' },
     org: { fr: 'Service Patrimoine, Ville d\'Arles', en: 'Heritage Department, City of Arles' },
     period: { fr: '16 mars au 19 juin 2026', en: 'March 16 to June 19, 2026' },
-    tags: ['Unity', 'C#', 'Node.js', 'TypeScript', 'Docker'],
+    tags: [],
+    // détaillé dans l'étude de cas : une seule ligne ici
     description: {
-      fr: 'Seul développeur et Product Owner. Application Unity pour PC et casque Meta Quest, serveur multijoueur, builds Windows, Quest et WebGL.',
-      en: 'Only developer and Product Owner. Unity app for PC and Meta Quest headset, multiplayer server, Windows, Quest and WebGL builds.',
+      fr: 'Seul développeur et Product Owner.',
+      en: 'Only developer and Product Owner.',
     },
+    caseLink: '#case-crypto',
   },
   {
     id: 'harsco',
@@ -73,16 +75,26 @@ const FORMATIONS = [
   },
 ];
 
-function ExpRow({ item, lang }) {
+function ExpRow({ item, lang, T }) {
   return (
     <li className="exp-row">
-      <span className="date exp-period">{item.period[lang]}</span>
-      <div className="exp-content">
-        <h4>{item.title[lang]}</h4>
-        <p className="exp-org">{item.org[lang]}</p>
-        <p className="exp-desc">{item.description[lang]}</p>
-        {item.tags.length > 0 && <p className="tech-line">{item.tags.join(', ')}</p>}
-      </div>
+      <span className="date">{item.period[lang]}</span>
+      <h4>
+        {item.title[lang]}
+        <span className="exp-org"> · {item.org[lang]}</span>
+      </h4>
+      <p className="exp-desc">
+        {item.description[lang]}
+        {item.caseLink && (
+          <>
+            {' '}
+            <a href={item.caseLink} className="text-link">
+              {T.see_case} <span aria-hidden="true">↑</span>
+            </a>
+          </>
+        )}
+      </p>
+      {item.tags.length > 0 && <p className="tech-line">{item.tags.join(', ')}</p>}
     </li>
   );
 }
@@ -97,18 +109,20 @@ function Experiences() {
       <div className="container">
         <h2 className="section-title">{T.title}</h2>
 
-        <div className="exp-group">
-          <h3 className="exp-group-title">{T.section_pro}</h3>
-          <ol className="exp-list">
-            {EXPERIENCES.map(item => <ExpRow key={item.id} item={item} lang={lang} />)}
-          </ol>
-        </div>
+        <div className="exp-columns">
+          <div className="exp-group">
+            <h3 className="exp-group-title">{T.section_pro}</h3>
+            <ol className="exp-list">
+              {EXPERIENCES.map(item => <ExpRow key={item.id} item={item} lang={lang} T={T} />)}
+            </ol>
+          </div>
 
-        <div className="exp-group">
-          <h3 className="exp-group-title">{T.section_formation}</h3>
-          <ol className="exp-list">
-            {FORMATIONS.map(item => <ExpRow key={item.id} item={item} lang={lang} />)}
-          </ol>
+          <div className="exp-group">
+            <h3 className="exp-group-title">{T.section_formation}</h3>
+            <ol className="exp-list">
+              {FORMATIONS.map(item => <ExpRow key={item.id} item={item} lang={lang} T={T} />)}
+            </ol>
+          </div>
         </div>
 
         <p className="cert-line">

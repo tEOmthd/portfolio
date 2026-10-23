@@ -30,7 +30,7 @@
 }
 
 .navbar-logo span {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .nav-menu {
@@ -97,7 +97,7 @@
 .lang-toggle:hover,
 .theme-toggle:hover {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .menu-icon {
@@ -116,7 +116,7 @@
 
 .menu-icon:hover {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 @media (max-width: 768px) {

@@ -1,0 +1,52 @@
+.maquette {
+  margin: 0;
+}
+
+.maquette-frame {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid var(--border);
+}
+
+.maquette-frame img,
+.maquette-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.maquette-frame img {
+  object-fit: cover;
+  transition: transform 1.2s ease;
+}
+
+.maquette-frame:hover img {
+  transform: scale(1.03);
+}
+
+.maquette-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  justify-content: flex-start;
+  padding: 24px;
+}
+
+.maquette-caption {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .maquette-overlay {
+    padding: 16px;
+  }
+}

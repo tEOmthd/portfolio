@@ -2,6 +2,8 @@ import '../style/Projets.css';
 import { useLang } from '../contexts/LangContext';
 import { translations } from '../i18n';
 import { useReveal } from '../hooks/useReveal';
+import { MAQUETTE_URL } from '../constants';
+import Maquette3D from './Maquette3D';
 
 const CASE_STUDIES = [
   {
@@ -20,6 +22,10 @@ const CASE_STUDIES = [
       fr: 'Développeur full-stack, design avec la cliente',
       en: 'Full-stack developer, design with the client',
     },
+    highlights: {
+      fr: ['En ligne sur nlmproduction.fr', 'Contenu géré par la cliente', 'Hébergement et maintenance assurés par moi'],
+      en: ['Live at nlmproduction.fr', 'Content managed by the client', 'Hosting and maintenance handled by me'],
+    },
     blocks: [
       {
         label: { fr: 'Contexte', en: 'Context' },
@@ -31,8 +37,8 @@ const CASE_STUDIES = [
       {
         label: { fr: "Ce que j'ai fait", en: 'What I did' },
         text: {
-          fr: 'Front React sur Vercel, back Strapi en TypeScript (PostgreSQL) sur un VPS Hetzner. La cliente gère son contenu dans Strapi. Déploiement par GitHub Actions et PM2. Galerie masonry avec lightbox, vidéos YouTube et Vimeo, SEO (JSON-LD, Open Graph, sitemap).',
-          en: 'React front end on Vercel, Strapi back end in TypeScript (PostgreSQL) on a Hetzner VPS. The client manages her content in Strapi. Deployment through GitHub Actions and PM2. Masonry gallery with lightbox, YouTube and Vimeo videos, SEO (JSON-LD, Open Graph, sitemap).',
+          fr: "J'ai conçu le design avec la cliente, puis développé le site : un front React et un back Strapi en TypeScript, où elle gère ses photos et ses vidéos. J'ai mis en place l'hébergement et le déploiement automatique.",
+          en: 'I worked on the design with the client, then built the site: a React front end and a Strapi back end in TypeScript, where she manages her photos and videos. I set up hosting and automatic deployment.',
         },
       },
       {
@@ -43,6 +49,24 @@ const CASE_STUDIES = [
         },
       },
     ],
+    details: {
+      fr: [
+        'Front React sur Vercel',
+        'Back Strapi en TypeScript, PostgreSQL, sur un VPS Hetzner',
+        'Déploiement par GitHub Actions et PM2',
+        'Galerie masonry avec lightbox',
+        'Vidéos YouTube et Vimeo',
+        'SEO : JSON-LD, Open Graph, sitemap',
+      ],
+      en: [
+        'React front end on Vercel',
+        'Strapi back end in TypeScript, PostgreSQL, on a Hetzner VPS',
+        'Deployment through GitHub Actions and PM2',
+        'Masonry gallery with lightbox',
+        'YouTube and Vimeo videos',
+        'SEO: JSON-LD, Open Graph, sitemap',
+      ],
+    },
   },
   {
     id: 'crypto',
@@ -51,14 +75,17 @@ const CASE_STUDIES = [
       en: 'Virtual tour of the Arles cryptoporticus',
     },
     subtitle: 'CryptoporticusVR',
-    tags: ['Unity 6', 'C#', 'XR Interaction Toolkit', 'Node.js', 'Socket.IO', 'Docker'],
-    // Visuels en attente de l'accord de la Ville d'Arles : renseigner video / poster / images
-    media: { video: null, poster: null, images: [] },
-    liveLink: null,
+    tags: ['Unity 6', 'C#', 'XR Interaction Toolkit', 'Three.js', 'Node.js', 'Socket.IO'],
+    // En attendant les médias VR (accord de la Ville d'Arles), le visuel est la maquette 3D
+    media: { maquette: 'medievale' },
     privateCode: 'arles',
     role: {
       fr: 'Seul développeur et Product Owner (stage)',
       en: 'Only developer and Product Owner (internship)',
+    },
+    highlights: {
+      fr: ['Seul développeur, 3 mois de stage', 'PC + Meta Quest 3 / 3S', 'Présenté aux JEP 2026'],
+      en: ['Only developer, 3-month internship', 'PC + Meta Quest 3 / 3S', 'Shown at European Heritage Days 2026'],
     },
     blocks: [
       {
@@ -69,20 +96,10 @@ const CASE_STUDIES = [
         },
       },
       {
-        label: { fr: 'En équipe, projet tutoré du BUT (Scrum)', en: 'As a team, BUT capstone project (Scrum)' },
+        label: { fr: "Ce que j'ai fait", en: 'What I did' },
         text: {
-          fr: 'Première version : maquette web en Three.js et serveur Node.js / TypeScript (API REST, Socket.IO, MySQL, Docker) pour le multijoueur, le multilingue et un quiz.',
-          en: 'First version: a Three.js web mock-up and a Node.js / TypeScript server (REST API, Socket.IO, MySQL, Docker) for multiplayer, multiple languages and a quiz.',
-        },
-      },
-      {
-        label: {
-          fr: 'Seul, en stage au Service Patrimoine (16 mars au 19 juin 2026)',
-          en: 'Solo, internship at the Heritage Department (March 16 to June 19, 2026)',
-        },
-        text: {
-          fr: "Seul développeur et Product Owner, j'ai repris l'ensemble. L'application Unity 6 / C# a deux scènes : PC au clavier et à la souris, casque Meta Quest 3 / 3S. J'ai repris le serveur multijoueur : les casques se connectent à un PC sur le même Wi-Fi et font la visite ensemble. J'ai travaillé avec Laokess (scénarisation), l'école MoPA (reconstruction 3D par nuage de points) et des étudiants en patrimoine et en multimédia.",
-          en: 'As the only developer and Product Owner, I took over the whole project. The Unity 6 / C# app has two scenes: PC with keyboard and mouse, and Meta Quest 3 / 3S headset. I took over the multiplayer server: headsets connect to a PC on the same Wi-Fi and take the tour together. I worked with Laokess (storytelling), the MoPA school (3D reconstruction from a point cloud) and heritage and multimedia students.',
+          fr: "La première version est née d'un projet tutoré du BUT, en équipe. En stage, seul développeur et Product Owner, j'ai repris l'ensemble : une application Unity 6 / C# pour PC et casque Meta Quest 3 / 3S, et le serveur multijoueur qui permet aux casques de faire la visite ensemble sur le même Wi-Fi. J'ai travaillé avec Laokess (scénarisation), l'école MoPA (reconstruction 3D par nuage de points) et des étudiants en patrimoine et en multimédia.",
+          en: 'The first version came from a team capstone project during my BUT. As an intern, the only developer and Product Owner, I took over everything: a Unity 6 / C# app for PC and Meta Quest 3 / 3S, and the multiplayer server that lets headsets take the tour together on the same Wi-Fi. I worked with Laokess (storytelling), the MoPA school (3D reconstruction from a point cloud) and heritage and multimedia students.',
         },
       },
       {
@@ -93,24 +110,30 @@ const CASE_STUDIES = [
         },
       },
     ],
-    points: {
+    details: {
       fr: [
-        "XR Interaction Toolkit, deux profils URP, interface en World Space, minimap, points d'intérêt audio, objets à examiner",
+        'Unity 6 / C#, XR Interaction Toolkit, New Input System',
+        'Deux profils URP (PC et Quest), interface en World Space, minimap en RenderTexture',
+        "Points d'intérêt audio, objets à examiner",
         'Builds Windows, APK Quest et WebGL',
+        'Serveur multijoueur repris du projet tutoré : Node.js / TypeScript, Express, Socket.IO, MySQL, Docker',
+        'Git LFS pour les assets 3D',
+        "Maquette web en Three.js : reconstitution par époques, points d'intérêt, ville actuelle générée à partir d'OpenStreetMap",
       ],
       en: [
-        'XR Interaction Toolkit, two URP profiles, World Space UI, minimap, audio points of interest, objects to examine',
+        'Unity 6 / C#, XR Interaction Toolkit, New Input System',
+        'Two URP profiles (PC and Quest), World Space UI, RenderTexture minimap',
+        'Audio points of interest, objects to examine',
         'Windows, Quest APK and WebGL builds',
+        'Multiplayer server taken over from the capstone project: Node.js / TypeScript, Express, Socket.IO, MySQL, Docker',
+        'Git LFS for 3D assets',
+        'Three.js web mock-up: reconstruction by period, points of interest, present-day city generated from OpenStreetMap',
       ],
     },
-    aside: {
-      label: { fr: 'À côté : maquette web en Three.js', en: 'Alongside: a Three.js web mock-up' },
-      text: {
-        fr: "Une reconstitution des cryptoportiques par époques, avec des points d'intérêt et la ville actuelle générée à partir d'OpenStreetMap.",
-        en: 'A reconstruction of the cryptoporticus by period, with points of interest and the present-day city generated from OpenStreetMap.',
-      },
-      link: 'https://cryptoportique-viewer.vercel.app/',
-    },
+    actions: [
+      // masqué sur mobile : l'image de la maquette porte déjà ce lien
+      { href: MAQUETTE_URL, label: { fr: 'Ouvrir la maquette 3D', en: 'Open the 3D mock-up' }, desktopOnly: true },
+    ],
   },
 ];
 
@@ -127,22 +150,28 @@ const STUDY_PROJECTS = [
 function CaseMedia({ study, lang }) {
   const { media } = study;
 
+  if (media.maquette) {
+    return <Maquette3D view={media.maquette} />;
+  }
+
   if (media.video) {
     return (
-      <video
-        src={media.video}
-        poster={media.poster ?? undefined}
-        autoPlay
-        muted
-        loop
-        playsInline
-        aria-label={study.title[lang]}
-      />
+      <div className="case-media">
+        <video
+          src={media.video}
+          poster={media.poster ?? undefined}
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-label={study.title[lang]}
+        />
+      </div>
     );
   }
 
-  if (media.image) {
-    return (
+  return (
+    <div className="case-media">
       <img
         src={media.image}
         width={media.width}
@@ -150,22 +179,22 @@ function CaseMedia({ study, lang }) {
         alt={media.alt[lang]}
         loading="lazy"
       />
-    );
-  }
-
-  return (
-    <div className="case-media-empty" aria-hidden="true">
-      <span>{study.subtitle ?? study.title[lang]}</span>
     </div>
   );
 }
 
 function CaseStudy({ study, lang, T }) {
   return (
-    <article className="case-study">
-      <div className="case-media">
+    <article className="case-study" id={`case-${study.id}`}>
+      <div className="case-visual">
         <CaseMedia study={study} lang={lang} />
       </div>
+
+      {study.highlights && (
+        <ul className="case-highlights">
+          {study.highlights[lang].map(item => <li key={item}>{item}</li>)}
+        </ul>
+      )}
 
       <div className="case-body">
         <header className="case-head">
@@ -174,10 +203,21 @@ function CaseStudy({ study, lang, T }) {
           <p className="case-role">{study.role[lang]}</p>
           <div className="case-links">
             {study.liveLink && (
-              <a href={study.liveLink} target="_blank" rel="noopener noreferrer" className="text-link">
+              <a href={study.liveLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                 {T.live} <span aria-hidden="true">↗</span>
               </a>
             )}
+            {study.actions?.map(action => (
+              <a
+                key={action.href}
+                href={action.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`btn btn-primary${action.desktopOnly ? ' desktop-only' : ''}`}
+              >
+                {action.label[lang]} <span aria-hidden="true">↗</span>
+              </a>
+            ))}
             {study.privateCode && (
               <span className="case-private">{T[`private_code_${study.privateCode}`]}</span>
             )}
@@ -192,22 +232,13 @@ function CaseStudy({ study, lang, T }) {
             </div>
           ))}
 
-          {study.points && (
-            <ul className="case-points">
-              {study.points[lang].map(point => <li key={point}>{point}</li>)}
-            </ul>
-          )}
-
-          {study.aside && (
-            <div className="case-block case-aside">
-              <h4>{study.aside.label[lang]}</h4>
-              <p>
-                {study.aside.text[lang]}{' '}
-                <a href={study.aside.link} target="_blank" rel="noopener noreferrer" className="text-link">
-                  {T.see_mockup} <span aria-hidden="true">↗</span>
-                </a>
-              </p>
-            </div>
+          {study.details && (
+            <details className="case-details">
+              <summary>{T.details}</summary>
+              <ul>
+                {study.details[lang].map(item => <li key={item}>{item}</li>)}
+              </ul>
+            </details>
           )}
 
           <p className="tech-line">{study.tags.join(', ')}</p>

@@ -2,7 +2,11 @@
 .case-studies {
   display: flex;
   flex-direction: column;
-  gap: 128px;
+  gap: 144px;
+}
+
+.case-visual {
+  margin-bottom: 32px;
 }
 
 .case-media {
@@ -10,7 +14,6 @@
   overflow: hidden;
   background: var(--bg-surface);
   border: 1px solid var(--border);
-  margin-bottom: 48px;
 }
 
 .case-media img,
@@ -21,20 +24,49 @@
   transition: transform 1.2s ease;
 }
 
-.case-study:hover .case-media img {
-  transform: scale(1.015);
+.case-media:hover img {
+  transform: scale(1.02);
 }
 
-.case-media-empty {
-  aspect-ratio: 21 / 9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
+/* Repères : trois faits courts sur une ligne */
+.case-highlights {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+
+.case-highlights li {
+  position: relative;
+  padding: 20px 24px 20px 22px;
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 4vw, 2.6rem);
+  font-size: 1.15rem;
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+.case-highlights li + li {
+  border-left: 1px solid var(--border);
+  padding-left: 46px;
+}
+
+.case-highlights li::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.case-highlights li + li::before {
+  left: 24px;
 }
 
 .case-body {
@@ -53,20 +85,21 @@
 }
 
 .case-subtitle {
-  color: var(--text-muted);
+  color: var(--accent-text);
+  font-weight: 500;
   margin-bottom: 16px;
 }
 
 .case-role {
   color: var(--text-secondary);
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 .case-links {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
+  gap: 14px;
 }
 
 .case-private {
@@ -77,7 +110,7 @@
 .case-story {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 28px;
 }
 
 .case-block h4 {
@@ -92,31 +125,77 @@
   line-height: 1.7;
 }
 
-.case-block .text-link {
-  font-size: 0.95rem;
-  margin-left: 4px;
+/* Détails techniques repliables */
+.case-details {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
-.case-points {
+.case-details summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
   list-style: none;
-  padding: 16px 0 0;
-  border-top: 1px solid var(--border);
+}
+
+.case-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.case-details summary::after {
+  content: '+';
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--accent-text);
+  transition: transform var(--transition);
+}
+
+.case-details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.case-details summary:hover {
+  color: var(--accent-text);
+}
+
+.case-details summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.case-details ul {
+  list-style: none;
+  padding-bottom: 18px;
   color: var(--text-secondary);
   line-height: 1.6;
 }
 
-.case-points li + li {
+.case-details li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.case-details li + li {
   margin-top: 8px;
 }
 
-.case-aside {
-  padding-top: 24px;
-  border-top: 1px solid var(--border);
+.case-details li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 6px;
+  height: 1px;
+  background: var(--accent);
 }
 
 /* ── Projets d'études ── */
 .study-projects {
-  margin-top: 128px;
+  margin-top: 144px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr);
   gap: 64px;
@@ -150,13 +229,40 @@
   font-size: 0.95rem;
 }
 
+@media (max-width: 768px) {
+  .case-links .desktop-only {
+    display: none;
+  }
+}
+
 @media (max-width: 860px) {
   .case-studies {
-    gap: 96px;
+    gap: 104px;
   }
 
-  .case-media {
+  .case-visual {
+    margin-bottom: 24px;
+  }
+
+  .case-highlights {
+    grid-template-columns: 1fr;
     margin-bottom: 32px;
+  }
+
+  .case-highlights li,
+  .case-highlights li + li {
+    padding: 14px 0 14px 22px;
+    border-left: 0;
+  }
+
+  .case-highlights li + li {
+    border-top: 1px solid var(--border);
+  }
+
+  .case-highlights li::before,
+  .case-highlights li + li::before {
+    top: 22px;
+    left: 0;
   }
 
   .case-body,
@@ -166,7 +272,7 @@
   }
 
   .study-projects {
-    margin-top: 96px;
+    margin-top: 104px;
     gap: 16px;
   }
 }

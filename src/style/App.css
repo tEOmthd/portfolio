@@ -7,9 +7,11 @@
   --accent:        #E07B39;
   --accent-hover:  #C96525;
   --accent-light:  rgba(224, 123, 57, 0.10);
+  --accent-text:   #A84D16;
+  --on-accent:     #0C0C0A;
   --text-primary:  #0C0C0A;
   --text-secondary:#5C5C58;
-  --text-muted:    #A8A8A4;
+  --text-muted:    #6E6E69;
   --shadow:        0 4px 24px rgba(0, 0, 0, 0.06);
   --shadow-lg:     0 8px 48px rgba(0, 0, 0, 0.10);
   --transition:    0.25s ease;
@@ -26,9 +28,11 @@
   --accent:        #E07B39;
   --accent-hover:  #F08C4A;
   --accent-light:  rgba(224, 123, 57, 0.12);
+  --accent-text:   #E07B39;
+  --on-accent:     #0C0C0A;
   --text-primary:  #F2F2EE;
   --text-secondary:#A0A09C;
-  --text-muted:    #5C5C58;
+  --text-muted:    #8E8E89;
   --shadow:        0 4px 24px rgba(0, 0, 0, 0.50);
   --shadow-lg:     0 8px 48px rgba(0, 0, 0, 0.60);
 }
@@ -105,8 +109,56 @@ button {
 }
 
 .text-link:hover {
-  color: var(--accent);
+  color: var(--accent-text);
+  border-color: var(--accent-text);
+}
+
+/* ===== BOUTONS ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 26px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:focus-visible,
+.text-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--text-muted);
+}
+
+.btn-secondary:hover {
   border-color: var(--accent);
+  color: var(--accent-text);
 }
 
 /* ===== LIGNE DE TECHNOS ===== */

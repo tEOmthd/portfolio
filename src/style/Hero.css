@@ -1,40 +1,52 @@
+/* Sur desktop, tout le hero (nom, accroche, boutons, maquette) tient dans l'écran,
+   y compris sur un portable de 1366×768 ou 1536×742 */
 .hero {
+  --name-size: clamp(2.6rem, min(10.5vw, 14svh), 8.6rem);
   min-height: 100svh;
   display: flex;
-  align-items: flex-end;
-  padding: 120px 0 96px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 88px 0 32px;
   background: var(--bg-primary);
-}
-
-.hero-content {
-  width: 100%;
 }
 
 .hero-name {
   font-family: var(--font-display);
-  font-size: clamp(2.6rem, 10.5vw, 8.6rem);
+  font-size: var(--name-size);
   font-weight: 800;
   line-height: 0.88;
   letter-spacing: -0.045em;
   color: var(--text-primary);
-  margin-bottom: 48px;
+  margin-bottom: 28px;
   animation: hero-in 0.9s ease both;
 }
 
-.hero-sub {
-  max-width: 560px;
-  font-size: 1.15rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  margin-bottom: 36px;
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.9fr);
+  gap: 48px;
+  align-items: start;
   animation: hero-in 0.9s 0.15s ease both;
 }
 
-.hero-links {
+.hero-sub {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+}
+
+.hero-cta {
   display: flex;
   flex-wrap: wrap;
-  gap: 32px;
-  animation: hero-in 0.9s 0.3s ease both;
+  gap: 12px;
+}
+
+@media (min-width: 861px) {
+  /* hauteur restante = écran − navbar et marges − nom sur deux lignes − légende */
+  .hero-maquette .maquette-frame {
+    max-height: calc(100svh - 200px - 1.76 * var(--name-size));
+  }
 }
 
 @keyframes hero-in {
@@ -48,14 +60,20 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .hero {
-    min-height: 88svh;
-    padding: 104px 0 64px;
+    --name-size: clamp(2.6rem, 10.5vw, 8.6rem);
+    min-height: 0;
+    padding: 104px 0 80px;
   }
 
   .hero-name {
     margin-bottom: 32px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 
   .hero-sub {

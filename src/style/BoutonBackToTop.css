@@ -20,7 +20,7 @@
 
 .back-to-top:hover {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--accent-text);
   transform: translateY(-2px);
 }
 

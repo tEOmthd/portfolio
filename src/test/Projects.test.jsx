@@ -32,17 +32,29 @@ describe('Projects : études de cas', () => {
     expect(screen.getByText(/Projet de la Ville d'Arles, code non public/)).toBeInTheDocument();
   });
 
-  it('affiche le lien vers la maquette Three.js', () => {
+  it('affiche un bouton visible vers la maquette 3D', () => {
     renderWithProviders(<Projects />);
-    const link = screen.getByRole('link', { name: /voir la maquette/i });
+    const link = screen.getByRole('link', { name: /ouvrir la maquette 3d/i });
     expect(link).toHaveAttribute('href', 'https://cryptoportique-viewer.vercel.app/');
+    expect(link).toHaveClass('btn');
   });
 
-  it('affiche un emplacement vide propre tant que CryptoporticusVR n\'a pas de visuel', () => {
+  it('utilise la maquette 3D comme visuel de CryptoporticusVR, sans cadre vide', () => {
     renderWithProviders(<Projects />);
     const crypto = screen.getAllByRole('article')[1];
-    expect(within(crypto).queryByRole('img')).not.toBeInTheDocument();
-    expect(crypto.querySelector('.case-media-empty')).toHaveTextContent('CryptoporticusVR');
+    expect(within(crypto).getByRole('img', { name: /vue 3d des cryptoportiques/i })).toBeInTheDocument();
+    expect(within(crypto).getByRole('button', { name: /explorer en 3d/i })).toBeInTheDocument();
+    expect(crypto.querySelector('.case-media-empty')).toBeNull();
+  });
+
+  it('affiche les trois repères et les détails techniques repliés', () => {
+    renderWithProviders(<Projects />);
+    const crypto = screen.getAllByRole('article')[1];
+    expect(within(crypto).getByText('PC + Meta Quest 3 / 3S')).toBeInTheDocument();
+    expect(crypto.querySelectorAll('.case-highlights li')).toHaveLength(3);
+    const details = crypto.querySelector('details');
+    expect(details).not.toHaveAttribute('open');
+    expect(within(details).getByText('Détails techniques')).toBeInTheDocument();
   });
 });
 
